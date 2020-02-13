@@ -41,4 +41,7 @@ public class estadotareaControlador implements Serializable {
     public List<Estadotarea> listarEstadoTarea() {
         return estadotareaFacade.findAll();
     }
+    public void crear(){
+        
+    }
 }
