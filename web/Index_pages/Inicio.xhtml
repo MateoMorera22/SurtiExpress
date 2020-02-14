@@ -56,17 +56,17 @@
                         <div class="card-content ">
                             <span class="card-title"><h:outputText value="#{msjInicio.Productos_nuevos}"></h:outputText></span>
                             <div class="row">
-                                <c:forEach items="#{productoControlador.listarInventario()}" var="item">
+                                <c:forEach items="#{productoControlador.listarInventario()}" var="p">
                                     <div class="col s12 m6 l2">
 
                                         <div class="card">
                                             <div class="card-image">
-                                                <img id="imagenproducto" src="#{item.imagen}"/>
+                                                <img id="imagenproducto" src="#{p.imagen}"/>
                                             </div>
                                             <div class="card-content">
                                                 <p class="center">#{p.nombre}</p>
-                                                <p class="center">#{item.descripcion}</p>
-                                                <p class="center">#{item.cantidad}</p>
+                                                <p class="center">#{p.descripcion}</p>
+                                                <p class="center">#{p.cantidad}</p>
                                                 <span class="center card-title">#{p.precioNeto}$$</span>
                                             </div>
                                             <div id="footcard" class="card-action">
@@ -74,7 +74,6 @@
                                                     onclick=" M.toast({html: 'Producto generico  Agregado exitosamente', classes: 'rounded'});"
                                                     class="#5e35b1 deep-purple darken-1 btn waves-effect waves-light " type="submit"
                                                     name="action"><h:outputText value="#{msjInventario.Agregar}"></h:outputText>
-                                                    
                                                 </button>
                                             </div>
                                         </div>
@@ -134,7 +133,7 @@
                                 <ul id='dropdown1' class='dropdown-content'>
                                     <c:forEach items="#{languageBean.idiomasSoportados}" var="idioma">
                                         <li>
-                                             <h:commandLink actionListener="#{languageBean.cambiarIdioma(idioma)}" value="#{pagesEti[idioma.language]}"/>
+                                            <h:commandLink actionListener="#{languageBean.cambiarIdioma(idioma)}" value="#{pagesEti[idioma.language]}"/>
                                         </li>
                                     </c:forEach>
                                 </ul>   
