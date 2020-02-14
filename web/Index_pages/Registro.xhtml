@@ -169,24 +169,14 @@
                                         </div>
                                         <!--contraseña-->
 
-
-
-                                     <div class ="hide"   >
-                       
-                                            <h:outputLabel value="color" for="idVehiculo" />
-                                            <h:inputText value="#{usuarioControlador.vehiculo.color}" id="color" />
-                                            <h:outputLabel value="marca" for="idVehiculo" />
-                                            <h:inputText value="#{usuarioControlador.vehiculo.marca}" id="marca" />
-                                            <h:outputLabel value="placa" for="idVehiculo" />
-                                            <h:inputText value="#{usuarioControlador.vehiculo.placa}" id="placa" />
-                                            <h:outputLabel value="IdRol:" for="idRol" />
+                                        <!--ROL-->
+                                        <div class='hide'>
+                                            <h:selectOneMenu id="rolIdRol" value="#{usuarioControlador.rol.idRol}" title="RolIdRol" >
+                                                <!-- TODO: update below reference to list of available items-->
+                                                <f:selectItems value="#{rolControlador.listarRoles()}" var="rol" itemValue="2" />
+                                            </h:selectOneMenu>
                                         </div>
-
-
-
-
-
-
+                                        <!--ROL-->
                                     </div>
                                 </div>
                             </div>
