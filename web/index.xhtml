@@ -95,10 +95,26 @@
                     </div>
                     <div class="bodyvar">
                         <div class="carroimagen">
-                            <img src="IMG/Isotipo_gris.png" alt="" />
-                            <h1>
-                                <h:outputText value="#{msjIndex.vacio}"></h:outputText>
-                            </h1>
+                            <f:view>
+                                <h:form>
+                                    <h:dataTable value="#{pedidoControlador.carrito}" var="p">
+                                        <h:column>
+                                            <h:outputText value="#{p.idProducto}" />
+                                        </h:column>
+                                        <h:column>
+                                            <h:outputText value="#{p.nombre}" />
+                                        </h:column>
+                                        <h:column>
+                                            <h:outputText value="#{p.cantidad}" />
+                                        </h:column>
+                                        <h:column>
+                                            <h:commandButton action="#{pedidoControlador.removerCarrito(p)}" value="#{remover}" />
+                                        </h:column>
+                                        
+                                    </h:dataTable>
+                                </h:form>
+                            </f:view>
+
                         </div>
                     </div>
                 </div>
