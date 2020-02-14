@@ -1,5 +1,12 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Controladores;
 
+import javax.inject.Named;
+import javax.enterprise.context.Dependent;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -10,13 +17,18 @@ import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
-@Named
+/**
+ *
+ * @author Mateo Morera
+ */
+@Named(value = "languageBean")
 @SessionScoped
 public class languageBean implements Serializable {
-
+    
     private Locale idiomaSeleccionado;
     private List<Locale> idiomasSoportados;
-
+    
+    
     @PostConstruct
     public void init() {
         //Obtengo la instancia actual y asigno es como valor predeterminado
@@ -33,9 +45,11 @@ public class languageBean implements Serializable {
 //        idiomasSoportados.add(new Locale("en"));
     }
 
+   
     public languageBean() {
+       
     }
-
+    
     public Locale getIdiomaSeleccionado() {
         return idiomaSeleccionado;
     }
@@ -48,5 +62,5 @@ public class languageBean implements Serializable {
         this.idiomaSeleccionado = nuevoIdioma;
         FacesContext.getCurrentInstance().getViewRoot().setLocale(nuevoIdioma);
     }
-
+    
 }
