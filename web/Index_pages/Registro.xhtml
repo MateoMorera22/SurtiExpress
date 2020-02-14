@@ -10,7 +10,7 @@
             <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-            <link rel="stylesheet" href="../css/crear-usuario-Styles.css" />
+            <link rel="stylesheet" href="../CSS/crear-usuario-Styles.css" />
             <title>Registrarse</title>
         </head>
 
@@ -26,10 +26,12 @@
                                 <div class="formularios">
                                     <div class="row">
 
+
+
                                         <!--Formulario de nombre-->
                                         <div class="col s12 m12 l4">
                                             <div class="input-field">
-                                                <h:inputText id="nombres" value="#{usuarioControlador.usuario.nombres}" required="true" title="Nombres" requiredMessage="Inserte un nombre valido">
+                                                <h:inputText id="nombres" value="#{usuarioControlador.usuario.nombre}" required="true" title="Nombres" requiredMessage="Inserte un nombre valido">
                                                     <f:validateLength for="nombres" maximum="30"/>
                                                 </h:inputText>
                                                 <label for="first_name">#{msjRegistro.Nombres}</label>
@@ -42,7 +44,7 @@
                                         <!--Formulario de apellido-->
                                         <div class="col s12 m12 l4">
                                             <div class="input-field">
-                                                <h:inputText id="apellidos" value="#{usuarioControlador.usuario.apellidos}" title="Apellidos" required="true" requiredMessage="Inserte un apellido valido" >
+                                                <h:inputText id="apellidos" value="#{usuarioControlador.usuario.apellido}" title="Apellidos" required="true" requiredMessage="Inserte un apellido valido" >
                                                     <f:validateLength maximum="30"/>
                                                 </h:inputText>
                                                 <label for="first_name">#{msjRegistro.Apellidos}</label>
@@ -55,10 +57,9 @@
                                         <!--Documento-->
                                         <div class="col s12 m12 l1">
                                             <div class="input-field">
-                                                <h:selectOneMenu id="tipoDocumentoIdtipoDocumento" value="#{usuarioControlador.tipoDocumento.idtipoDocumento}" title="TipoDocumentoIdtipoDocumento" required="true" requiredMessage="Seleccione un tipo de documento.">
+                                                <h:selectOneMenu id="idTipoDocumento1" value="#{usuarioControlador.tipodocumento.idTipoDocumento}" title="IdTipoDocumento"  required="true" requiredMessage="Seleccione un tipo de documento.">
                                                     <!-- TODO: update below reference to list of available items-->
-                                                    <f:selectItem itemLabel="--" itemValue="" /> 
-                                                    <f:selectItems value="#{tipoDocumentoControlador.listarTipoDocumento()}" var="tid" itemLabel="#{tid.nombre}" itemValue="#{tid.idtipoDocumento}"/>
+                                                    <f:selectItems value="#{tipodocumentoControlador.listarDocumento()}" var="tip" itemLabel="#{tip.tipoDocumento}" itemValue="#{tip.idTipoDocumento}"/>
                                                 </h:selectOneMenu>
                                                 <label>#{msjRegistro.Documento}</label>
                                             </div>
@@ -81,7 +82,7 @@
                                         <!--Formulario razon social-->
                                         <div class="col s12 m12 l6">
                                             <div class="input-field">
-                                                <h:inputText id="razonsocial" value="#{usuarioControlador.usuario.razonsocial}" title="Razonsocial" required="true" requiredMessage="Inserte una razón social valida">
+                                                <h:inputText id="razonsocial" value="#{usuarioControlador.usuario.razonSocial}" title="Razonsocial" required="true" requiredMessage="Inserte una razón social valida">
                                                     <f:validateLength for="razonsocial" maximum="100"/>
                                                 </h:inputText>
                                                 <label for="first_name">#{msjRegistro.Razon_social}</label>
@@ -145,8 +146,8 @@
                                         <!--Telefono-->
                                         <div class="col s12 m12 l6">
                                             <div class="input-field">
-                                                <h:inputText id="teléfono" value="#{usuarioControlador.usuario.telefono}" title="Contraseña" required="true" requiredMessage="Ingrese una contraseña.">
-                                                    <f:validateLength for="contraseña" minimum="6" maximum="18"/>
+                                                <h:inputText id="teléfono" value="#{usuarioControlador.usuario.telefono}" title="Contraseña" >
+                                                    <f:validateLength for="contraseña" minimum="6" maximum="11"/>
                                                 </h:inputText>
                                                 <label for="first_name">#{msjRegistro.Telefono}</label>
                                                 <span class="helper-text" data-error="Inserte un Teléfono valido"
@@ -172,7 +173,7 @@
                                         <div class='hide'>
                                             <h:selectOneMenu id="rolIdRol" value="#{usuarioControlador.rol.idRol}" title="RolIdRol" >
                                                 <!-- TODO: update below reference to list of available items-->
-                                                <f:selectItems value="#{rolControlador.listarRol()}" var="rol" itemValue="1" />
+                                                <f:selectItems value="#{rolControlador.listarRoles()}" var="rol" itemValue="2" />
                                             </h:selectOneMenu>
                                         </div>
                                         <!--ROL-->
@@ -180,7 +181,7 @@
                                 </div>
                             </div>
                             <div class="card-action">
-                                <h:commandLink  class="#5e35b1 deep-purple darken-1 btn waves-effect waves-light" action="#{usuarioControlador.crearUsuario()}" >#{msjIndex.Registrarse}
+                                <h:commandLink  class="#5e35b1 deep-purple darken-1 btn waves-effect waves-light" action="#{usuarioControlador.registrarUsuarioCliente()}" >#{msjIndex.Registrarse}
                                     <i class="material-icons right">group_add</i></h:commandLink>
                                 <a  href="../Index.xhtml" class="waves-effect waves-light btn #ef5350 red lighten-1"><i class="material-icons right">cancel</i>#{msjRegistro.Cancelar}</a>
                             </div>
@@ -205,7 +206,7 @@
             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-            <script src="../js/Scripts-crear-usuario.js"></script>
+            <script src="../JS/Scripts-crear-usuario.js"></script>
         </h:body>
     </f:view>
 </html>
