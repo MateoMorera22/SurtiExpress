@@ -59,11 +59,11 @@ public class loginControlador implements Serializable {
                int ro= u.getIdRol().getIdRol();//me almacena el rol del usuario logueado
                if (ro==1) {
                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", u);
-               return "1";
+               return "Admin";
                    
                }else if(ro==2){
                    FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", u);
-               return "2";
+               return "Bodega";
                }
            }
        } catch (Exception e) {

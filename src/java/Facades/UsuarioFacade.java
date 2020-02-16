@@ -35,7 +35,7 @@ public class UsuarioFacade extends AbstractFacade<Usuario> {
         Usuario u = null;
         Query query;
         try {
-            query = em.createQuery("SELECT u FROM Usuario u WHERE u.correo ?1 AND u.contrasena?2");
+            query = em.createQuery("SELECT u FROM Usuario u WHERE u.correo = ?1 AND u.contrasena = ?2");
             query.setParameter(1, user.getCorreo());
             query.setParameter(2, user.getContrasena());
             List<Usuario> listUser = query.getResultList();
