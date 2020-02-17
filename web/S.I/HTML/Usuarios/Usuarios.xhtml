@@ -1,0 +1,236 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+      <f:view locale="#{languageBean.idiomaSeleccionado}">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link rel="stylesheet" href="../../CSS/Styles-usuarios.css"/>
+        <title>Usuarios</title>
+    </h:head>
+    <h:body>
+
+        <div class="hide-on-large-only show-on-small uimovil">
+            <nav>
+                <div class="nav-wrapper #673ab7 deep-purple">
+                    <a href="#!" class="brand-logo right"><i
+                            class="right material-icons md-light">dashboard</i>#{msjAdmin.Usuarios}</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                </div>
+            </nav>
+            <ul class="sidenav" id="mobile-demo">
+                <li><a href="../Admin/Home.html"><i class="material-icons md-light">#{msjAdmin.Home}</i></a></li>
+                <li><a href="../Admin/Inventario.html" target="dashboard"><i
+                            class="material-icons left">local_mall</i>#{msjAdmin.Inventario}</a></li>
+                <li><a href="../Admin/Rutas.html" target="dashboard"><i
+                            class="material-icons left">local_shipping</i>#{msjAdmin.Transporte}</a></li>
+                <li><a href="../Admin/Pedidos.html" target="dashboard"><i class="material-icons left">list</i>#{msjAdmin.Transporte}</a>
+                </li>
+                <li><a href="../../img/error404(Español).jpg" target="dashboard"><i
+                            class="material-icons left">supervisor_account</i>#{msjAdmin.Usuarios}</a></li>
+                <li><a href="../Admin/Tares-Bodega.html" target="dashboard"><i
+                            class="material-icons left">rate_review</i>#{msjAdmin.Tareas}</a></li>
+                <li><a id="cerrar" href="../../Index V2.0.html"><i class="material-icons left">power_settings_new</i>#{msjAdmin.Cerrar_Sesion}
+                        Sesion</a></li>
+            </ul>
+        </div>
+
+        <div class="hide-on-med-and-down show-on-large-and-up cabeza">
+            <div class="row">
+                <div class="col s12 m1 l1"></div>
+                <div class="col s12 m12 l10">
+                    <div class="title">
+                        <i class="large material-icons">list</i>
+                        <h1>#{msjAdmin.Usuarios}</h1>
+                    </div>
+                </div>
+                <div class="col s12 m1 l1"></div>
+            </div>
+        </div>
+
+        <h:form>
+            <div class="row">
+                <!--Clientes-->
+                <div class="col s12 m4 l4">
+                    <div class="z-depth-5 card">
+                        <div class="card-content">
+                            <a href="Editar-cliente.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">add</i></a>
+                            <a id="email" href="formularioMailCli.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">message</i></a>
+                            <a id="view" href="Lista_Cliente.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">visibility</i></a>
+                            <span id="tamaño" class="card-title">#{msjUsuarios.Clientes}</span>
+                            <div class="listadousers">
+                                <h:form class="striped responsive-table">
+                                    <h:dataTable value="#{usuarioControlador.listarCli()}" var="item">
+
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{msjRegistro.Nombres}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.nombres}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{msjRegistro.Apellidos}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.apellidos}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{msjRegistro.Numero_documento}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.documento}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{msjRegistro.Telefono}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.telefono}"/>
+                                        </h:column>
+                                      
+
+                                    </h:dataTable>
+                                </h:form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Clientes-->
+
+                <!--Bodegista-->
+                <div class="col s12 m4 l4">
+                    <div class="z-depth-5 card #0097a7 cyan darken-2">
+                        <div class="card-content">
+                            <a href="Crear-empleado.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">add</i></a>
+                            <a id="email" href="formularioMailCli.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">message</i></a>
+                            <a id="view" href="Lista_Bodeguista.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">visibility</i></a>
+                            <span id="tamaño" class=" white-text sizetit card-title">#{msjUsuarios.Bodeguista}</span>
+                            <div class="listadousers">
+
+                                <h:form class="striped responsive-table">
+                                    <h:dataTable class="white-text" value="#{usuarioControlador.listarBode()}" var="item">
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{msjRegistro.Nombres}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.nombres}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{msjRegistro.Apellidos}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.apellidos}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{msjRegistro.Numero_documento}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.documento}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{msjRegistro.Telefono}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.telefono}"/>
+                                        </h:column>
+
+                                    </h:dataTable>
+                                </h:form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Bodeguista-->
+
+                <!--Transportista-->
+                <div class="col s12 m4 l4">
+                    <div class="z-depth-5 card #43a047 green darken-1">
+                        <div class="card-content">
+                            <a  href="Crear-Transportista.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">add</i></a>
+                            <a id="email" href="formularioMailCli.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">message</i></a>
+                            <a id="view" href="Lista_Transportista.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">visibility</i></a>
+                            <span id="tamaño" class="white-text card-title">#{msjUsuarios.Transportista}</span>
+                            <div class="listadousers">
+
+                                <h:form class="striped responsive-table">
+                                    <h:dataTable class="white-text" value="#{usuarioControlador.listarTrans()}" var="item">
+                                       
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{msjRegistro.Nombres}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.nombres}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{msjRegistro.Apellidos}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.apellidos}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{msjRegistro.Numero_documento}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.documento}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{msjRegistro.Telefono}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.telefono}"/>
+                                        </h:column>
+
+                                    </h:dataTable>
+                                </h:form>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Transportista-->
+            </div>
+
+
+            <!-- Dropdown Structure -->
+            <ul id='dropdown1' class='dropdown-content'>
+                <li><a href="#!">one</a></li>
+                <li><a href="#!">two</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a href="#!">three</a></li>
+                <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+                <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+            </ul>
+
+
+
+
+        </h:form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="../../JS/Scripts-usuarios.js"></script>
+    </h:body>
+      </f:view>
+</html>

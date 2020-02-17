@@ -1,0 +1,20 @@
+body {
+    background-image: url(../../../img/Mosaico.jpg);
+}
+
+#titulo{
+    font-size: 35px;
+    margin-bottom: 50px;
+}
+
+
+.formularios{
+    width: 100%;
+    height: 100%;
+}
+
+
+.card{
+    margin-top: 140px;
+    border-radius: 15px;
+}
