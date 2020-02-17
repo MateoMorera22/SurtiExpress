@@ -24,7 +24,7 @@
                                 <div class="formularios">
                                     <div class="row">
                                         <!--Formulario de imagen-->
-                                        <div class="col s12 m12 l4">
+                                        <div class="col s12 m12 l6">
 
                                             <div class="file-field input-field">
                                                 <div class="#5e35b1 deep-purple darken-1 btn">
@@ -38,10 +38,10 @@
 
                                         </div>
                                         <!--Formulario de imagen-->
-                                        
-                                        
+
+
                                         <!--Formulario de nombre-->
-                                        <div class="col s12 m12 l4">
+                                        <div class="col s12 m12 l3">
                                             <div class="input-field">
                                                 <h:inputText id="nombre" value="#{productoControlador.producto.nombre}" title="Nombre" required="true" requiredMessage="Inserte un mensaje valido.">
                                                     <f:validateLength for="Nombre" maximum="300"/>
@@ -51,9 +51,9 @@
                                             </div>
                                         </div>
                                         <!--Formulario de nombre-->
-                                        
-                                            <!--Formulario de Descripcion-->
-                                        <div class="col s12 m12 l4">
+
+                                        <!--Formulario de Descripcion-->
+                                        <div class="col s12 m12 l3">
                                             <div class="input-field">
                                                 <h:inputText id="descripcion" value="#{productoControlador.producto.descripcion}" title="Descripcion" required="true" requiredMessage="Inserte un mensaje valido.">
                                                     <f:validateLength for="Descripcion" maximum="300"/>
@@ -63,7 +63,7 @@
                                             </div>
                                         </div>
                                         <!--Formulario de Descripcion-->
-                                        
+
                                         <!--Precio bruto-->
                                         <div class="col s12 m12 l5">
                                             <div class="input-field">
@@ -110,8 +110,8 @@
                                             </div>
                                         </div>
                                         <!--Cantidad-->
-                                        
-                                        
+
+
                                         <!--Marca-->
                                         <div class="col s12 m12 l4 ">
                                             <div class="input-field ">
@@ -124,8 +124,8 @@
                                             </div>
                                         </div>
                                         <!--Marca-->
-                                        
-                                          <!--SubMarca-->
+
+                                        <!--SubMarca-->
                                         <div class="col s12 m12 l4 ">
                                             <div class="input-field ">
                                                 <h:selectOneMenu id="idSubmarca" value="#{productoControlador.submarca.idSubMarca}" title="IdSubmarca" required="true" requiredMessage="Inserte una marca valida">
@@ -137,16 +137,32 @@
                                             </div>
                                         </div>
                                         <!--SubMarca-->
-                                        
-                                        
-                                        
+
+
+                                        <!--Disponiblidad-->
+                                        <div class='hide'>
+                                            <h:selectOneMenu id="idEstadoProducto0" value="#{productoControlador.estadoproducto.idEstadoProducto}" title="IdEstadoProducto" >
+                                                <!-- TODO: update below reference to list of available items-->
+                                                <f:selectItems value="#{estadoProductoControlador.listarEstadoProducto()}" var="estp" itemLabel="#{estp.estadoProducto}" itemValue="2" />
+                                            </h:selectOneMenu>
+                                        </div>
+                                        <!--Disponibilidad-->
+
+
+
+
+
+
+
+
+
                                     </div>
                                 </div>
                             </div>
                             <div class="card-action ">
                                 <h:commandLink class="#5e35b1 deep-purple darken-1 btn waves-effect waves-light "  action="#{productoControlador.crearProducto()}">#{msjInventario.Agregar}
                                     <i class="material-icons right ">add_shopping_cart</i></h:commandLink>
-                                    <a  href="inventarioPage.xhtml" class="waves-effect waves-light btn #ef5350 red lighten-1"><i class="material-icons right">cancel</i>#{msjRegistro.Cancelar}</a>
+                                <a  href="inventarioPage.xhtml" class="waves-effect waves-light btn #ef5350 red lighten-1"><i class="material-icons right">cancel</i>#{msjRegistro.Cancelar}</a>
                             </div>
                         </div>
                     </div>
