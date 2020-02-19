@@ -21,36 +21,36 @@
             <div class="hide-on-med-and-down show-on-large-and-up computadorui">
                 <div class="panel">
                     <div class="nombre">
-                        <i class="material-icons">account_circle</i>
-                        <i>Jose Mateo Morera Orjuela</i>
+                        <i class="material-icons">face</i>
+                        <p>Nombre usuario</p>
                     </div>
-                    <div class="opciones">
-                        <ul>
+                    <div class=" opciones" id="opt" >
+                        <ul >
                             <li>
-                                <a href="../S.I/HTML/Estadisticas/Home.xhtml" class="z-depth-0  waves-effect waves-light btn active"
+                                <a href="../S.I/HTML/Estadisticas/Home.xhtml" class="z-depth-0  waves-effect waves-light btn color "
                                    target="dashboard"><i class="material-icons left">dashboard</i>#{msjAdmin.Home}</a> 
                             </li>
                             <li>
-                                <div class="opc">
-                                    <a href="HTML/Inventario/inventarioPage.xhtml" class="z-depth-0 waves-effect waves-light btn active"
-                                       target="dashboard"><i class="material-icons left">local_mall</i>#{msjAdmin.Inventario}</a>
-                                </div>
+
+                                <a href="HTML/Inventario/inventarioPage.xhtml" class="z-depth-0 waves-effect waves-light btn color"
+                                   target="dashboard"><i class="material-icons left">local_mall</i>#{msjAdmin.Inventario}</a>
+
                             </li>
                             <li>
-                                <a href="../../HTML_pages/Erro_404.xhtml" class="z-depth-0  waves-effect waves-light btn active"
-                               target="dashboard"><i class="material-icons left">local_shipping</i>#{msjAdmin.Transporte}</a>
+                                <a href="../../HTML_pages/Erro_404.xhtml" class="z-depth-0  waves-effect waves-light btn color"
+                                   target="dashboard"><i class="material-icons left">local_shipping</i>#{msjAdmin.Transporte}</a>
                             </li>
                             <li>
-                                <a href="../../HTML_pages/Erro_404.xhtml" class="z-depth-0  waves-effect waves-light btn active"
-                               target="dashboard"><i class="material-icons left">list</i>#{msjAdmin.Pedidos}</a>
+                                <a href="../../HTML_pages/Erro_404.xhtml" class="z-depth-0  waves-effect waves-light btn color"
+                                   target="dashboard"><i class="material-icons left">list</i>#{msjAdmin.Pedidos}</a>
                             </li>
                             <li>
-                                <a href="HTML/Usuarios/Usuarios.xhtml" class="z-depth-0  waves-effect waves-light btn active"
-                               target="dashboard"><i class="material-icons left">supervisor_account</i>#{msjAdmin.Usuarios}</a>
+                                <a href="HTML/Usuarios/Usuarios.xhtml" class="z-depth-0  waves-effect waves-light btn color"
+                                   target="dashboard"><i class="material-icons left">supervisor_account</i>#{msjAdmin.Usuarios}</a>
                             </li>
                             <li>
-                                 <a href="HTML/Bodeguista/Tareas_Bodeguista.xhtml" class="z-depth-0  waves-effect waves-light btn active"
-                               target="dashboard"><i class="material-icons left">rate_review</i>#{msjAdmin.Tareas}</a>
+                                <a href="HTML/Bodeguista/Tareas_Bodeguista.xhtml" class="z-depth-0  waves-effect waves-light btn color"
+                                   target="dashboard"><i class="material-icons left">rate_review</i>#{msjAdmin.Tareas}</a>
                             </li>
                         </ul>
 
@@ -60,7 +60,7 @@
 
                             <div class="lgn">
                                 <h:form prependId="false">
-                                    <button class='dropdown-trigger btn-floating' href='#' data-target='dropdown1' >
+                                    <button class='dropdown-trigger btn-floating  #283593 indigo darken-3' href='#' data-target='dropdown1' >
                                         <i class="material-icons">language</i> #{pagesEti[languageBean.idiomaSeleccionado.language]}</button>
 
                                     <ul id='dropdown1' class='dropdown-content'>
@@ -75,7 +75,7 @@
 
                             <div class="cerrar">
                                 <h:form>
-                                    <h:commandLink action="#{loginControlador.logout()}" class="z-depth-0  waves-effect waves-light btn-floating">  
+                                    <h:commandLink action="#{loginControlador.logout()}" class="z-depth-0  waves-effect waves-light btn-floating #c62828 red darken-3">  
                                         <i class="material-icons">power_settings_new</i>
                                     </h:commandLink>
                                 </h:form>
@@ -127,6 +127,12 @@
 
 
                 $('.dropdown-trigger').dropdown();
+
+                $('#opt li a').on('click', function () {
+                    $('li a.activo').removeClass('activo');
+                    $(this).addClass('activo');
+                });
+
             </script>
         </h:body>
 
