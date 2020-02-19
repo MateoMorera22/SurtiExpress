@@ -50,32 +50,37 @@
                                target="dashboard"><i class="material-icons left">rate_review</i>#{msjAdmin.Tareas}</a>
                         </div>
 
-                        <div class="idioma">
-                            <!--Lenguaje-->
-                            <h:form id="form-logout" prependId="false">
-                                <button id="lang" class='left dropdown-trigger btn' href='#' data-target='dropdown1' >
-                                    <h:outputText value="#{msjInicio.Idioma}"></h:outputText><i class="right material-icons">arrow_drop_down</i> #{pagesEti[languageBean.idiomaSeleccionado.language]}</button>
 
-                                <ul id='dropdown1' class='dropdown-content'>
-                                    <c:forEach items="#{languageBean.idiomasSoportados}" var="idioma">
-                                        <li>
-                                            <h:commandLink actionListener="#{languageBean.cambiarIdioma(idioma)}" value="#{pagesEti[idioma.language]}"/>
-                                        </li>
-                                    </c:forEach>
-                                </ul>   
-                            </h:form>
-                            <!--Lenguaje-->
+                        <!--Opciones botones flotantes-->
+                        <div class="options" >
+
+                            <div class="lgn">
+                                <h:form prependId="false">
+                                    <button class='dropdown-trigger btn-floating' href='#' data-target='dropdown1' >
+                                        <i class="material-icons">language</i> #{pagesEti[languageBean.idiomaSeleccionado.language]}</button>
+
+                                    <ul id='dropdown1' class='dropdown-content'>
+                                        <c:forEach items="#{languageBean.idiomasSoportados}" var="idioma">
+                                            <li>
+                                                <h:commandLink actionListener="#{languageBean.cambiarIdioma(idioma)}" value="#{pagesEti[idioma.language]}"/>
+                                            </li>
+                                        </c:forEach>
+                                    </ul>   
+                                </h:form>
+                            </div>
+
+                            <div class="cerrar">
+                                <h:form>
+                                    <h:commandLink action="#{loginControlador.logout()}" class="z-depth-0  waves-effect waves-light btn-floating">  
+                                        <i class="material-icons">power_settings_new</i>
+                                    </h:commandLink>
+                                </h:form>
+                            </div>
+
                         </div>
-                    
-                        <div class="logout">
-                            <h:form>
-                            <h:commandLink action="#{loginControlador.logout()}" class="z-depth-0  waves-effect waves-light btn">  
-                                <i class="material-icons left">power_settings_new</i> #{msjAdmin.Cerrar_Sesion}
-                            </h:commandLink>
-                                 </h:form>
-                        </div>
+                        <!--Opciones botones flotantes-->
+
                     </div>
-                    
                 </div>
 
 
