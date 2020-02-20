@@ -18,3 +18,9 @@ body {
     margin-top: 140px;
     border-radius: 15px;
 }
+
+
+.botones{
+    width: 100%;
+    background-color: blue;
+}

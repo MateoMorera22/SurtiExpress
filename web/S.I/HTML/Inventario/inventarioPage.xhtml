@@ -14,6 +14,7 @@
             <title>Inventario</title>
         </h:head>
         <h:body>
+
             <div class="hide-on-med-and-down show-on-large-and-up cabeza">
                 <div class="row">
                     <div class="col s12 m1 l1"></div>
@@ -29,135 +30,135 @@
 
 
             <div class="row">
-                <div class="col s12 m6 l12">
-                    <div class="card blue-grey darken-1">
-                        <div class="card col l12" >
-                            <h:form class="striped responsive-table">
-                                <h:dataTable value="#{productoControlador.listarInventario()}" var="item" >
+                <!--Clientes-->
+                <div class="col s12 m12 l12">
+                    <div class="#616161 grey darken-2 card">
+                        <div class="card-content white-text">
+                            <a  href="formularioMailCli.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">playlist_add</i></a>
+                            <a id="addproducto"  href="Lista_Cliente.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">category</i></a>
 
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="IdProducto"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.idProducto}"/>
-                                    </h:column>
+                            <div class="Inventario">
+                                <h:form class="striped responsive-table">
+                                    <h:dataTable value="#{productoControlador.listarInventario()}" var="item" >
 
-
-
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="Nombre"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.nombre}"/>
-                                    </h:column>
-
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="Descripcion"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.descripcion}"/>
-                                    </h:column>
-
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="Cantidad"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.cantidad}"/>
-                                    </h:column>
-
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="PrecioBruto"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.precioBruto}"/>
-                                    </h:column>
-
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="Iva"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.iva}"/>
-                                    </h:column>
-
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="PrecioNeto"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.precioNeto}"/>
-                                    </h:column>
-
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="EstadoProducto"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.idEstadoProducto.estadoProducto}"/>
-                                    </h:column>
-
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="Submarca"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.idSubmarca.subMarca}"/>
-                                    </h:column>
-
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="marca"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.idSubmarca.idMarca.marca}"/>
-                                    </h:column>
-
-                                    <h:column>
-                                        <h:selectOneMenu id="idEstadoProducto2" value="#{productoControlador.estadoproducto.idEstadoProducto}" >
-                                            <!-- TODO: update below reference to list of available items-->
-                                            <f:selectItems value="#{estadoProductoControlador.listarEstadoProducto()}" var="estp" itemLabel="#{estp.estadoProducto}" itemValue="1"/>
-                                        </h:selectOneMenu>
-                                        <h:commandButton action="#{productoControlador.editarEstado(item)}" value="bloquear" />
-
-
-                                    </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="IdProducto"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.idProducto}"/>
+                                        </h:column>
 
 
 
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="#{msjInventario.Editar}"/>
-                                        </f:facet>
-                                        <h:commandLink class="waves-effect waves-light btn #ef5350 #43a047 green darken-1"  action="#{inventarioControlador.preCargaProductos(item)}">
-                                            <i class="material-icons">edit</i></h:commandLink>
-                                    </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Nombre"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.nombre}"/>
+                                        </h:column>
 
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="#{msjInventario.Bloquear}"/>
-                                        </f:facet>
-                                        <h:commandLink class="waves-effect waves-light btn #616161 grey darken-2"  action="#{inventarioControlador.eliminarProducto(item)}">
-                                            <i class="material-icons">block</i></h:commandLink>
-                                    </h:column>
-                                    
-                                    <h:column>
-                                        <f:facet name="header">
-                                            <h:outputText value="#{msjInventario.Bloquear}"/>
-                                        </f:facet>
-                                        <h:commandLink class="waves-effect waves-light btn #616161 grey darken-2"  action="#{inventarioControlador.eliminarProducto(item)}">
-                                            <i class="material-icons">block</i></h:commandLink>
-                                    </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Descripcion"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.descripcion}"/>
+                                        </h:column>
+
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Cantidad"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.cantidad}"/>
+                                        </h:column>
+
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="PrecioBruto"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.precioBruto}"/>
+                                        </h:column>
+
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Iva"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.iva}"/>
+                                        </h:column>
+
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="PrecioNeto"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.precioNeto}"/>
+                                        </h:column>
+
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="EstadoProducto"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.idEstadoProducto.estadoProducto}"/>
+                                        </h:column>
+
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Submarca"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.idSubmarca.subMarca}"/>
+                                        </h:column>
+
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="marca"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.idSubmarca.idMarca.marca}"/>
+                                        </h:column>
+
+                                        <h:column>
+                                            <h:selectOneMenu id="idEstadoProducto2" value="#{productoControlador.estadoproducto.idEstadoProducto}" >
+                                                <!-- TODO: update below reference to list of available items-->
+                                                <f:selectItems value="#{estadoProductoControlador.listarEstadoProducto()}" var="estp" itemLabel="#{estp.estadoProducto}" itemValue="1"/>
+                                            </h:selectOneMenu>
+                                            <h:commandButton action="#{productoControlador.editarEstado(item)}" value="bloquear" />
 
 
-                                </h:dataTable>
-                            </h:form>  
+                                        </h:column>
 
 
 
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{msjInventario.Editar}"/>
+                                            </f:facet>
+                                            <h:commandLink class="waves-effect waves-light btn #ef5350 #43a047 green darken-1"  action="#{inventarioControlador.preCargaProductos(item)}">
+                                                <i class="material-icons">edit</i></h:commandLink>
+                                        </h:column>
+
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{msjInventario.Bloquear}"/>
+                                            </f:facet>
+                                            <h:commandLink class="waves-effect waves-light btn #616161 grey darken-2"  action="#{inventarioControlador.eliminarProducto(item)}">
+                                                <i class="material-icons">block</i></h:commandLink>
+                                        </h:column>
 
 
+                                    </h:dataTable>
+                                </h:form> 
 
-
+                            </div>
                         </div>
-
                     </div>
                 </div>
             </div>
+            <!--Clientes-->
+
+
+
+
+
+
+
+
 
 
 

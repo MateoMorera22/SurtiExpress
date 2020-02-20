@@ -41,10 +41,11 @@ body{
 .btn-floating{
     bottom: 15px;
     left: 15px;
-    background-color: #551CA2;
+    background-color: #43a047;
 }
 
 .btn-floating:hover{
+    
     background: #cddc39;
 }
 

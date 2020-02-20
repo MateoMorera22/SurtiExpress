@@ -10,13 +10,13 @@ body{
     margin-bottom: 40px;
 }
 
-    .title {
-        height: 110px;
-        border-bottom: #707070 solid 2px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+.title {
+    height: 110px;
+    border-bottom: #707070 solid 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .title i {
     font-size: 70px;
@@ -31,17 +31,30 @@ body{
     border-radius: 10px;
 }
 
+.btn-floating{
+    bottom: 15px;
+    left: 15px;
+    margin-left: 10px;
+    background-color: #283593 ;
+}
+
+.btn-floating:hover{
+    background: #cddc39;
+}
+
+#addproducto{
+    bottom: 15px;
+    left: 15px;
+    margin-left: 10px;
+    background-color: #bf360c;
+}
+
+#addproducto:hover{
+    background: #4caf50 ;
+}
 
 .nav-wrapper a i{
     font-size: 35px;
-}
-
-.botn {
-    float: right;
-}
-
-.fixed-action-btn {
-     
 }
 
 .modal {
@@ -58,6 +71,15 @@ body{
 #planillas{
     height: 200px;
 }
+
+
+
+
+
+
+
+
+
 
 
 
