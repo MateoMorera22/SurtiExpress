@@ -32,10 +32,10 @@
             <div class="row">
                 <!--Clientes-->
                 <div class="col s12 m12 l12">
-                    <div class="#616161 grey darken-2 card">
+                    <div class="#37474f blue-grey darken-3 card">
                         <div class="card-content white-text">
-                            <a  href="formularioMailCli.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">playlist_add</i></a>
-                            <a id="addproducto"  href="Lista_Cliente.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">category</i></a>
+                            <a class="btn-small btn-floating btn-large waves-effect waves-light right modal-trigger" href="#modal1"><i class="material-icons">playlist_add</i></a>
+                            <a id="addproducto"  href="crear-producto.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">category</i></a>
 
                             <div class="Inventario">
                                 <h:form class="striped responsive-table">
@@ -129,9 +129,18 @@
                                             <f:facet name="header">
                                                 <h:outputText value="#{msjInventario.Editar}"/>
                                             </f:facet>
-                                            <h:commandLink class="waves-effect waves-light btn #ef5350 #43a047 green darken-1"  action="#{inventarioControlador.preCargaProductos(item)}">
+                                            <h:commandLink class="waves-effect waves-light btn #ef5350 #43a047 green darken-1"  action="#{productoControlador.preEditar(item)}">
                                                 <i class="material-icons">edit</i></h:commandLink>
                                         </h:column>
+
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{msjInventario.Eliminar}"/>
+                                            </f:facet>
+                                            <h:commandLink class="waves-effect waves-light btn #941e1e red darken-3"  action="#{productoControlador.eliminarProducto(item)}">
+                                                <i class="material-icons">delete_forever</i></h:commandLink>
+                                        </h:column>
+
 
                                         <h:column>
                                             <f:facet name="header">
@@ -151,6 +160,44 @@
                 </div>
             </div>
             <!--Clientes-->
+
+
+
+
+
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h4>Crear marca</h4>
+                    <div class="espacio col s12 m12 l12"></div> 
+                    <div class="crearmarca col s12 m12 l12" >
+                      
+                       
+                        
+                        
+                        <h:form>
+                            <!--Formulario de Marca-->
+                            <div class="col s12 m12 l3">
+                                <div class="input-field">
+                                    <h:inputText id="nombre" value="" title="Nombre" required="true" requiredMessage="Inserte un mensaje valido.">
+                                        <f:validateLength for="Nombre" maximum="300"/>
+                                    </h:inputText>
+                                    <label for="first_name">#{msjInventario.Nombre_producto}</label>
+                                    <span class="helper-text" data-error="Inserte un nombre valido" data-success="✓"></span>
+                                </div>
+                            </div>
+                            <!--Formulario de Marca-->
+                        </h:form>
+
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn">Cancelar</a>
+                    <a href="#!" class="modal-close waves-effect waves-green btn">Agregar</a>    
+                </div>
+            </div>
 
 
 

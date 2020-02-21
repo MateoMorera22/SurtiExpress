@@ -12,11 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
   $(document).ready(function(){
     $('.tooltipped').tooltip();
   });
-
   
-  $(document).ready(function(){
+    $(document).ready(function(){
     $('.modal').modal();
   });
+
 
 $('.dropdown-trigger').dropdown();
 
