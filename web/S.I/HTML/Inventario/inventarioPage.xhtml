@@ -168,34 +168,48 @@
             <!-- Modal Structure -->
             <div id="modal1" class="modal">
                 <div class="modal-content">
-                    <h4>Crear marca</h4>
+                    <h4>#{msjInventario.crear_marca}</h4>
                     <div class="espacio col s12 m12 l12"></div> 
                     <div class="crearmarca col s12 m12 l12" >
-                      
-                       
-                        
-                        
+
+
+
+
                         <h:form>
                             <!--Formulario de Marca-->
                             <div class="col s12 m12 l3">
                                 <div class="input-field">
-                                    <h:inputText id="nombre" value="" title="Nombre" required="true" requiredMessage="Inserte un mensaje valido.">
-                                        <f:validateLength for="Nombre" maximum="300"/>
-                                    </h:inputText>
-                                    <label for="first_name">#{msjInventario.Nombre_producto}</label>
+                                    <h:inputText id="marca" value="#{marcaContolador.marca.marca}" title="Marca" required="true" requiredMessage="Inserte un mensaje valido.">
+                                        <f:validateLength for="Nombre" maximum="300"/></h:inputText>
+                                    <label for="first_name">#{msjInventario.nommbre_marca}</label>
                                     <span class="helper-text" data-error="Inserte un nombre valido" data-success="✓"></span>
                                 </div>
                             </div>
                             <!--Formulario de Marca-->
                         </h:form>
+                        
+                          <h:form>
+                         
+                        <h:commandLink class="waves-effect waves-light btn #ef5350 #43a047 green darken-1" action="#{marcaContolador.crearMarca()}" value="#{msjUsuarios.Crear}">
+                            <i class="modal-close material-icons right">add_box</i></h:commandLink>
+                            <a class="modal-close waves-effect waves-light btn">Cancelar</a>
+                    </h:form>
+
 
 
 
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <a href="#!" class="modal-close waves-effect waves-green btn">Cancelar</a>
-                    <a href="#!" class="modal-close waves-effect waves-green btn">Agregar</a>    
+
+
+                    <h:form>
+                         
+                        <h:commandLink class="waves-effect waves-light btn #ef5350 #43a047 green darken-1" action="#{marcaContolador.crearMarca()}" value="#{msjUsuarios.Crear}">
+                            <i class="modal-close material-icons right">add_box</i></h:commandLink>
+                            <a class="modal-close waves-effect waves-light btn">Cancelar</a>
+                    </h:form>
+
                 </div>
             </div>
 
