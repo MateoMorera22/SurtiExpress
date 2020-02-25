@@ -28,14 +28,10 @@ body{
 }
 
 .card {
+    margin-top: 300px;
     border-radius: 10px;
 }
 
-.espacio{
-    background: blue;
-    width: 100%;
-    height: 30%;
-}
     
 
 #tamaño{
