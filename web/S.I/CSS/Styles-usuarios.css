@@ -9,6 +9,7 @@ body{
     margin-bottom: 40px;
 }
 
+
 .title {
     height: 110px;
     border-bottom: #707070 solid 2px;
@@ -30,6 +31,13 @@ body{
     border-radius: 10px;
 }
 
+.espacio{
+    background: blue;
+    width: 100%;
+    height: 30%;
+}
+    
+
 #tamaño{
     font-size: 30px;
 }
@@ -45,7 +53,7 @@ body{
 }
 
 .btn-floating:hover{
-    
+
     background: #cddc39;
 }
 
@@ -62,8 +70,8 @@ body{
 #view{
     bottom: 15px;
     left: 1px;
-   background-color: #2e7d32 ;
-    
+    background-color: #2e7d32 ;
+
 }
 
 #view:hover{
@@ -73,12 +81,14 @@ body{
 #back{
     bottom: 15px;
     left: 1px;
-   background-color: #424242 ;
+    background-color: #424242 ;
 }
 
 #back:hover{
     background-color: #607d8b ;
 }
+
+
 
 
 
