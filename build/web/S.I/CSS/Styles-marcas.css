@@ -1,0 +1,21 @@
+body{
+    background-image: url(../../IMG/Mosaico.jpg);
+}
+
+.espacio {
+    height: 60px;
+}
+
+#volver{
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    border-radius: 15px;
+}
+
+#btnmarcas {
+    margin-top: 10px;
+    margin-right: 12px;
+}
