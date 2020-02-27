@@ -50,10 +50,7 @@ public class marcaContolador implements Serializable {
     public void eliminarMarca(Marca marca){
         marcaFacade.remove(marca);
     }
-    public String preEditarMarca(Marca marca){
-        this.marca = marca;
-        return "";
-    }
+    
     
     
 }

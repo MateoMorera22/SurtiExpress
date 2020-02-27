@@ -71,9 +71,5 @@ public class subMarcaControlador implements Serializable {
     public void eliminarSubMarca(Submarca submarca) {
         submarcaFacade.remove(submarca);
     }
-    public String preEditarSubMarca(Submarca submarca){
-        this.submarca = submarca;
-        return "";
-    }
     
 }
