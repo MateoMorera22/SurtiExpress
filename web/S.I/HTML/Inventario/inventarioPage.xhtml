@@ -34,8 +34,8 @@
                 <div class="col s12 m12 l12">
                     <div class="#37474f blue-grey darken-3 card">
                         <div class="card-content white-text">
-                            <a class="btn-small btn-floating btn-large waves-effect waves-light right" href="marcas.xhtml"><i class="material-icons">playlist_add</i></a>
-                            <a id="addproducto"  href="crear-producto.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">category</i></a>
+                            <a class="tooltipped btn-small btn-floating btn-large waves-effect waves-light right"  data-position="bottom" data-tooltip="#{msjInventario.PanelMarcas}"  href="marcas.xhtml"><i class="material-icons">playlist_add</i></a>
+                            <a id="addproducto"  href="crear-producto.xhtml" class="tooltipped btn-small btn-floating btn-large waves-effect waves-light right" data-position="top" data-tooltip="#{msjInventario.Crearproductos}"><i class="material-icons">category</i></a>
 
                             <div class="Inventario">
                                 <h:form class="striped responsive-table">
@@ -43,7 +43,7 @@
 
                                         <h:column>
                                             <f:facet name="header">
-                                                <h:outputText value="IdProducto"/>
+                                                <h:outputText value="#{msjInventario.ID_producto}"/>
                                             </f:facet>
                                             <h:outputText value="#{item.idProducto}"/>
                                         </h:column>
@@ -52,76 +52,68 @@
 
                                         <h:column>
                                             <f:facet name="header">
-                                                <h:outputText value="Nombre"/>
+                                                <h:outputText value="#{msjInventario.Nombre_producto}"/>
                                             </f:facet>
                                             <h:outputText value="#{item.nombre}"/>
                                         </h:column>
 
                                         <h:column>
                                             <f:facet name="header">
-                                                <h:outputText value="Descripcion"/>
+                                                <h:outputText value="#{msjInventario.Description}"/>
                                             </f:facet>
                                             <h:outputText value="#{item.descripcion}"/>
                                         </h:column>
 
                                         <h:column>
                                             <f:facet name="header">
-                                                <h:outputText value="Cantidad"/>
+                                                <h:outputText value="#{msjInventario.Cantidad}"/>
                                             </f:facet>
                                             <h:outputText value="#{item.cantidad}"/>
                                         </h:column>
 
                                         <h:column>
                                             <f:facet name="header">
-                                                <h:outputText value="PrecioBruto"/>
+                                                <h:outputText value="#{msjInventario.PrecioBruto}"/>
                                             </f:facet>
                                             <h:outputText value="#{item.precioBruto}"/>
                                         </h:column>
 
                                         <h:column>
                                             <f:facet name="header">
-                                                <h:outputText value="Iva"/>
+                                                <h:outputText value="#{msjInventario.Iva}"/>
                                             </f:facet>
                                             <h:outputText value="#{item.iva}"/>
                                         </h:column>
 
                                         <h:column>
                                             <f:facet name="header">
-                                                <h:outputText value="PrecioNeto"/>
+                                                <h:outputText value="#{msjInventario.PrecioNeto}"/>
                                             </f:facet>
                                             <h:outputText value="#{item.precioNeto}"/>
                                         </h:column>
 
                                         <h:column>
                                             <f:facet name="header">
-                                                <h:outputText value="EstadoProducto"/>
+                                                <h:outputText value="#{msjInventario.EstadoProducto}"/>
                                             </f:facet>
                                             <h:outputText value="#{item.idEstadoProducto.estadoProducto}"/>
                                         </h:column>
 
                                         <h:column>
                                             <f:facet name="header">
-                                                <h:outputText value="Submarca"/>
+                                                <h:outputText value="#{msjInventario.Submarca}"/>
                                             </f:facet>
                                             <h:outputText value="#{item.idSubmarca.subMarca}"/>
                                         </h:column>
 
                                         <h:column>
                                             <f:facet name="header">
-                                                <h:outputText value="marca"/>
+                                                <h:outputText value="#{msjInventario.marca}"/>
                                             </f:facet>
                                             <h:outputText value="#{item.idSubmarca.idMarca.marca}"/>
                                         </h:column>
 
-                                        <h:column>
-                                            <h:selectOneMenu id="idEstadoProducto2" value="#{productoControlador.estadoproducto.idEstadoProducto}" >
-                                                <!-- TODO: update below reference to list of available items-->
-                                                <f:selectItems value="#{estadoProductoControlador.listarEstadoProducto()}" var="estp" itemLabel="#{estp.estadoProducto}" itemValue="1"/>
-                                            </h:selectOneMenu>
-                                            <h:commandButton action="#{productoControlador.editarEstado(item)}" value="bloquear" />
 
-
-                                        </h:column>
 
 
 
@@ -143,10 +135,16 @@
 
 
                                         <h:column>
+                                            <div class="hide">
+                                            <h:selectOneMenu  id="idEstadoProducto2" value="#{productoControlador.estadoproducto.idEstadoProducto}" >
+                                                <!-- TODO: update below reference to list of available items-->
+                                                <f:selectItems value="#{estadoProductoControlador.listarEstadoProducto()}" var="estp" itemLabel="#{estp.estadoProducto}" itemValue="1"/>
+                                            </h:selectOneMenu>
+                                            </div>
                                             <f:facet name="header">
                                                 <h:outputText value="#{msjInventario.Bloquear}"/>
                                             </f:facet>
-                                            <h:commandLink class="waves-effect waves-light btn #616161 grey darken-2"  action="#{inventarioControlador.eliminarProducto(item)}">
+                                            <h:commandLink class="waves-effect waves-light btn #616161 grey darken-2"   action="#{productoControlador.editarEstado(item)}">
                                                 <i class="material-icons">block</i></h:commandLink>
                                         </h:column>
 
@@ -160,70 +158,6 @@
                 </div>
             </div>
             <!--Clientes-->
-
-
-
-
-
-            <!-- Modal Structure -->
-            <div id="modal1" class="modal">
-                <div class="modal-content">
-                    <h4>#{msjInventario.crear_marca}</h4>
-                    <div class="espacio col s12 m12 l12"></div> 
-                    <div class="crearmarca col s12 m12 l12" >
-
-
-
-
-                        <h:form>
-                            <!--Formulario de Marca-->
-                            <div class="col s12 m12 l3">
-                                <div class="input-field">
-                                    <h:inputText id="marca" value="#{marcaContolador.marca.marca}" title="Marca" required="true" requiredMessage="Inserte un mensaje valido.">
-                                        <f:validateLength for="Nombre" maximum="300"/></h:inputText>
-                                    <label for="first_name">#{msjInventario.nommbre_marca}</label>
-                                    <span class="helper-text" data-error="Inserte un nombre valido" data-success="✓"></span>
-                                </div>
-                            </div>
-                            <!--Formulario de Marca-->
-                        </h:form>
-                        
-                          <h:form>
-                         
-                        <h:commandLink class="waves-effect waves-light btn #ef5350 #43a047 green darken-1" action="#{marcaContolador.crearMarca()}" value="#{msjUsuarios.Crear}">
-                            <i class="modal-close material-icons right">add_box</i></h:commandLink>
-                            <a class="modal-close waves-effect waves-light btn">Cancelar</a>
-                    </h:form>
-
-
-
-
-                    </div>
-                </div>
-                <div class="modal-footer">
-
-
-                    <h:form>
-                         
-                        <h:commandLink class="waves-effect waves-light btn #ef5350 #43a047 green darken-1" action="#{marcaContolador.crearMarca()}" value="#{msjUsuarios.Crear}">
-                            <i class="modal-close material-icons right">add_box</i></h:commandLink>
-                            <a class="modal-close waves-effect waves-light btn">Cancelar</a>
-                    </h:form>
-
-                </div>
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

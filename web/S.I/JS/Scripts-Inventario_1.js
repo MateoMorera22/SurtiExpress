@@ -95,4 +95,13 @@ formulario.addEventListener("submit", function(event) {
     }
 }, false);
 }
-//
+
+
+
+
+
+
+ $(document).ready(function(){
+    $('.tooltipped').tooltip();
+  });
+        

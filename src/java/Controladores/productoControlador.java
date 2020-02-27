@@ -185,6 +185,7 @@ public class productoControlador implements Serializable {
         producto.setIdSubmarca(submarcaFacade.find(submarca.getIdSubMarca()));
         producto.setIdEstadoProducto(estadoproductoFacade.find(estadoproducto.getIdEstadoProducto()));
         productoFacade.create(producto);
+       
     }
 
     public List<Producto> listarInventario() {
@@ -195,14 +196,14 @@ public class productoControlador implements Serializable {
         this.producto = producto;
         this.estadoproducto = producto.getIdEstadoProducto();
         this.submarca = producto.getIdSubmarca();
-        return "editarProducto";
+        return "editarproducto";
     }
 
     public String editarProducto() {
         producto.setIdSubmarca(submarcaFacade.find(submarca.getIdSubMarca()));
         producto.setIdEstadoProducto(estadoproductoFacade.find(estadoproducto.getIdEstadoProducto()));
         productoFacade.edit(producto);
-        return "";
+        return "inventarioPage";
     }
 
     public void editarEstado(Producto producto) {

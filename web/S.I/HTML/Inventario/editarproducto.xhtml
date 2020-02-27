@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+
     <h:head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -13,14 +14,14 @@
         <title>Editar producto</title>
     </h:head>
     <h:body>
-        <f:view>
+        <f:view locale="#{languageBean.idiomaSeleccionado}">
             <h:form id="formulario" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col s0 m1 l2"></div>
                     <div class="col s12 m8 l8">
                         <div class="card z-depth-5">
                             <div class="card-content">
-                                <span id="titulo" class="center card-title">Editar Producto</span>
+                                <span id="titulo" class="center card-title">#{msjInventario.Editar}</span>
                                 <div class="formularios">
                                     <div class="row">
                                         <!--Formulario de imagen-->
@@ -28,34 +29,48 @@
 
                                             <div class="file-field input-field">
                                                 <div class="#5e35b1 deep-purple darken-1 btn">
-                                                    <span>Imagen</span>
-                                                    <h:inputFile  id="imagen" value="#{inventarioControlador.file}" title="Imagen" required="true"/>
+                                                    <span>#{msjInventario.Imagen}</span>
+                                                    <h:inputFile  id="imagen" class="file-path validate" value="#{productoControlador.file}" title="Imagen" />
                                                 </div>
                                                 <div class="file-path-wrapper">
                                                     <input class="file-path validate" type="text"/>
                                                 </div>
                                             </div>
-
                                         </div>
                                         <!--Formulario de imagen-->
+
+
                                         <!--Formulario de nombre-->
-                                        <div class="col s12 m12 l6">
+                                        <div class="col s12 m12 l3">
                                             <div class="input-field">
-                                                <h:inputText id="descripción" value="#{inventarioControlador.producto.descripción}" title="Descripción" required="true" requiredMessage="Inserte un mensaje valido.">
-                                                    <f:validateLength for="descripción" maximum="300"/>
+                                                <h:inputText id="nombre" value="#{productoControlador.producto.nombre}" title="#{msjInventario.Nombre_producto}"  requiredMessage="Inserte un mensaje valido.">
+                                                    <f:validateLength for="Nombre" maximum="300"/>
                                                 </h:inputText>
-                                                <label for="first_name">Nombre del producto</label>
+                                                <label for="first_name">#{msjInventario.Nombre_producto}</label>
                                                 <span class="helper-text" data-error="Inserte un nombre valido" data-success="✓"></span>
                                             </div>
                                         </div>
                                         <!--Formulario de nombre-->
+
+                                        <!--Formulario de Descripcion-->
+                                        <div class="col s12 m12 l3">
+                                            <div class="input-field">
+                                                <h:inputText id="descripcion" value="#{productoControlador.producto.descripcion}" title="Descripcion"  requiredMessage="Inserte un mensaje valido.">
+                                                    <f:validateLength for="Descripcion" maximum="300"/>
+                                                </h:inputText>
+                                                <label for="first_name">#{msjInventario.Description}</label>
+                                                <span class="helper-text" data-error="Inserte un nombre valido" data-success="✓"></span>
+                                            </div>
+                                        </div>
+                                        <!--Formulario de Descripcion-->
+
                                         <!--Precio bruto-->
                                         <div class="col s12 m12 l5">
                                             <div class="input-field">
-                                                <h:inputText id="precioBruto" value="#{inventarioControlador.producto.precioBruto}" title="PrecioBruto"  required="true" requiredMessage="Inserte un precio bruto valido">
+                                                <h:inputText id="precioBruto" value="#{productoControlador.producto.precioBruto}" title="PrecioBruto"   requiredMessage="Inserte un precio bruto valido">
                                                     <f:validateDoubleRange for="precioBruto" minimum="2000" maximum="200000"/>
                                                 </h:inputText>
-                                                <label for="last_name">Precio Bruto</label>
+                                                <label for="last_name">#{msjInventario.PrecioBruto}</label>
                                                 <span class="helper-text" data-error="Inserte un precio minimo de 1000" data-success="✓"></span>
                                             </div>
                                         </div>
@@ -63,10 +78,10 @@
                                         <!--iva-->
                                         <div class="col s12 m12 l2">
                                             <div class="input-field">
-                                                <h:inputText id="iva" value="#{inventarioControlador.producto.iva}" title="Iva" required="true" requiredMessage="Inserte un precio neto valido">
+                                                <h:inputText id="iva" value="#{productoControlador.producto.iva}" title="Iva"  requiredMessage="Inserte un precio neto valido">
                                                     <f:validateDoubleRange for="iva" minimum="1" maximum="20"/>
                                                 </h:inputText>
-                                                <label for="first_name">IVA</label>
+                                                <label for="first_name">#{msjInventario.Iva}</label>
                                                 <span class="helper-text" data-error="Inserte un IVA minimo de  10%" data-success="✓"></span>
                                             </div>
                                         </div>
@@ -74,45 +89,82 @@
                                         <!--Precio neto-->
                                         <div class="col s12 m12 l5">
                                             <div class="input-field">
-                                                <h:inputText id="precioNeto" value="#{inventarioControlador.producto.precioNeto}" title="PrecioNeto" required="true" requiredMessage="Inserte un Precio neto valido">
+                                                <h:inputText id="precioNeto" value="#{productoControlador.producto.precioNeto}" title="PrecioNeto"  requiredMessage="Inserte un Precio neto valido">
                                                     <f:validateDoubleRange for="precioNeto" minimum="2000"/>
                                                 </h:inputText>
-                                                <label for="first_name ">Precio Neto</label>
+                                                <label for="first_name ">#{msjInventario.PrecioNeto}</label>
                                                 <span class="helper-text " data-error="Inserte un precio minimo de 1000 "
                                                       data-success="✓ "></span>
                                             </div>
                                         </div>
                                         <!--Precio neto-->
                                         <!--Cantidad-->
-                                        <div class="col s12 m12 l6 ">
+                                        <div class="col s12 m12 l3 ">
                                             <div class="input-field ">
-                                                <h:inputText id="cantidad" value="#{inventarioControlador.producto.cantidad}" title="Cantidad" required="true" requiredMessage="Inserte una cantidad valida">
+                                                <h:inputText id="cantidad" value="#{productoControlador.producto.cantidad}" title="Cantidad"  requiredMessage="Inserte una cantidad valida">
                                                     <f:validateDoubleRange minimum="1" maximum="20"/>
                                                 </h:inputText>
-                                                <label for="first_name ">Cantidad</label>
+                                                <label for="first_name ">#{msjInventario.Cantidad}</label>
                                                 <span class="helper-text " data-error="Inserte una cantidad minima de 1 "
                                                       data-success="✓ "></span>
                                             </div>
                                         </div>
                                         <!--Cantidad-->
+
+
                                         <!--Marca-->
-                                        <div class="col s12 m12 l6 ">
+                                        <div class="col s12 m12 l3 ">
                                             <div class="input-field ">
-                                                <h:selectOneMenu id="marcaIdMarca" value="#{inventarioControlador.marca.idMarca}" title="MarcaIdMarca" required="true" requiredMessage="Inserte una marca valida">
+                                                <h:selectOneMenu id="marca" value="#{subMarcaControlador.marca.idMarca}" title="MarcaIdMarca"  requiredMessage="Inserte una marca valida">
                                                     <!-- TODO: update below reference to list of available items-->
-                                                    <f:selectItem itemLabel="--Seleccione uno--" itemValue="" /> 
-                                                    <f:selectItems value="#{marcaControlador.listarMarcas()}" var="mar" itemLabel="#{mar.nombre}" itemValue="#{mar.idMarca}"/>
+                                                    <f:selectItem itemLabel="#{msjInventario.seleccioneuno}" itemValue="" /> 
+                                                    <f:selectItems value="#{marcaContolador.listarMarcas()}" var="mar" itemLabel="#{mar.marca}" itemValue="#{mar.idMarca}"/>
                                                 </h:selectOneMenu>
-                                                <label>Marca</label>
+                                                <label>#{msjUsuarios.Marca}</label>
                                             </div>
                                         </div>
                                         <!--Marca-->
+
+                                        <!--SubMarca-->
+                                        <div class="col s12 m12 l3 ">
+                                            <div class="input-field ">
+                                                <h:selectOneMenu id="idSubmarca" value="#{productoControlador.submarca.idSubMarca}" title="IdSubmarca"  requiredMessage="Inserte una marca valida">
+                                                    <!-- TODO: update below reference to list of available items-->
+                                                    <f:selectItem itemLabel="#{msjInventario.seleccioneuno}" itemValue="" /> 
+                                                    <f:selectItems value="#{subMarcaControlador.listarSubMarca()}" var="subm" itemLabel="#{subm.subMarca}" itemValue="#{subm.idSubMarca}"/>
+                                                </h:selectOneMenu>
+                                                <label>#{msjInventario.Submarca}</label>
+                                            </div>
+                                        </div>
+                                        <!--SubMarca-->
+
+
+                                        <!--Disponiblidad-->
+                                        <div class="col s12 m12 l3 ">
+                                            <div class="input-field ">
+                                                <h:selectOneMenu id="idEstadoProducto0" value="#{productoControlador.estadoproducto.idEstadoProducto}" title="IdEstadoProducto" >
+                                                    <!-- TODO: update below reference to list of available items-->
+                                                    <f:selectItems value="#{estadoProductoControlador.listarEstadoProducto()}" var="estp" itemLabel="#{estp.estadoProducto}" itemValue="#{estp.idEstadoProducto}"/>
+                                                </h:selectOneMenu>
+                                            </div>
+                                        </div>
+                                        <!--Disponibilidad-->
+
+
+
+
+
+
+
+
+
                                     </div>
                                 </div>
                             </div>
                             <div class="card-action ">
-                                <h:commandLink class="#5e35b1 deep-purple darken-1 btn waves-effect waves-light "  action="#{inventarioControlador.editarProducto()}">AÑADIR
-                                    <i class="material-icons right ">add_shopping_cart</i></h:commandLink>
+                                <h:commandLink class="#5e35b1 deep-purple darken-1 btn waves-effect waves-light "  action="#{productoControlador.editarProducto()}">#{msjInventario.Editar}
+                                    <i class="material-icons right ">edit</i></h:commandLink>
+                                <a  href="inventarioPage.xhtml" class="waves-effect waves-light btn #ef5350 red lighten-1"><i class="material-icons right">cancel</i>#{msjRegistro.Cancelar}</a>
                             </div>
                         </div>
                     </div>

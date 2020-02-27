@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+        
     <h:head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -13,14 +14,14 @@
         <title>Editar producto</title>
     </h:head>
     <h:body>
-        <f:view>
+        <f:view locale="#{languageBean.idiomaSeleccionado}">
             <h:form id="formulario" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col s0 m1 l2"></div>
                     <div class="col s12 m8 l8">
                         <div class="card z-depth-5">
                             <div class="card-content">
-                                <span id="titulo" class="center card-title">Crear Producto</span>
+                                <span id="titulo" class="center card-title">#{msjInventario.Crearproductos}</span>
                                 <div class="formularios">
                                     <div class="row">
                                         <!--Formulario de imagen-->
@@ -35,7 +36,6 @@
                                                     <input class="file-path validate" type="text"/>
                                                 </div>
                                             </div>
-
                                         </div>
                                         <!--Formulario de imagen-->
 
@@ -43,7 +43,7 @@
                                         <!--Formulario de nombre-->
                                         <div class="col s12 m12 l3">
                                             <div class="input-field">
-                                                <h:inputText id="nombre" value="#{productoControlador.producto.nombre}" title="Nombre" required="true" requiredMessage="Inserte un mensaje valido.">
+                                                <h:inputText id="nombre" value="#{productoControlador.producto.nombre}" title="#{msjInventario.Nombre_producto}" required="true" requiredMessage="Inserte un mensaje valido.">
                                                     <f:validateLength for="Nombre" maximum="300"/>
                                                 </h:inputText>
                                                 <label for="first_name">#{msjInventario.Nombre_producto}</label>
@@ -117,7 +117,7 @@
                                             <div class="input-field ">
                                                 <h:selectOneMenu id="marca" value="#{subMarcaControlador.marca.idMarca}" title="MarcaIdMarca" required="true" requiredMessage="Inserte una marca valida">
                                                     <!-- TODO: update below reference to list of available items-->
-                                                    <f:selectItem itemLabel="--Seleccione uno--" itemValue="" /> 
+                                                    <f:selectItem itemLabel="#{msjInventario.seleccioneuno}" itemValue="" /> 
                                                     <f:selectItems value="#{marcaContolador.listarMarcas()}" var="mar" itemLabel="#{mar.marca}" itemValue="#{mar.idMarca}"/>
                                                 </h:selectOneMenu>
                                                 <label>#{msjUsuarios.Marca}</label>
@@ -130,7 +130,7 @@
                                             <div class="input-field ">
                                                 <h:selectOneMenu id="idSubmarca" value="#{productoControlador.submarca.idSubMarca}" title="IdSubmarca" required="true" requiredMessage="Inserte una marca valida">
                                                     <!-- TODO: update below reference to list of available items-->
-                                                    <f:selectItem itemLabel="--Seleccione uno--" itemValue="" /> 
+                                                   <f:selectItem itemLabel="#{msjInventario.seleccioneuno}" itemValue="" /> 
                                                     <f:selectItems value="#{subMarcaControlador.listarSubMarca()}" var="subm" itemLabel="#{subm.subMarca}" itemValue="#{subm.idSubMarca}"/>
                                                 </h:selectOneMenu>
                                                 <label>#{msjInventario.Submarca}</label>

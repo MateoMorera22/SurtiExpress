@@ -61,6 +61,7 @@ public class subMarcaControlador implements Serializable {
     public void editarSubMarca() {
         submarca.setIdMarca(marcaFacade.find(marca.getIdMarca()));
         submarcaFacade.edit(submarca);
+        
     }
 
     public List<Submarca> listarSubMarca() {
