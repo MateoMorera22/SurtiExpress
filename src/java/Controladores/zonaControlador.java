@@ -13,6 +13,7 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 
 /**
@@ -51,11 +52,29 @@ public class zonaControlador implements Serializable {
     public void setPlanilla(Planilla planilla) {
         this.planilla = planilla;
     }
+    @PostConstruct
+    public void init(){
+        zona = new Zona();
+    }
+    public void crear(){
+        zonaFacade.create(zona);
+        zona = new Zona();
+    }
 
     public List<Zona> listarZonas() {
         return zonaFacade.findAll();
     }
-    
+    public String editarZona(){
+        zonaFacade.edit(zona);
+        return "";//Mateo coloca la pagina que redirecciona :3
+    }
+    public void eliminarZona(Zona zona){
+        zonaFacade.remove(zona);
+    }
+    public String preEditarZona(Zona zona){
+        this.zona = zona;
+        return "";//Mateo coloca la pagina que redirecciona :3
+    }
     
 
 }

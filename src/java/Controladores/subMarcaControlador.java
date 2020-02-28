@@ -13,6 +13,7 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 
 /**
@@ -53,15 +54,23 @@ public class subMarcaControlador implements Serializable {
         this.marca = marca;
     }
 
+    @PostConstruct
+    public void init() {
+        submarca = new Submarca();
+        marca = new Marca();
+    }
+
     public void crearSubMarca() {
         submarca.setIdMarca(marcaFacade.find(marca.getIdMarca()));
         submarcaFacade.create(submarca);
+        submarca = new Submarca();
+        marca = new Marca();
     }
 
     public void editarSubMarca() {
         submarca.setIdMarca(marcaFacade.find(marca.getIdMarca()));
         submarcaFacade.edit(submarca);
-        
+
     }
 
     public List<Submarca> listarSubMarca() {
@@ -69,11 +78,21 @@ public class subMarcaControlador implements Serializable {
     }
 
     public void eliminarSubMarca(Submarca submarca) {
-        submarcaFacade.remove(submarca);
+        String mensaje = "";
+        try {
+            submarcaFacade.remove(submarca);
+            mensaje = "Submarca eliminada correctamente.";
+            System.out.println(mensaje);
+        } catch (Exception e) {
+            mensaje = "¡No se a podido eliminar! Por favor elimina primero los productos asociados a esta submarca ";
+            System.out.println(mensaje);
+        }
+
     }
-    public String preEditarSubMarca(Submarca submarca){
+
+    public String preEditarSubMarca(Submarca submarca) {
         this.submarca = submarca;
         return "";
     }
-    
+
 }

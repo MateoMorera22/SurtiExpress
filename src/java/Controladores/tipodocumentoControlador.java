@@ -37,7 +37,8 @@ public class tipodocumentoControlador implements Serializable {
     public void setTipodocumento(Tipodocumento tipodocumento) {
         this.tipodocumento = tipodocumento;
     }
-    public List<Tipodocumento> listarDocumento(){
+
+    public List<Tipodocumento> listarDocumento() {
         return tipodocumentoFacade.findAll();
     }
 }
