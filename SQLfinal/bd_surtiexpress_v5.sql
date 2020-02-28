@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-02-2020 a las 04:29:04
--- Versión del servidor: 10.4.8-MariaDB
--- Versión de PHP: 7.3.11
+-- Tiempo de generación: 28-02-2020 a las 14:38:42
+-- Versión del servidor: 10.4.11-MariaDB
+-- Versión de PHP: 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -126,8 +126,7 @@ CREATE TABLE `marca` (
 --
 
 INSERT INTO `marca` (`Id_Marca`, `Marca`) VALUES
-(1, 'Super'),
-(2, 'trululu');
+(21, 'Luffy');
 
 -- --------------------------------------------------------
 
@@ -163,16 +162,6 @@ CREATE TABLE `pedido_producto` (
   `Id_Pedido` int(11) DEFAULT NULL,
   `Id_Producto` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `pedido_producto`
---
-
-INSERT INTO `pedido_producto` (`Id_Pedido`, `Id_Producto`) VALUES
-(14, 19),
-(15, 19),
-(15, 19),
-(15, 19);
 
 -- --------------------------------------------------------
 
@@ -233,14 +222,6 @@ CREATE TABLE `producto` (
   `Id_Submarca` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Volcado de datos para la tabla `producto`
---
-
-INSERT INTO `producto` (`Id_Producto`, `imagen`, `Nombre`, `Descripcion`, `Cantidad`, `PrecioBruto`, `iva`, `PrecioNeto`, `Id_EstadoProducto`, `Id_Submarca`) VALUES
-(18, '/SurtiExpressV.3/IMGCatalogo/30a7086302ed495d7ea3f532484c2d44-logotipo-de-la-hoja-naturaleza-by-vexels.png', 'hoja', 'hojita grande', 70, 10, 1, 10, 1, 1),
-(19, '/SurtiExpressV.3/IMGCatalogo/seift.png', 'pose', 'la gran pose', 70, 10, 1, 10, 2, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -280,11 +261,7 @@ CREATE TABLE `submarca` (
 --
 
 INSERT INTO `submarca` (`Id_SubMarca`, `SubMarca`, `Id_Marca`) VALUES
-(1, 'crocato', 1),
-(2, 'gomas X90 gramos', 2),
-(3, 'gomas', 1),
-(4, 'galletas', 1),
-(5, 'oreo', 2);
+(12, 'One Piece', 21);
 
 -- --------------------------------------------------------
 
@@ -341,7 +318,7 @@ CREATE TABLE `usuario` (
   `Apellido` text DEFAULT NULL,
   `Id_TipoDocumento` int(11) DEFAULT NULL,
   `Documento` int(11) DEFAULT NULL,
-  `Telefono` int(11) DEFAULT NULL,
+  `Telefono` bigint(12) DEFAULT NULL,
   `Correo` text DEFAULT NULL,
   `Contrasena` varchar(32) DEFAULT NULL,
   `Razon_Social` text DEFAULT NULL,
@@ -355,15 +332,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`Id_Usuario`, `Id_Rol`, `Id_Vehiculo`, `Id_Zona`, `Nombre`, `Apellido`, `Id_TipoDocumento`, `Documento`, `Telefono`, `Correo`, `Contrasena`, `Razon_Social`, `Direccion`, `Barrio`, `RUT`) VALUES
-(1, 1, NULL, 1, 'Valentina', 'Marin', 1, 101004209, 2222222, 'tinamap13@gmail.com', 'hola', '', '', '', ''),
-(2, 1, NULL, 1, 'maic', 'p', 1, 1231, 2165412, 'msfarfan@misena.edu.co', '1328456', '', '', '', ''),
-(7, 2, NULL, 1, 'yo', 'yo', 1, 213, 1232, 'farfan.avila@hotmail.com', '1231', 'masda', 'adad', 'asdad', 'sdasda'),
-(8, 2, NULL, 1, 'ppe', 'sad', 1, 4561, 564132, 'moondeadplay@gmail.com', '123456', 'asd', 'ada', 'asda', 'asdas'),
-(9, 2, NULL, 1, 'asda', 'asdasd', 1, 89465, 894651, 'moondeadplay@gmail.com', '123456', 'asdas', 'sadasd', 'asda', 'dasda'),
-(10, 2, NULL, 1, 'maic', 'yo', 1, 213, 1232, 'dfsarmiento20@misena.edu.co', '1231', 'masda', 'adad', 'asdad', 'sdasda'),
-(11, 2, NULL, 1, 'pIHLIP', 'roDRIGEXZ', 1, 100083472, 123456, 'moreramateo@gmai.com', 'Marvel22', 'HOLOI', 'calle 166 -87', 'Tobwrin', '12345'),
-(12, 2, NULL, 1, 'add', 'asdasd', 1, 12412, 123123, 'moreramateo@gmail.com', 'mamamam', '', '', '', ''),
-(13, 4, NULL, NULL, 'william', 'marin', 1, 9846513, 89465132, 'elVago@gmail.com', '12345', NULL, NULL, NULL, NULL);
+(24, 1, NULL, NULL, 'Mateo ', 'Morera', 1, 1000692482, 3057471816, 'moreramateo@gmail.com', 'marvel22', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -384,7 +353,14 @@ CREATE TABLE `vehiculo` (
 
 INSERT INTO `vehiculo` (`Id_Vehiculo`, `Placa`, `Marca`, `Color`) VALUES
 (1, '', '', ''),
-(2, '', '', '');
+(2, '', '', ''),
+(3, '', '', ''),
+(4, '', '', ''),
+(5, '', '', ''),
+(6, '', '', ''),
+(7, '', '', ''),
+(8, '', '', ''),
+(9, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -590,7 +566,7 @@ ALTER TABLE `estadotarea`
 -- AUTO_INCREMENT de la tabla `marca`
 --
 ALTER TABLE `marca`
-  MODIFY `Id_Marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id_Marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `pedido`
@@ -608,7 +584,7 @@ ALTER TABLE `planilla`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `Id_Producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `Id_Producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -620,7 +596,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `submarca`
 --
 ALTER TABLE `submarca`
-  MODIFY `Id_SubMarca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Id_SubMarca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `tarea`
@@ -638,13 +614,13 @@ ALTER TABLE `tipodocumento`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `Id_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `Id_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  MODIFY `Id_Vehiculo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id_Vehiculo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `zona`
