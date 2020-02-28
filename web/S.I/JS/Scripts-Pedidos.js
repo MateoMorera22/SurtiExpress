@@ -10,6 +10,11 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 $(document).ready(function () {
+    $('#pedidos').DataTable();
+});
+
+
+$(document).ready(function () {
     $('.tooltipped').tooltip();
 });
 
@@ -41,25 +46,28 @@ $(document).ready(function () {
 
 function entrada() {
     var formulario = document.getElementById("formulario"),
-        comodin = true;
-  
-    formulario.addEventListener("submit", function(event) {
+            comodin = true;
+
+    formulario.addEventListener("submit", function (event) {
         event.preventDefault();
-  
+
         var elementos = this.elements;
         for (var i in elementos) {
             if (!elementos[i].value.length) {
                 Swal.fire(
-                    'Producto editado exitosamente',
-                    '',
-                    'success'
-                )
-  
+                        'Producto editado exitosamente',
+                        '',
+                        'success'
+                        )
+
             }
         }
-  
+
         if (comodin) {
             this.submit();
         }
     }, false);
-  }
+}
+
+
+
