@@ -73,7 +73,7 @@ public class subMarcaControlador implements Serializable {
     }
     public String preEditarSubMarca(Submarca submarca){
         this.submarca = submarca;
-        return "";
+        return "editar_Submarca";
     }
     
 }

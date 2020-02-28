@@ -26,7 +26,7 @@
                     <div class="card blue-grey darken-1">
                         <a id="btnmarcas" class="#388e3c green darken-2 btn-floating btn-small waves-effect waves-light red right" href="crearmarca.xhtml"><i class="material-icons">add</i></a>
                         <div class="card-content white-text">
-                            <span class="card-title">Marcas</span>
+                            <span class="card-title">#{msjInventario.marcas}</span>
                             <div class="listadousers">
                                 <h:form class="striped responsive-table">
                                     <h:dataTable value="#{marcaContolador.listarMarcas()}" var="item">
@@ -42,7 +42,7 @@
                                             <f:facet name="header">
                                                 <h:outputText value="#{msjInventario.Editar}"/>
                                             </f:facet>
-                                            <h:commandLink class="waves-effect waves-light btn #ef5350 #43a047 green darken-1"  action="#{productoControlador.preEditar(item)}">
+                                               <h:commandLink class="waves-effect waves-light btn #ef5350 #43a047 green darken-1"  action="#{marcaContolador.preEditarMarca(item)}">
                                                 <i class="material-icons">edit</i></h:commandLink>
                                         </h:column>
 
@@ -65,7 +65,7 @@
                     <div class="card blue-grey darken-1">
                         <a id="btnmarcas" href="crearSubmarca.xhtml" class="#388e3c green darken-2 btn-floating btn-small waves-effect waves-light red right"><i class="material-icons">add</i></a>
                         <div class="card-content white-text">
-                            <span class="card-title">Submarcas</span>
+                            <span class="card-title">#{msjInventario.Submarcas}</span>
                             <div class="listadousers">
                                 <h:form class="striped responsive-table">
                                     <h:dataTable value="#{subMarcaControlador.listarSubMarca()}" var="item">
@@ -81,7 +81,7 @@
                                             <f:facet name="header">
                                                 <h:outputText value="#{msjInventario.Editar}"/>
                                             </f:facet>
-                                            <h:commandLink class="waves-effect waves-light btn #ef5350 #43a047 green darken-1"  action="#{subMarcaControlador.editarSubMarca(item)}">
+                                            <h:commandLink class="waves-effect waves-light btn #ef5350 #43a047 green darken-1"  action="#{subMarcaControlador.preEditarSubMarca(item)}">
                                                 <i class="material-icons">edit</i></h:commandLink>
                                         </h:column>
 

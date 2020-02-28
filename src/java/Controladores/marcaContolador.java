@@ -52,7 +52,7 @@ public class marcaContolador implements Serializable {
     }
     public String preEditarMarca(Marca marca){
         this.marca = marca;
-        return "";
+        return "editar_marca";
     }
     
     
