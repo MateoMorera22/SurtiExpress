@@ -55,35 +55,50 @@
                 </div>
             </div>
 
-            
-    <div class="row">
-        <div class=" center col s12 m12 l12">
 
-            <table id="pedidos" class="card display" >
-                <thead>
-                    <tr>
-                        
-                        <th>Column 1</th>
-                        <th>Column 1</th>
-                    </tr>
+            <div class="row">
+                <div class=" center col s12 m12 l12">
 
-                </thead>
-                <tbody>
-                        <c:forEach var="item" items="#{pedidoControlador.listarPedidos()}">
-                    <tr>
-                        
-                        
-                            <td><h:outputText value="#{item.idPedido}"/></td>
-                            <td><h:outputText value="#{item.subtotal}"/></td>
-                        
-                    </tr>
-                        </c:forEach>
-                    
-                </tbody>
-            </table>
+                    <table id="pedidos" class="#37474f blue-grey darken-3 white-text card display" >
+                        <thead>
+                            <tr>
 
-        </div>
-          </div>
+                                <th>#{msjPedidos.IDpepidos}</th>
+                                <th>#{msjPedidos.NombreCliente}</th>
+                                <th>#{msjPedidos.FechaCreacion}</th>
+                                <th>#{msjPedidos.FechadeEntrega}</th>
+                                <th>#{msjPedidos.Subtotal}</th>
+                                <th>#{msjPedidos.Total}</th>
+                                <th>#{msjInventario.Eliminar}</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <c:forEach var="item" items="#{pedidoControlador.listarPedidos()}">
+                                <tr class="#37474f blue-grey darken-3" >
+                                    <h:form>
+
+
+                                        <td class="#37474f blue-grey darken-3"  ><h:outputText value="#{item.idPedido}"/></td>
+                                        <td><h:outputText value="#{item.idUsuario.nombre}"/> <h:outputText value="#{item.idUsuario.apellido}"/> </td>
+                                        <td><h:outputText value="#{item.fechaCreacion}"/></td>
+                                        <td><h:outputText value="#{item.fechaEntrega}"/></td>
+                                        <td><h:outputText value="#{item.subtotal}"/></td>
+                                        <td><h:outputText value="#{item.total}"/></td>
+                                        <td></td>
+
+
+
+
+                                    </h:form>
+                                </tr>
+                            </c:forEach>
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
 
 
 
