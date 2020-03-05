@@ -59,7 +59,7 @@
             <div class="row">
                 <div class=" center col s12 m12 l12">
 
-                    <table id="pedidos" class="#37474f blue-grey darken-3 white-text card display" >
+                    <table id="pedidos" class="#37474f blue-grey darken-3 white-text card display center-align" >
                         <thead>
                             <tr>
 
@@ -70,6 +70,7 @@
                                 <th>#{msjPedidos.Subtotal}</th>
                                 <th>#{msjPedidos.Total}</th>
                                 <th>#{msjInventario.Eliminar}</th>
+                                <th>#{msjInventario.Editar}</th>
                             </tr>
 
                         </thead>
@@ -85,9 +86,10 @@
                                         <td><h:outputText value="#{item.fechaEntrega}"/></td>
                                         <td><h:outputText value="#{item.subtotal}"/></td>
                                         <td><h:outputText value="#{item.total}"/></td>
-                                        <td></td>
-
-
+                                        <td> <h:commandLink class="waves-effect waves-light btn #941e1e red darken-3"  action="#{pedidoControlador.eliminarPedido(item)}">
+                                                <i class="material-icons">delete_forever</i></h:commandLink></td>
+                                        <td>  <h:commandLink class="waves-effect waves-light btn #ef5350 #43a047 green darken-1"  action="#{productoControlador.preEditar(item)}">
+                                                <i class="material-icons">edit</i></h:commandLink></td>
 
 
                                     </h:form>
@@ -99,14 +101,6 @@
 
                 </div>
             </div>
-
-
-
-
-
-
-
-
 
 
 
