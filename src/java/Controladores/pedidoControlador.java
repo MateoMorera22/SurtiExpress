@@ -181,7 +181,7 @@ public class pedidoControlador implements Serializable {
         this.producto = producto;
         this.estadoPedido = pedido.getIdEstadoPedido();
         this.usuario = pedido.getIdUsuario();
-        return "editarProducto";
+        return "editar-pedidos";
     }
 
     public String editarPedido() {

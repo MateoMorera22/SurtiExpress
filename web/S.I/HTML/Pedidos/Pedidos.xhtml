@@ -88,10 +88,8 @@
                                         <td><h:outputText value="#{item.total}"/></td>
                                         <td> <h:commandLink class="waves-effect waves-light btn #941e1e red darken-3"  action="#{pedidoControlador.eliminarPedido(item)}">
                                                 <i class="material-icons">delete_forever</i></h:commandLink></td>
-                                        <td>  <h:commandLink class="waves-effect waves-light btn #ef5350 #43a047 green darken-1"  action="#{productoControlador.preEditar(item)}">
+                                                <td>  <h:commandLink class="waves-effect waves-light btn #ef5350 #43a047 green darken-1"  action="#{pedidoControlador.preEditarPedido(item)}">
                                                 <i class="material-icons">edit</i></h:commandLink></td>
-
-
                                     </h:form>
                                 </tr>
                             </c:forEach>
