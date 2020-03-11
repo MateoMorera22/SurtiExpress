@@ -29,7 +29,7 @@ function entrada() {
 
  $('.datepicker').datepicker({ 
             firstDay: true, 
-            format: 'yyyy/mm/dd',
+            format: 'yyyy-mm-dd',
             i18n: {
                 months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
                 monthsShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Set", "Oct", "Nov", "Dic"],

@@ -27,7 +27,7 @@
 
 
                                         <!--Formulario de Fecha de entrega-->
-                                        <div class="col s12 m12 l3">
+                                        <div class="col s12 m12 l4">
                                             <div class="input-field">
                                                 <h:inputText class="datepicker" id="nombre" value="#{pedidoControlador.pedido.fechaEntrega}" title="#{msjPedidos.FechadeEntrega}"  requiredMessage="Inserte un mensaje valido.">
                                                     <f:validateLength for="Nombre" maximum="300"/>
@@ -40,7 +40,7 @@
 
 
                                         <!--Precio subtotal-->
-                                        <div class="col s12 m12 l5">
+                                        <div class="col s12 m12 l4">
                                             <div class="input-field">
                                                 <h:inputText id="subtotal" value="#{pedidoControlador.pedido.subtotal}" title="#{msjPedidos.Subtotal}"  requiredMessage="Inserte un Precio neto valido">
                                                     <f:validateDoubleRange for="precioNeto" minimum="2000"/>
@@ -55,7 +55,7 @@
                                         
                                         
                                           <!--Precio Total-->
-                                        <div class="col s12 m12 l5">
+                                        <div class="col s12 m12 l4">
                                             <div class="input-field">
                                                 <h:inputText id="total" value="#{pedidoControlador.pedido.total}" title="#{msjPedidos.Total}"  requiredMessage="Inserte un Precio neto valido">
                                                     <f:validateDoubleRange for="precioNeto" minimum="2000"/>
