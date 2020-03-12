@@ -47,181 +47,152 @@
                     <div class="col s12 m1 l1"></div>
                     <div class="col s12 m12 l10">
                         <div class="title">
-                            <i class="large material-icons">list</i>
+                            <i class="large material-icons">supervisor_account</i>
                             <h1>#{msjAdmin.Usuarios}</h1>
                         </div>
                     </div>
                     <div class="col s12 m1 l1"></div>
                 </div>
             </div>
-            
-            
+
+
             <div class="row">
-        <div id="admin" class="col s12 m12 l6 ">
-            <div class="card material-table">
-                <div class="table-header">
-                    <span class="table-title">Material Datatable</span>
-                    <div class="actions">
-                        <a href="#add_users" class="modal-trigger waves-effect btn-flat nopadding"><i class="material-icons">person_add</i></a>
-                        <a href="#" class="search-toggle waves-effect btn-flat nopadding"><i class="material-icons">search</i></a>
+                <!--Clientes-->
+                <div id="admin" class="col s12 m12 l4 ">
+                    <div class="card material-table  z-depth-5">
+                        <div class="table-header #ff7043 deep-orange lighten-1">
+                            <span class="table-title white-text">#{msjUsuarios.Clientes}</span>
+                            <div class="actions">
+                                <a href="Editar-cliente.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light"><i class="material-icons white-text">add</i></a>
+                                <a id="email" href="formularioMailCli.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light"><i class="material-icons white-text">message</i></a>
+                                <a id="view" href="Lista_Cliente.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light "><i class="material-icons white-text">visibility</i></a>
+                                <a id="buscar" class="search-toggle btn-small btn-floating btn-large"><i class="material-icons white-text">search</i></a>
+                            </div>
+                        </div>
+                        <table id="tabla1" class="center">
+                          <thead>
+                                <tr>
+                                    <th>#{msjRegistro.Nombres}</th>
+                                    <th>#{msjRegistro.Apellidos}</th>
+                                    <th>#{msjRegistro.Documento}</th>
+                                    <th>#{msjRegistro.Telefono}</th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                <c:forEach var="item" items="#{usuarioControlador.listarClientes()}">
+                                    <tr>
+                                        <h:form>
+                                         
+                                            <td><h:outputText value="#{item.nombre}"/></td>
+                                            <td><h:outputText value="#{item.apellido}"/></td>
+                                            <td><h:outputText value="#{item.documento}"/></td>
+                                            <td><h:outputText value="#{item.telefono}"/></td>
+                                            
+                                        </h:form>
+                                    </tr>
+                                </c:forEach>
+
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <table id="datatable" class="">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
-                        </tr>
-                        <tr>
-                            <td>Garrett Winters</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                            <td>63</td>
-                            <td>2011/07/25</td>
-                            <td>$170,750</td>
-                        </tr>
+                <!--Clientes-->
 
-                    </tbody>
-                </table>
+
+                <!--Bodegista-->
+                <div id="admin" class="col s12 m12 l4 ">
+                    <div class="card material-table z-depth-5 ">
+                        <div class="table-header #0097a7 cyan darken-2">
+                            <span class="table-title white-text">#{msjUsuarios.Bodeguista}</span>
+                            <div class="actions">
+                                <a href="Editar-cliente.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light"><i class="material-icons white-text">add</i></a>
+                                <a id="email" href="formularioMailCli.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light"><i class="material-icons white-text">message</i></a>
+                                <a id="view" href="Lista_Cliente.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light "><i class="material-icons white-text">visibility</i></a>
+                                <a id="buscar" class="search-toggle btn-small btn-floating btn-large"><i class="material-icons white-text">search</i></a>
+                            </div>
+                        </div>
+                        <table id="tabla2" class="">
+                         <thead>
+                                <tr>
+                                    <th>#{msjRegistro.Nombres}</th>
+                                    <th>#{msjRegistro.Apellidos}</th>
+                                    <th>#{msjRegistro.Documento}</th>
+                                    <th>#{msjRegistro.Telefono}</th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                <c:forEach var="item" items="#{usuarioControlador.listarEmpleadosBodeguista()}">
+                                    <tr>
+                                        <h:form>
+                                         
+                                            <td><h:outputText value="#{item.nombre}"/></td>
+                                            <td><h:outputText value="#{item.apellido}"/></td>
+                                            <td><h:outputText value="#{item.documento}"/></td>
+                                            <td><h:outputText value="#{item.telefono}"/></td>
+                                            
+                                        </h:form>
+                                    </tr>
+                                </c:forEach>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--Bodegista-->
+
+
+                <!--Transportista-->
+                <div id="admin" class="col s12 m12 l4 ">
+                    <div class="card material-table z-depth-5 ">
+                        <div class="table-header #43a047 green darken-1">
+                            <span class="table-title white-text">#{msjUsuarios.Transportista}</span>
+                            <div class="actions">
+                                <a href="Editar-cliente.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light"><i class="material-icons white-text">add</i></a>
+                                <a id="email" href="formularioMailCli.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light"><i class="material-icons white-text">message</i></a>
+                                <a id="view" href="Lista_Cliente.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light "><i class="material-icons white-text">visibility</i></a>
+                                <a id="buscar" class="search-toggle btn-small btn-floating btn-large"><i class="material-icons white-text">search</i></a>
+                            </div>
+                        </div>
+                        <table id="tabla3" class="">
+                         <thead>
+                                <tr>
+                                    <th>#{msjRegistro.Nombres}</th>
+                                    <th>#{msjRegistro.Apellidos}</th>
+                                    <th>#{msjRegistro.Documento}</th>
+                                    <th>#{msjRegistro.Telefono}</th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                <c:forEach var="item" items="#{usuarioControlador.listarTransportadores()}">
+                                    <tr>
+                                        <h:form>
+                                         
+                                            <td><h:outputText value="#{item.nombre}"/></td>
+                                            <td><h:outputText value="#{item.apellido}"/></td>
+                                            <td><h:outputText value="#{item.documento}"/></td>
+                                            <td><h:outputText value="#{item.telefono}"/></td>
+                                            
+                                        </h:form>
+                                    </tr>
+                                </c:forEach>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--Transportista-->
+
+
             </div>
-        </div>
-    </div>
-
-
-            <h:form>
-                <div class="row">
-                    <!--Clientes-->
-                    <div class="col s12 m4 l12">
-                        <div class="z-depth-5 card">
-                            <div class="card-content">
-                                <a href="Editar-cliente.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">add</i></a>
-                                <a id="email" href="formularioMailCli.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">message</i></a>
-                                <a id="view" href="Lista_Cliente.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">visibility</i></a>
-                                <span id="tamaño" class="card-title">#{msjUsuarios.Clientes}</span>
-                                <div class="listadousers">
-                                    <table id="Cliente" class=" display center-align" >
-                                        <thead>
-                                            <tr>
-
-                                                <th>Noombre</th> 
-                                                <th>Apellido</th>
-                                                <th>Documento</th>
-                                                <th>telefono</th>
-                                            </tr>
-
-                                        </thead>
-                                        <tbody>
-                                            <c:forEach var="item" items="#{pedidoControlador.listarPedidos()}">
-                                                <tr>
-                                                    <h:form>
-                                                        <td><h:outputText value="#{item.subtotal}"/></td>
-                                                        <td><h:outputText value="#{item.subtotal}"/></td>
-                                                        <td><h:outputText value="#{item.subtotal}"/></td>   
-                                                        <td><h:outputText value="#{item.total}"/></td>
-                                                    </h:form>
-                                                </tr>
-                                            </c:forEach>
-
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Clientes-->
-
-                    <!--Bodegista-->
-                    <div class="col s12 m4 l6">
-                        <div class="z-depth-5 card #0097a7 cyan darken-2">
-                            <div class="card-content">
-                                <a href="Crear-empleado.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">add</i></a>
-                                <a id="email" href="formularioMailCli.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">message</i></a>
-                                <a id="view" href="Lista_Bodeguista.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">visibility</i></a>
-                                <span id="tamaño" class=" white-text sizetit card-title">#{msjUsuarios.Bodeguista}</span>
-                                <div class="listadousers">
-
-                                    <table id="Bodeguista" class=" display center-align" >
-                                        <thead>
-                                            <tr>
-
-                                                <th>Noombre</th> 
-                                                <th>Apellido</th>
-                                                <th>Documento</th>
-                                                <th>telefono</th>
-                                            </tr>
-
-                                        </thead>
-                                        <tbody>
-                                            <c:forEach var="item" items="#{pedidoControlador.listarPedidos()}">
-                                                <tr>
-                                                    <h:form>
-                                                        <td><h:outputText value="#{item.subtotal}"/></td>
-                                                        <td><h:outputText value="#{item.subtotal}"/></td>
-                                                        <td><h:outputText value="#{item.subtotal}"/></td>   
-                                                        <td><h:outputText value="#{item.total}"/></td>
-                                                    </h:form>
-                                                </tr>
-                                            </c:forEach>
-
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Bodeguista-->
-
-                    <!--Transportista-->
-                    <div class="col s12 m4 l6">
-                        <div class="z-depth-5 card #43a047 green darken-1">
-                            <div class="card-content">
-                                <a  href="Crear-Transportista.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">add</i></a>
-                                <a id="email" href="formularioMailCli.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">message</i></a>
-                                <a id="view" href="Lista_Transportista.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">visibility</i></a>
-                                <span id="tamaño" class="white-text card-title">#{msjUsuarios.Transportista}</span>
-                                <div class="listadousers">
+           
 
 
 
 
-                                </div>  
-                            </div>
-                        </div>
-                    </div>
-                    <!--Transportista-->
-                </div>
 
-
-                <!-- Dropdown Structure -->
-                <ul id='dropdown1' class='dropdown-content'>
-                    <li><a href="#!">one</a></li>
-                    <li><a href="#!">two</a></li>
-                    <li class="divider" tabindex="-1"></li>
-                    <li><a href="#!">three</a></li>
-                    <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-                    <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
-                </ul>
-
-
-
-
-            </h:form>
 
 
 
@@ -231,20 +202,23 @@
             <script  src="../../JS/scriptsTablas.js"></script>
             <script>
                 $(document).ready(function () {
-                    $('#Cliente').DataTable();
+                    $('#tabla1').DataTable();
                 });
 
                 $(document).ready(function () {
-                    $('#Bodeguista').DataTable();
+                    $('#tabla2').DataTable();
                 });
 
+
                 $(document).ready(function () {
-                    $('#Transportista').DataTable();
+                    $('#tabla3').DataTable();
                 });
+
+
             </script>    
             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
             <script src="../../JS/Scripts-usuarios.js"></script>
         </h:body>
     </f:view>

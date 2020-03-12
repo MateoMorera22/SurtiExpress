@@ -31,27 +31,31 @@ body{
     border-radius: 10px;
 }
 
-.btn-floating{
-    bottom: 15px;
-    left: 15px;
-    margin-left: 10px;
+#marcas{
     background-color: #283593 ;
 }
 
-.btn-floating:hover{
+#marcas:hover{
     background: #cddc39;
 }
 
 #addproducto{
-    bottom: 15px;
-    left: 15px;
-    margin-left: 10px;
     background-color: #bf360c;
 }
 
 #addproducto:hover{
     background: #4caf50 ;
 }
+
+#buscar{
+    background-color: #455a64;
+}
+
+
+#buscar:hover{
+    background-color: #ff7043 ;
+}
+
 
 .nav-wrapper a i{
     font-size: 35px;

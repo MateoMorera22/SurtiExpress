@@ -40,9 +40,10 @@ div.material-table .table-header .actions {
     margin-left: auto;
 }
 
-div.material-table .table-header .btn-flat {
-    min-width: 36px;
-    padding: 0 8px;
+div.material-table .table-header .btn-floating {
+    min-width: 3px;
+    margin-left: 12px;
+    margin-top: 2px;
 }
 
 div.material-table .table-header input {
@@ -52,7 +53,7 @@ div.material-table .table-header input {
 
 div.material-table .table-header i {
     color: rgba(0, 0, 0, 0.54);
-    font-size: 24px;
+    font-size: 18px;
 }
 
 div.material-table .table-footer {
@@ -81,9 +82,6 @@ div.material-table .table-footer label {
     color: rgba(0, 0, 0, 0.54);
     display: -webkit-flex;
     display: flex;
-    -webkit-flex-direction: row
-    /* works with row or column */
-    flex-direction: row;
     -webkit-align-items: center;
     align-items: center;
     -webkit-justify-content: center;
@@ -93,9 +91,6 @@ div.material-table .table-footer label {
 div.material-table .table-footer .select-wrapper {
     display: -webkit-flex;
     display: flex;
-    -webkit-flex-direction: row
-    /* works with row or column */
-    flex-direction: row;
     -webkit-align-items: center;
     align-items: center;
     -webkit-justify-content: center;
@@ -114,7 +109,7 @@ div.material-table .table-footer .material-pagination {
 }
 
 div.material-table .table-footer .material-pagination li:first-child {
-    margin-right: 24px;
+    margin-right: 40px;
 }
 
 div.material-table .table-footer .material-pagination li a {
@@ -147,14 +142,11 @@ div.material-table .table-title {
 }
 
 div.material-table table tr td {
-    padding: 0 0 0 56px;
     height: 48px;
-    font-size: 13px;
+    font-size: 12px;
     color: rgba(0, 0, 0, 0.87);
     border-bottom: solid 1px #DDDDDD;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+   
 }
 
 div.material-table table tr td a {
@@ -168,19 +160,6 @@ div.material-table table tr td a i {
 
 div.material-table table tr {
     font-size: 12px;
-}
-
-div.material-table table th {
-    font-size: 12px;
-    font-weight: 500;
-    color: #757575;
-    cursor: pointer;
-    white-space: nowrap;
-    padding: 0;
-    height: 56px;
-    padding-left: 56px;
-    vertical-align: middle;
-    outline: none !important;
 }
 
 div.material-table table th.sorting_asc,
