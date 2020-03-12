@@ -7,12 +7,13 @@ import Entidades.Tarea;
 import Entidades.Tipodocumento;
 import Entidades.Vehiculo;
 import Entidades.Zona;
+import java.math.BigInteger;
 import javax.annotation.Generated;
 import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2020-02-04T17:45:39")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2020-03-12T08:27:04")
 @StaticMetamodel(Usuario.class)
 public class Usuario_ { 
 
@@ -33,6 +34,6 @@ public class Usuario_ {
     public static volatile SingularAttribute<Usuario, Tipodocumento> idTipoDocumento;
     public static volatile SingularAttribute<Usuario, String> contrasena;
     public static volatile SingularAttribute<Usuario, Zona> idZona;
-    public static volatile SingularAttribute<Usuario, Integer> telefono;
+    public static volatile SingularAttribute<Usuario, BigInteger> telefono;
 
 }

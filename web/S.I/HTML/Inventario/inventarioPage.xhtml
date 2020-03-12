@@ -37,6 +37,7 @@
                 <div id="admin" class="col s12 m12 l12 ">
                     <div class="card material-table  z-depth-5">
                         <div class="table-header #546e7a blue-grey darken-1">
+                            <span class="table-title white-text">#{msjInventario.marcas}</span> 
                             <div class="actions">
                                 <a id="marcas" class="tooltipped btn-small btn-floating btn-large waves-effect waves-light right"  data-position="bottom" data-tooltip="#{msjInventario.PanelMarcas}"  href="marcas.xhtml"><i class="material-icons white-text">playlist_add</i></a>
                                 <a id="addproducto"  href="crear-producto.xhtml" class="tooltipped btn-small btn-floating btn-large waves-effect waves-light right" data-position="top" data-tooltip="#{msjInventario.Crearproductos}"><i class="material-icons white-text">category</i></a>	
@@ -48,7 +49,7 @@
                                 <tr>
                                     <th>#{msjInventario.ID_producto}</th>
                                     <th>#{msjInventario.Nombre_producto}</th>
-                                    <th>#{msjInventario.Description}</th>
+                                    <th>#{msjInventario.Description}</th>   
                                     <th>#{msjInventario.Cantidad}</th>
                                     <th>#{msjInventario.PrecioBruto}</th>
                                     <th>#{msjInventario.Iva}</th>
@@ -80,18 +81,18 @@
                                             <td><h:commandLink class="waves-effect waves-light btn #ef5350 #43a047 green darken-1"  action="#{productoControlador.preEditar(item)}">
                                                     <i class="material-icons">edit</i></h:commandLink>  </td>
                                             <td><h:commandLink class="waves-effect waves-light btn #941e1e red darken-3"  action="#{productoControlador.eliminarProducto(item)}">
-                                                <i class="material-icons">delete_forever</i></h:commandLink></td>
-                                             <td>  <div class="hide">
-                                            <h:selectOneMenu  id="idEstadoProducto2" value="#{productoControlador.estadoproducto.idEstadoProducto}" >
-                                                <!-- TODO: update below reference to list of available items-->
-                                                <f:selectItems value="#{estadoProductoControlador.listarEstadoProducto()}" var="estp" itemLabel="#{estp.estadoProducto}" itemValue="1"/>
-                                            </h:selectOneMenu>
-                                            </div>
-                                            <f:facet name="header">
-                                                <h:outputText value="#{msjInventario.Bloquear}"/>
-                                            </f:facet>
-                                            <h:commandLink class="waves-effect waves-light btn #616161 grey darken-2"   action="#{productoControlador.editarEstado(item)}">
-                                                <i class="material-icons">block</i></h:commandLink></td>
+                                                    <i class="material-icons">delete_forever</i></h:commandLink></td>
+                                            <td>  <div class="hide">
+                                                    <h:selectOneMenu  id="idEstadoProducto2" value="#{productoControlador.estadoproducto.idEstadoProducto}" >
+                                                        <!-- TODO: update below reference to list of available items-->
+                                                        <f:selectItems value="#{estadoProductoControlador.listarEstadoProducto()}" var="estp" itemLabel="#{estp.estadoProducto}" itemValue="1"/>
+                                                    </h:selectOneMenu>
+                                                </div>
+                                                <f:facet name="header">
+                                                    <h:outputText value="#{msjInventario.Bloquear}"/>
+                                                </f:facet>
+                                                <h:commandLink class="waves-effect waves-light btn #616161 grey darken-2"   action="#{productoControlador.editarEstado(item)}">
+                                                    <i class="material-icons">block</i></h:commandLink></td>
 
 
 
