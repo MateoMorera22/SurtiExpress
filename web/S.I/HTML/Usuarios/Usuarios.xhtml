@@ -70,7 +70,7 @@
                             </div>
                         </div>
                         <table id="tabla1" class="center">
-                          <thead>
+                            <thead>
                                 <tr>
                                     <th>#{msjRegistro.Nombres}</th>
                                     <th>#{msjRegistro.Apellidos}</th>
@@ -83,12 +83,11 @@
                                 <c:forEach var="item" items="#{usuarioControlador.listarClientes()}">
                                     <tr>
                                         <h:form>
-                                         
+
                                             <td><h:outputText value="#{item.nombre}"/></td>
                                             <td><h:outputText value="#{item.apellido}"/></td>
                                             <td><h:outputText value="#{item.documento}"/></td>
                                             <td><h:outputText value="#{item.telefono}"/></td>
-                                            
                                         </h:form>
                                     </tr>
                                 </c:forEach>
@@ -113,7 +112,7 @@
                             </div>
                         </div>
                         <table id="tabla2" class="">
-                         <thead>
+                            <thead>
                                 <tr>
                                     <th>#{msjRegistro.Nombres}</th>
                                     <th>#{msjRegistro.Apellidos}</th>
@@ -126,12 +125,12 @@
                                 <c:forEach var="item" items="#{usuarioControlador.listarEmpleadosBodeguista()}">
                                     <tr>
                                         <h:form>
-                                         
+
                                             <td><h:outputText value="#{item.nombre}"/></td>
                                             <td><h:outputText value="#{item.apellido}"/></td>
                                             <td><h:outputText value="#{item.documento}"/></td>
                                             <td><h:outputText value="#{item.telefono}"/></td>
-                                            
+
                                         </h:form>
                                     </tr>
                                 </c:forEach>
@@ -156,7 +155,7 @@
                             </div>
                         </div>
                         <table id="tabla3" class="">
-                         <thead>
+                            <thead>
                                 <tr>
                                     <th>#{msjRegistro.Nombres}</th>
                                     <th>#{msjRegistro.Apellidos}</th>
@@ -169,12 +168,12 @@
                                 <c:forEach var="item" items="#{usuarioControlador.listarTransportadores()}">
                                     <tr>
                                         <h:form>
-                                         
+
                                             <td><h:outputText value="#{item.nombre}"/></td>
                                             <td><h:outputText value="#{item.apellido}"/></td>
                                             <td><h:outputText value="#{item.documento}"/></td>
                                             <td><h:outputText value="#{item.telefono}"/></td>
-                                            
+
                                         </h:form>
                                     </tr>
                                 </c:forEach>
@@ -187,7 +186,7 @@
 
 
             </div>
-           
+
 
 
 
