@@ -122,10 +122,12 @@ public class usuarioControlador implements Serializable {
         rol = new Rol();
     }
 
-    public void registrarUsuarioEmpleado() {
+    public void registrarUsuarioEmpleado() throws UnsupportedEncodingException{
         usuario.setIdRol(rolFacade.find(rol.getIdRol()));
         usuario.setIdTipoDocumento(tipodocumentoFacade.find(tipodocumento.getIdTipoDocumento()));
+        String mensaje="Su usuario es el siguiente:" + usuario.getCorreo() +"Su contraseña es:"+ usuario.getContrasena();
         usuarioFacade.create(usuario);
+        Mailer.send(usuario.getCorreo(),"Usted se A registrado satisfactoriamente en SurtiExpress", mensaje);
         usuario = new Usuario();
         vehiculo = new Vehiculo();
         tipodocumento = new Tipodocumento();
@@ -133,10 +135,12 @@ public class usuarioControlador implements Serializable {
         rol = new Rol();
     }
 
-    public void registrarUsuarioTransportador() {
+    public void registrarUsuarioTransportador() throws UnsupportedEncodingException{
         usuario.setIdRol(rolFacade.find(rol.getIdRol()));
         usuario.setIdTipoDocumento(tipodocumentoFacade.find(tipodocumento.getIdTipoDocumento()));
+        String mensaje="Su usuario es el siguiente:" + usuario.getCorreo() +"Su contraseña es:"+ usuario.getContrasena();
         vehiculoFacade.create(vehiculo);
+        Mailer.send(usuario.getCorreo(),"Usted se A registrado satisfactoriamente en SurtiExpress", mensaje);
         usuario.setIdVehiculo(vehiculoFacade.find(vehiculo.getIdVehiculo()));
         usuarioFacade.create(usuario);
         usuario = new Usuario();
