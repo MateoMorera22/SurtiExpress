@@ -62,7 +62,7 @@
                         <div class="table-header #ff7043 deep-orange lighten-1">
                             <span class="table-title white-text">#{msjUsuarios.Clientes}</span>
                             <div class="actions">
-                                <a href="Editar-cliente.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light"><i class="material-icons white-text">add</i></a>
+                                <a href="crear_cliente.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light"><i class="material-icons white-text">add</i></a>
                                 <a id="email" href="formularioMailCli.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light"><i class="material-icons white-text">message</i></a>
                                 <a id="view" href="Lista_Cliente.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light "><i class="material-icons white-text">visibility</i></a>
                                 <a id="buscar" class="search-toggle btn-small btn-floating btn-large"><i class="material-icons white-text">search</i></a>
@@ -77,7 +77,6 @@
                                     <th>#{msjRegistro.Documento}</th>
                                     <th>#{msjRegistro.Telefono}</th>
                                     <th>#{msjRegistro.Correo_electronico}</th>
-                                    <th>#{msjRegistro.Contraseña}</th>
                                     <th>#{msjRegistro.Razon_social}</th>
                                     <th>#{msjRegistro.RUT}</th>
                                     <th>#{msjInventario.Eliminar}</th>
@@ -95,11 +94,10 @@
                                             <td><h:outputText value="#{item.documento}"/></td>
                                             <td><h:outputText value="#{item.telefono}"/></td>
                                             <td><h:outputText value="#{item.correo}"/></td>
-                                            <td><h:outputText value="#{item.contrasena}"/></td>
                                             <td><h:outputText value="#{item.razonSocial}"/></td>
                                             <td><h:outputText value="#{item.rut}"/></td>
                                             <td><h:commandLink class="waves-effect waves-light btn #ef5350 red lighten-1" action="#{usuarioControlador.eliminarUsuarios(item)}" ><i class="material-icons">delete</i></h:commandLink></td>
-                                            <td><h:commandLink class="waves-effect waves-light btn #ef5350 #43a047 green darken-1"  action="#{usuarioControlador.preEditarUsuario(item)}">
+                                            <td><h:commandLink class="waves-effect waves-light btn #ef5350 #43a047 green darken-1"  action="#{usuarioControlador.preEditarCliente(item)}">
                                                     <i class="material-icons">edit</i></h:commandLink></td>
                                         </h:form>
                                     </tr>

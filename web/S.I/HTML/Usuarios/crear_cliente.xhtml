@@ -15,14 +15,14 @@
         </head>
 
         <h:body>
-                       <h:form id="formulario">
+            <h:form id="formulario">
                 <a href="olvido-contraseña.html"></a>
                 <div class="row ">
                     <div class="col s0 m1 l2"></div>
                     <div class="col s12 m8 l8">
                         <div class="card z-depth-5">
                             <div class="card-content">
-                                <span id="titulo" class="center card-title">#{msjInventario.Editar}</span>
+                                <span id="titulo" class="center card-title">#{msjUsuarios.Crear}</span>
                                 <div class="formularios">
                                     <div class="row">
 
@@ -193,9 +193,9 @@
                                 </div>
                             </div>
                             <div class="card-action">
-                                <h:commandLink class="#388e3c green darken-2 darken-1 btn waves-effect waves-light "  action="#{usuarioControlador.editarUsuarioCliente()}">#{msjInventario.Editar}
-                                    <i class="material-icons right ">edit</i></h:commandLink>
-                                    <a  href="Lista_Cliente.xhtml" class="waves-effect waves-light btn #ef5350 red lighten-1"><i class="material-icons right">cancel</i>#{msjRegistro.Cancelar}</a>
+                                <h:commandLink  class="#5e35b1 deep-purple darken-1 btn waves-effect waves-light" action="#{usuarioControlador.registrarUsuarioCliente()}" >#{msjIndex.Registrarse}
+                                    <i class="material-icons right">group_add</i></h:commandLink>
+                                    <a  href="Usuarios.xhtml" class="waves-effect waves-light btn #ef5350 red lighten-1"><i class="material-icons right">cancel</i>#{msjRegistro.Cancelar}</a>
                             </div>
                         </div>
                     </div>

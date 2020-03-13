@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -198,7 +198,16 @@ public class usuarioControlador implements Serializable {
         return usuarioFacade.findAll();
     }
 
-    public String preEditarUsuario(Usuario usuario) {
+    public String preEditarCliente(Usuario usuario) {
+        this.usuario = usuario;
+        this.rol = usuario.getIdRol();
+        this.tipodocumento = usuario.getIdTipoDocumento();
+        this.zona = usuario.getIdZona();
+        this.vehiculo = usuario.getIdVehiculo();
+        return "Editar-cliente";
+    }
+    
+      public String preEditarTransportador(Usuario usuario) {
         this.usuario = usuario;
         this.rol = usuario.getIdRol();
         this.tipodocumento = usuario.getIdTipoDocumento();
@@ -206,6 +215,17 @@ public class usuarioControlador implements Serializable {
         this.vehiculo = usuario.getIdVehiculo();
         return "editarUsuario";
     }
+
+      
+        public String preEditarBodeguista(Usuario usuario) {
+        this.usuario = usuario;
+        this.rol = usuario.getIdRol();
+        this.tipodocumento = usuario.getIdTipoDocumento();
+        this.zona = usuario.getIdZona();
+        this.vehiculo = usuario.getIdVehiculo();
+        return "editarUsuario";
+    }
+
 
     public String editarUsuarioCliente() {
         usuario.setIdRol(rolFacade.find(rol.getIdRol()));
