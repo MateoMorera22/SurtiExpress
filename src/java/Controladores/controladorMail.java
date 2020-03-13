@@ -97,7 +97,7 @@ public class controladorMail {
 
         List<Usuario> listaUsuarios = usuarioFacade.findAll();
         for (Usuario usuario : listaUsuarios) {
-            if (usuario.getIdRol().getIdRol() == 1) {
+            if (usuario.getIdRol().getIdRol() == 2) {
                 destinatario = "";
                 destinatario = usuario.getCorreo();
                 Mailer.send(destinatario, asunto, mensajeConEstilo());
@@ -112,7 +112,7 @@ public class controladorMail {
 
         List<Usuario> listaUsuarios = usuarioFacade.findAll();
         for (Usuario usuario : listaUsuarios) {
-            if (usuario.getIdRol().getIdRol() == 3) {
+            if (usuario.getIdRol().getIdRol() == 4) {
                 destinatario = usuario.getCorreo();
                 Mailer.send(destinatario, asunto, mensajeConEstilo());
             }
@@ -125,7 +125,7 @@ public class controladorMail {
 
         List<Usuario> listaUsuarios = usuarioFacade.findAll();
         for (Usuario usuario : listaUsuarios) {
-            if (usuario.getIdRol().getIdRol() == 2) {
+            if (usuario.getIdRol().getIdRol() == 3) {
                 destinatario = usuario.getCorreo();
                 Mailer.send(destinatario, asunto, mensajeConEstilo());
             }
