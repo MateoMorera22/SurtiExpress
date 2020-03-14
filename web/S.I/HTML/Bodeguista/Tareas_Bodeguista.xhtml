@@ -60,10 +60,10 @@
                             <a href="crear-tarea.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">rate_review</i></a>
                             <span class="white-text card-title">#{msjTareas.Listado_Bodeguistas}</span>
                             <div class="content">
-                                <c:forEach items="#{usuarioControlador.listarBode()}" var="item">
+                                <c:forEach var="item" items="#{usuarioControlador.listarClientes()}">
                                     <ul class=" white collapsible">
                                         <li>
-                                            <div class="collapsible-header"><div class="nombres"><i class="left material-icons">face</i><span id="names"><h:outputText value="#{item.nombres}"/> &nbsp; <h:outputText value="#{item.apellidos}"/> </span></div></div>
+                                            <div class="collapsible-header"><div class="nombres"><i class="left material-icons">face</i><span id="names"><h:outputText value="#{item.nombre}"/> &nbsp; <h:outputText value="#{item.apellido}"/> </span></div></div>
                                             <div class="collapsible-body"><span>#{msjRegistro.Numero_documento}: <h:outputText value="#{item.documento}"/></span> <br></br>  <span>#{msjRegistro.Correo_electronico}: <h:outputText value="#{item.correo}"/></span> <br></br> <span>#{msjRegistro.Telefono}: <h:outputText value="#{item.telefono}"/></span></div>
                                         </li>
                                     </ul>
@@ -77,34 +77,7 @@
                         <div class="card-content Bodeguistas">
                             <span class="card-title">#{msjTareas.Tareas_asignadas}</span>
                             <div class="content">
-                                <c:forEach items="#{tareaControlador.listarTareas()}" var="item">
-                                    <ul class="collapsible">
-                                        <li>
-                                            <div id="header" class="collapsible-header"><div class="nombres"><i class="left material-icons">assignment_ind</i><span id="names">#{msjTareas.Asignados_Bodeguistas} <h:outputText value="#{item.usuarioIdUsuario.nombres}"/> &nbsp; <h:outputText value="#{item.usuarioIdUsuario.apellidos}"/> </span></div></div>
-                                            <div class="collapsible-body">
-
-
-                                                <div class="row">
-                                                    <div class="col s12 m12 l12">
-                                                        <div class="card blue-grey darken-1">
-                                                            <div class="card-content white-text">
-                                                                <h:form>
-                                                                    <h:commandLink class="btn-small btn-floating waves-effect waves-light #ef5350 red lighten-1 right" action="#{tareaControlador.eliminarTarea(item)}" > <i class="material-icons">delete</i></h:commandLink>
-                                                                    <h:commandLink class="btn-small btn-floating waves-effect waves-light #43a047 green darken-1 right" action="#{tareaControlador.preEditarTarea(item)}" > <i class="material-icons">edit</i></h:commandLink>
-                                                                </h:form>
-
-                                                                <span class="card-title">#{msjcrearTarea.Contenido}</span>
-                                                                <p id="fecha">#{msjcrearTarea.Fecha_realizacion}: <h:outputText value="#{item.fechaCreacion}"/></p>
-                                                                <p><h:outputText value="#{item.descripcion}"/> </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </c:forEach>
+                           
                             </div>
                         </div>
                     </div>
