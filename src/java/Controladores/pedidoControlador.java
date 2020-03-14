@@ -178,7 +178,6 @@ public class pedidoControlador implements Serializable {
     }
 
     public String preEditarPedido(Pedido pedido) {
-        this.producto = producto;
         this.estadoPedido = pedido.getIdEstadoPedido();
         this.usuario = pedido.getIdUsuario();
         return "editar-pedidos";

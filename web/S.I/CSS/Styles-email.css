@@ -1,0 +1,44 @@
+body{
+    background-image: url(../../IMG/Mosaico.jpg)
+}
+
+
+
+
+@media (min-width: 50px) and (max-width: 575px) {
+    .card{
+        border-radius: 10px;
+    }
+
+
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .card{
+        border-radius: 10px;
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .card{
+        margin-top: 180px;
+        border-radius: 10px;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .card{
+        margin-top: 180px;  
+        border-radius: 10px;
+    }
+
+
+}
+
+
+
+
+
+

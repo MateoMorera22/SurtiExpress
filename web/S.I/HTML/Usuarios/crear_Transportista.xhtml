@@ -15,14 +15,14 @@
         </head>
 
         <h:body>
-                       <h:form id="formulario">
+            <h:form id="formulario">
                 <a href="olvido-contraseña.html"></a>
                 <div class="row ">
                     <div class="col s0 m1 l2"></div>
                     <div class="col s12 m8 l8">
                         <div class="card z-depth-5">
                             <div class="card-content">
-                                <span id="titulo" class="center card-title">#{msjUsuarios.Editar_Cliente}</span>
+                                <span id="titulo" class="center card-title">#{msjUsuarios.Crear_Transportista} </span>
                                 <div class="formularios">
                                     <div class="row">
 
@@ -54,6 +54,20 @@
                                         </div>
                                         <!--Formulario de apellido-->
 
+
+                                        <!--Telefono-->
+                                        <div class="col s12 m12 l4">
+                                            <div class="input-field">
+                                                <h:inputText id="teléfono" value="#{usuarioControlador.usuario.telefono}" title="Contraseña" >
+                                                    <f:validateLength for="contraseña" minimum="6" maximum="11"/>
+                                                </h:inputText>
+                                                <label for="first_name">#{msjRegistro.Telefono}</label>
+                                                <span class="helper-text" data-error="Inserte un Teléfono valido"
+                                                      data-success="✓"></span>
+                                            </div>
+                                        </div>
+                                        <!--Teléfono-->
+
                                         <!--Documento-->
                                         <div class="col s12 m12 l1">
                                             <div class="input-field">
@@ -79,21 +93,8 @@
                                         </div>
                                         <!--Numero de documento-->
 
-                                        <!--Formulario razon social-->
-                                        <div class="col s12 m12 l6">
-                                            <div class="input-field">
-                                                <h:inputText id="razonsocial" value="#{usuarioControlador.usuario.razonSocial}" title="Razonsocial" required="true" requiredMessage="Inserte una razón social valida">
-                                                    <f:validateLength for="razonsocial" maximum="100"/>
-                                                </h:inputText>
-                                                <label for="first_name">#{msjRegistro.Razon_social}</label>
-                                                <span class="helper-text" data-error="Inserte un nombre valido"
-                                                      data-success="✓"></span>
-                                            </div>
-                                        </div>
-                                        <!--Formulario razon social-->
-
                                         <!--Formulario correo electronico-->
-                                        <div class="col s12 m12 l6">
+                                        <div class="col s12 m12 l4">
                                             <div class="input-field">
                                                 <h:inputText id="correo" value="#{usuarioControlador.usuario.correo}" required="true" title="Correo" requiredMessage="Inserte un correo valido">
                                                     <f:validateRegex for="correo" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"/>
@@ -104,75 +105,72 @@
                                             </div>
                                         </div>
                                         <!--Formulario correo electronico-->
-
-                                        <!--Formulario direccion-->
+                                        
+                                        
+                                        <!--Contraseña-->
                                         <div class="col s12 m12 l4">
                                             <div class="input-field">
-                                                <h:inputText id="direccion" value="#{usuarioControlador.usuario.direccion}" title="Direccion" required="true" requiredMessage="Inserte una direccion valida">
+                                                <h:inputSecret id="contraseña" value="#{usuarioControlador.usuario.contrasena}" title="Contraseña" required="true" requiredMessage="Ingrese una contraseña.">
+                                                    <f:validateLength for="contraseña" minimum="6" maximum="18"/>
+                                                </h:inputSecret>
+                                                <label for="first_name">#{msjRegistro.Contraseña}</label>
+                                                <span class="helper-text" data-error="Ingrese una contraseña valida"
+                                                      data-success="✓"></span>
+                                            </div>
+                                        </div>
+                                        <!--contraseña-->
+
+
+
+
+                                        <span id="titulo" class="center card-title small">#{msjUsuarios.Datos_Vehiculo}</span>
+
+                                        <!--Formulario Color -->
+                                        <div class="col s12 m12 l4">
+                                            <div class="input-field">
+                                                <h:inputText id="razonsocial" value="#{usuarioControlador.vehiculo.color}" title="Color" required="true" requiredMessage="Inserte una razón social valida">
+                                                    <f:validateLength for="razonsocial" maximum="100"/>
+                                                </h:inputText>
+                                                <label for="first_name">#{msjUsuarios.ColorVehiculo}</label>
+                                                <span class="helper-text" data-error="Inserte un nombre valido"
+                                                      data-success="✓"></span>
+                                            </div>
+                                        </div>
+                                        <!--Formulario color-->
+
+
+                                        <!--Formulario marca-->
+                                        <div class="col s12 m12 l4">
+                                            <div class="input-field">
+                                                <h:inputText id="direccion" value="#{usuarioControlador.vehiculo.marca}" title="marca" required="true" requiredMessage="Inserte una direccion valida">
                                                     <f:validateLength for="direccion" maximum="100"/>
                                                 </h:inputText>
-                                                <label for="first_name">#{msjRegistro.Dirección}</label>
+                                                <label for="first_name">#{msjUsuarios.Marca}</label>
                                                 <span class="helper-text" data-error="Ingrese una dirección valida"
                                                       data-success="✓"></span>
                                             </div>
                                         </div>
-                                        <!--Formulario direccion-->
+                                        <!--Formulario marca-->
 
-                                        <!--Formulario barrio-->
+                                        <!--Formulario Placa-->
                                         <div class="col s12 m12 l4">
                                             <div class="input-field">
-                                                <h:inputText id="barrio" value="#{usuarioControlador.usuario.barrio}" title="Barrio" required="true" requiredMessage="Inserte un barrio valido">
+                                                <h:inputText id="barrio" value="#{usuarioControlador.vehiculo.placa}" title="placa" required="true" requiredMessage="Inserte un barrio valido">
                                                     <f:validateLength for="barrio" maximum="100"/>
                                                 </h:inputText>                                                   
-                                                <label for="first_name">#{msjRegistro.Barrio}</label>
+                                                <label for="first_name">#{msjUsuarios.Placa}</label>
                                                 <span class="helper-text" data-error="Ingrese un barrio valido"
                                                       data-success=" ✓"></span>
                                             </div>
                                         </div>
-                                        <!--Formulario barrio-->
+                                        <!--Formulario Placa-->
 
-                                        <!--RUT-->
-                                        <div class="col s12 m12 l4">
-                                            <div class="input-field">
-                                                <h:inputText id="rut" value="#{usuarioControlador.usuario.rut}" title="Rut" required="true" requiredMessage="Inserte un RUT valido">
-                                                    <f:validateLength minimum="9" maximum="9" />
-                                                </h:inputText>
-                                                <label for="last_name">#{msjRegistro.RUT}</label>
-                                                <span class="helper-text" data-error="Inserte un RUT valido" data-success="✓"></span>
-                                            </div>
-                                        </div>
-                                        <!--RUT-->
-
-                                        <!--Telefono-->
-                                        <div class="col s12 m12 l6">
-                                            <div class="input-field">
-                                                <h:inputText id="teléfono" value="#{usuarioControlador.usuario.telefono}" title="Contraseña" >
-                                                    <f:validateLength for="contraseña" minimum="6" maximum="11"/>
-                                                </h:inputText>
-                                                <label for="first_name">#{msjRegistro.Telefono}</label>
-                                                <span class="helper-text" data-error="Inserte un Teléfono valido"
-                                                      data-success="✓"></span>
-                                            </div>
-                                        </div>
-                                        <!--Teléfono-->
-
-                                        <!--Zona-->
-                                        <div class="col s12 m12 l6">
-                                            <div class="input-field">
-                                                <h:selectOneMenu id="idZona1" value="#{usuarioControlador.zona.idZona}" title="Zona"  required="true" requiredMessage="Seleccione una zona">
-                                                    <!-- TODO: update below reference to list of available items-->
-                                                    <f:selectItems value="#{zonaControlador.listarZonas()}" var="zon" itemLabel="#{zon.zona}" itemValue="#{zon.idZona}"/>
-                                                </h:selectOneMenu>
-                                                <label>#{msjUsuarios.Zona}</label>
-                                            </div>
-                                        </div>
-                                        <!--Documento-->
 
                                         <!--ROL-->
                                         <div class='hide'>
                                             <h:selectOneMenu id="rolIdRol" value="#{usuarioControlador.rol.idRol}" title="RolIdRol" >
                                                 <!-- TODO: update below reference to list of available items-->
-                                                <f:selectItems value="#{rolControlador.listarRoles()}" var="rol" itemValue="2" />
+                                                <f:selectItems value="#{rolControlador.listarRoles()}" var="rol" itemValue="3" />
                                             </h:selectOneMenu>
                                         </div>
                                         <!--ROL-->
@@ -180,9 +178,9 @@
                                 </div>
                             </div>
                             <div class="card-action">
-                                <h:commandLink class="#388e3c green darken-2 darken-1 btn waves-effect waves-light "  action="#{usuarioControlador.editarUsuarioCliente()}">#{msjInventario.Editar}
-                                    <i class="material-icons right ">edit</i></h:commandLink>
-                                    <a  href="Lista_Cliente.xhtml" class="waves-effect waves-light btn #ef5350 red lighten-1"><i class="material-icons right">cancel</i>#{msjRegistro.Cancelar}</a>
+                                <h:commandLink  class="#5e35b1 deep-purple darken-1 btn waves-effect waves-light" action="#{usuarioControlador.registrarUsuarioTransportador()}" >#{msjUsuarios.Crear_Transportista}
+                                    <i class="material-icons right">group_add</i></h:commandLink>
+                                <a  href="Usuarios.xhtml" class="waves-effect waves-light btn #ef5350 red lighten-1"><i class="material-icons right">cancel</i>#{msjRegistro.Cancelar}</a>
                             </div>
                         </div>
                     </div>

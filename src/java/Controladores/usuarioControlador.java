@@ -215,9 +215,8 @@ public class usuarioControlador implements Serializable {
         this.usuario = usuario;
         this.rol = usuario.getIdRol();
         this.tipodocumento = usuario.getIdTipoDocumento();
-        this.zona = usuario.getIdZona();
         this.vehiculo = usuario.getIdVehiculo();
-        return "editarUsuario";
+        return "Editar_transportista";
     }
 
       
@@ -227,7 +226,7 @@ public class usuarioControlador implements Serializable {
         this.tipodocumento = usuario.getIdTipoDocumento();
         this.zona = usuario.getIdZona();
         this.vehiculo = usuario.getIdVehiculo();
-        return "editarUsuario";
+        return "Editar-bodeguista";
     }
 
 
@@ -236,17 +235,26 @@ public class usuarioControlador implements Serializable {
         usuario.setIdTipoDocumento(tipodocumentoFacade.find(tipodocumento.getIdTipoDocumento()));
         usuario.setIdZona(zonaFacade.find(zona.getIdZona()));
         usuarioFacade.edit(usuario);
-        return "usuarioPage";
+        return "Lista_Cliente";
     }
     public String editarUsuarioTransportador() {
         usuario.setIdRol(rolFacade.find(rol.getIdRol()));
         usuario.setIdTipoDocumento(tipodocumentoFacade.find(tipodocumento.getIdTipoDocumento()));
-        usuario.setIdZona(zonaFacade.find(zona.getIdZona()));
         vehiculoFacade.edit(vehiculo);
         usuario.setIdVehiculo(vehiculoFacade.find(vehiculo.getIdVehiculo()));
         usuarioFacade.edit(usuario);
-        return "usuarioPage";
+        return "Lista_Transportista";
     }
+    
+    
+      public String editarBodeguista() {
+        usuario.setIdRol(rolFacade.find(rol.getIdRol()));
+        usuario.setIdTipoDocumento(tipodocumentoFacade.find(tipodocumento.getIdTipoDocumento()));
+        usuarioFacade.edit(usuario);
+        return "Lista_Bodeguista";
+    }
+
+    
     public String editarUsuarioempleado() {
         usuario.setIdRol(rolFacade.find(rol.getIdRol()));
         usuario.setIdTipoDocumento(tipodocumentoFacade.find(tipodocumento.getIdTipoDocumento()));

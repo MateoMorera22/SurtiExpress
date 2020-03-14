@@ -10,61 +10,55 @@
             <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+            <link rel="stylesheet" href="../Fonts/estilos_fuentes_logo.css" />
             <link rel="stylesheet" href="../CSS/crear-usuario-Styles.css" />
             <title>Iniciar sesión</title>
         </head>
 
         <h:body>
             <h:form id="formulario">
-                <a href="olvido-contraseña.html"></a>
-                <div class="row ">
-                    <div class="col s0 m1 l2"></div>
-                    <div class="col s12 m8 l8">
-                        <div id="recuperar" class="card z-depth-5">
-                            <div class="card-content">
-                                <span id="titulo" class="center card-title">#{msjLogin.Incir}</span>
-                                <p class="center">#{msjLogin.Olvido}</p> <p id="recu" class="center">#{msjLogin.Recuperar}</p>
-                                <div class="formularios">
-                                    <div class="row">
 
+                <div class="row">
+                    <div id="banner" class="background hide-on-med-and-down col s0 m8 l8">
+                        <div class="texto">
+                            <h1>Distribuidora de tus marcas favoritas</h1>
+                            <p>
+                                Somos una comercializadora de consumo masivo, con productos de calidad certificada, brindamos un excelente servicio, cumpliendo con los tiempos de entrega y disponibilidad del producto; garantizando la plena satisfacción de nuestros clientes.
+                            </p>
+                        </div>
+                    </div>
+                    <div id="panel" class="col s12 m12 l4  panel #5e35b1 deep-purple darken-1 z-depth-5 nav-extended">
+                        <a id="volver" href="../index.xhtml" class="btn-floating btn-small right "><i class="material-icons">close</i></a>
+                        <h1 id="titulo">Surtiexpress</h1>
+                        <div class="cuerpo">
+                            <div class="row">
+                                <div class="container">
+                                    <h1>#{msjLogin.Incir}</h1>
+                                    <p>#{msjLogin.Olvido} <a id="password" href="">#{msjLogin.Recuperar}</a></p>
+                                    <div class="input-field col s12 m12 l12">
+                                        <h:inputText id="correo" value="#{loginControlador.usuario.correo}" required="true" title="Correo" requiredMessage="Inserte un correo valido">
+                                            <f:validateRegex for="correo" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"/>
+                                        </h:inputText>
+                                        <label for="email">#{msjRegistro.Correo_electronico}</label>
+                                    </div>
 
-
-                                        <!--Formulario correo electronico-->
-                                        <div class="col s12 m12 l12">
-                                            <div class="input-field">
-                                                <h:inputText id="correo" value="#{loginControlador.usuario.correo}" required="true" title="Correo" requiredMessage="Inserte un correo valido">
-                                                    <f:validateRegex for="correo" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"/>
-                                                </h:inputText>
-                                                <label for="email">#{msjRegistro.Correo_electronico}</label>
-                                            </div>
-                                        </div>
-                                        <!--Formulario correo electronico-->
-
-
-                                        <!--Contraseña-->
-                                        <div class="col s12 m12 l12">
-                                            <div class="input-field">
-                                                <h:inputSecret id="contra" value="#{loginControlador.usuario.contrasena}" title="Contraseña" required="true" requiredMessage="Inserte una contraseña valida">
-                                                    <f:validateLength for="contraseña" minimum="6" maximum="18"/>
-                                                </h:inputSecret>
-                                                <label for="first_name">#{msjRegistro.Contraseña}</label>
-                                            </div>
-                                        </div>
-                                        <!--contraseña-->
-
-
+                                    <div class="input-field col s12 m12 l12">
+                                        <h:inputSecret id="contra" value="#{loginControlador.usuario.contrasena}" title="Contraseña" required="true" requiredMessage="Inserte una contraseña valida">
+                                            <f:validateLength for="contraseña" minimum="6" maximum="18"/>
+                                        </h:inputSecret>
+                                        <label for="first_name">#{msjRegistro.Contraseña}</label>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card-action">
-                                <h:commandLink  class="#5e35b1 deep-purple darken-1 btn waves-effect waves-light" action="#{loginControlador.login()}" >#{msjLogin.Incir}
-                                    <i class="material-icons right">keyboard_tab</i></h:commandLink>
-                                    <a  href="../index.xhtml" class="waves-effect waves-light btn #ef5350 red lighten-1"><i class="material-icons right">cancel</i>#{msjRegistro.Cancelar}</a>
+                                <div class="boton col s12 m12 l12">
+                                    <h:commandLink  class="btn waves-effect waves-light" action="#{loginControlador.login()}" >#{msjLogin.Incir}
+                                        <i class="material-icons right">keyboard_tab</i></h:commandLink>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col s0 m1 l2"></div>
                 </div>
+
+
             </h:form>
 
 

@@ -15,21 +15,21 @@
         </head>
 
         <h:body>
-                       <h:form id="formulario">
+            <h:form id="formulario">
                 <a href="olvido-contraseña.html"></a>
                 <div class="row ">
                     <div class="col s0 m1 l2"></div>
                     <div class="col s12 m8 l8">
                         <div class="card z-depth-5">
                             <div class="card-content">
-                                <span id="titulo" class="center card-title">#{msjUsuarios.Editar_Cliente}</span>
+                                <span id="titulo" class="center card-title">#{msjUsuarios.Editar} #{msjUsuarios.Bodeguista}</span>
                                 <div class="formularios">
                                     <div class="row">
 
 
 
                                         <!--Formulario de nombre-->
-                                        <div class="col s12 m12 l4">
+                                        <div class="col s12 m12 l6">
                                             <div class="input-field">
                                                 <h:inputText id="nombres" value="#{usuarioControlador.usuario.nombre}" required="true" title="Nombres" requiredMessage="Inserte un nombre valido">
                                                     <f:validateLength for="nombres" maximum="30"/>
@@ -42,7 +42,7 @@
                                         <!--Formulario de nombre-->
 
                                         <!--Formulario de apellido-->
-                                        <div class="col s12 m12 l4">
+                                        <div class="col s12 m12 l6">
                                             <div class="input-field">
                                                 <h:inputText id="apellidos" value="#{usuarioControlador.usuario.apellido}" title="Apellidos" required="true" requiredMessage="Inserte un apellido valido" >
                                                     <f:validateLength maximum="30"/>
@@ -55,7 +55,7 @@
                                         <!--Formulario de apellido-->
 
                                         <!--Documento-->
-                                        <div class="col s12 m12 l1">
+                                        <div class="col s12 m12 l3">
                                             <div class="input-field">
                                                 <h:selectOneMenu id="idTipoDocumento1" value="#{usuarioControlador.tipodocumento.idTipoDocumento}" title="IdTipoDocumento"  required="true" requiredMessage="Seleccione un tipo de documento.">
                                                     <!-- TODO: update below reference to list of available items-->
@@ -67,7 +67,7 @@
                                         <!--Documento-->
 
                                         <!--Numero de documento-->
-                                        <div class="col s12 m12 l3">
+                                        <div class="col s12 m12 l9">
                                             <div class="input-field">
                                                 <h:inputText id="documento" value="#{usuarioControlador.usuario.documento}" required="true" title="Documento" requiredMessage="Inserte un documento valido">
                                                     <f:validateLength for="documento" minimum="7" maximum="10"/>
@@ -79,18 +79,6 @@
                                         </div>
                                         <!--Numero de documento-->
 
-                                        <!--Formulario razon social-->
-                                        <div class="col s12 m12 l6">
-                                            <div class="input-field">
-                                                <h:inputText id="razonsocial" value="#{usuarioControlador.usuario.razonSocial}" title="Razonsocial" required="true" requiredMessage="Inserte una razón social valida">
-                                                    <f:validateLength for="razonsocial" maximum="100"/>
-                                                </h:inputText>
-                                                <label for="first_name">#{msjRegistro.Razon_social}</label>
-                                                <span class="helper-text" data-error="Inserte un nombre valido"
-                                                      data-success="✓"></span>
-                                            </div>
-                                        </div>
-                                        <!--Formulario razon social-->
 
                                         <!--Formulario correo electronico-->
                                         <div class="col s12 m12 l6">
@@ -105,43 +93,7 @@
                                         </div>
                                         <!--Formulario correo electronico-->
 
-                                        <!--Formulario direccion-->
-                                        <div class="col s12 m12 l4">
-                                            <div class="input-field">
-                                                <h:inputText id="direccion" value="#{usuarioControlador.usuario.direccion}" title="Direccion" required="true" requiredMessage="Inserte una direccion valida">
-                                                    <f:validateLength for="direccion" maximum="100"/>
-                                                </h:inputText>
-                                                <label for="first_name">#{msjRegistro.Dirección}</label>
-                                                <span class="helper-text" data-error="Ingrese una dirección valida"
-                                                      data-success="✓"></span>
-                                            </div>
-                                        </div>
-                                        <!--Formulario direccion-->
-
-                                        <!--Formulario barrio-->
-                                        <div class="col s12 m12 l4">
-                                            <div class="input-field">
-                                                <h:inputText id="barrio" value="#{usuarioControlador.usuario.barrio}" title="Barrio" required="true" requiredMessage="Inserte un barrio valido">
-                                                    <f:validateLength for="barrio" maximum="100"/>
-                                                </h:inputText>                                                   
-                                                <label for="first_name">#{msjRegistro.Barrio}</label>
-                                                <span class="helper-text" data-error="Ingrese un barrio valido"
-                                                      data-success=" ✓"></span>
-                                            </div>
-                                        </div>
-                                        <!--Formulario barrio-->
-
-                                        <!--RUT-->
-                                        <div class="col s12 m12 l4">
-                                            <div class="input-field">
-                                                <h:inputText id="rut" value="#{usuarioControlador.usuario.rut}" title="Rut" required="true" requiredMessage="Inserte un RUT valido">
-                                                    <f:validateLength minimum="9" maximum="9" />
-                                                </h:inputText>
-                                                <label for="last_name">#{msjRegistro.RUT}</label>
-                                                <span class="helper-text" data-error="Inserte un RUT valido" data-success="✓"></span>
-                                            </div>
-                                        </div>
-                                        <!--RUT-->
+                                         
 
                                         <!--Telefono-->
                                         <div class="col s12 m12 l6">
@@ -156,23 +108,11 @@
                                         </div>
                                         <!--Teléfono-->
 
-                                        <!--Zona-->
-                                        <div class="col s12 m12 l6">
-                                            <div class="input-field">
-                                                <h:selectOneMenu id="idZona1" value="#{usuarioControlador.zona.idZona}" title="Zona"  required="true" requiredMessage="Seleccione una zona">
-                                                    <!-- TODO: update below reference to list of available items-->
-                                                    <f:selectItems value="#{zonaControlador.listarZonas()}" var="zon" itemLabel="#{zon.zona}" itemValue="#{zon.idZona}"/>
-                                                </h:selectOneMenu>
-                                                <label>#{msjUsuarios.Zona}</label>
-                                            </div>
-                                        </div>
-                                        <!--Documento-->
-
                                         <!--ROL-->
                                         <div class='hide'>
                                             <h:selectOneMenu id="rolIdRol" value="#{usuarioControlador.rol.idRol}" title="RolIdRol" >
                                                 <!-- TODO: update below reference to list of available items-->
-                                                <f:selectItems value="#{rolControlador.listarRoles()}" var="rol" itemValue="2" />
+                                                <f:selectItems value="#{rolControlador.listarRoles()}" var="rol" itemValue="4" />
                                             </h:selectOneMenu>
                                         </div>
                                         <!--ROL-->
@@ -180,9 +120,9 @@
                                 </div>
                             </div>
                             <div class="card-action">
-                                <h:commandLink class="#388e3c green darken-2 darken-1 btn waves-effect waves-light "  action="#{usuarioControlador.editarUsuarioCliente()}">#{msjInventario.Editar}
+                                <h:commandLink class="#388e3c green darken-2 darken-1 btn waves-effect waves-light "  action="#{usuarioControlador.editarBodeguista()}">#{msjInventario.Editar}
                                     <i class="material-icons right ">edit</i></h:commandLink>
-                                    <a  href="Lista_Cliente.xhtml" class="waves-effect waves-light btn #ef5350 red lighten-1"><i class="material-icons right">cancel</i>#{msjRegistro.Cancelar}</a>
+                                    <a  href="Lista_Bodeguista.xhtml" class="waves-effect waves-light btn #ef5350 red lighten-1"><i class="material-icons right">cancel</i>#{msjRegistro.Cancelar}</a>
                             </div>
                         </div>
                     </div>

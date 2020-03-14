@@ -59,7 +59,7 @@ public class loginControlador implements Serializable {
                int ro= u.getIdRol().getIdRol();//me almacena el rol del usuario logueado
                if (ro==1) {
                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", u);
-               return "Admin";
+               return "Admin.xhtml";
                    
                }else if(ro==2){
                    FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", u);
@@ -82,7 +82,7 @@ public class loginControlador implements Serializable {
    }
     public String logout(){
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-        return "login";
+        return "Login";
     }
     /*public String recuperarContraseña(){
         Usuario us;
