@@ -1,0 +1,122 @@
+html {
+    overflow-y: hidden;
+}
+
+.input-field input:focus+label {
+    color: white !important;
+}
+
+
+/* label underline focus color */
+
+.row .input-field input:focus {
+    border-bottom: 1px solid white !important;
+    box-shadow: 0 1px 0 0 white !important
+}
+
+.background {
+    background-image: url(../IMG/sweets-candies-marshmallow.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.background h1 {
+    font-family: BlendaScript;
+    font-size: 34px;
+}
+
+.background p {
+    font-size: 18px;
+}
+
+.texto {
+    margin-top: 280px;
+    width: 650px;
+    text-align: center;
+    margin-left: 25px;
+}
+
+.panel #titulo {
+    font-family: BlendaScript;
+    margin-top: 80px;
+    font-size: 50px;
+    color: white;
+    text-align: center;
+}
+.panel h1 {
+    margin-top: 80px;
+    font-size: 50px;
+    color: white;
+    text-align: center;
+}
+
+
+.cuerpo {
+    margin-top: 120px;
+}
+
+.container {
+    text-align: center;
+}
+
+.container p {
+    font-size: 16px;
+}
+
+.container p a {
+    color: #ffaa2c;
+}
+
+.container p a:hover {
+    color: #AF8CFF;
+}
+
+#password {
+    margin-top: none;
+}
+
+.container h1 {
+    line-height: 20%;
+    font-size: 38px;
+}
+
+.boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    width: 200px;
+    margin-top: 70px;
+    background: white;
+    color: #5e35b1;
+    border-radius: 20px;
+}
+
+.btn:hover {
+    background: none;
+    color: white;
+    border-radius: 20px;
+    border: white 1px solid;
+}
+
+#volver {
+    margin-top: 10px;
+    background: white;
+    color: #5e35b1;
+}
+
+#volver:hover {
+    background: none;
+    color: white;
+    border: white 1px solid;
+}
+
+#volver i {
+    color: #5e35b1;
+}
+
+#volver i:hover {
+    color: white;
+}

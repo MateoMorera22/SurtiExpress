@@ -1,0 +1,475 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link rel="stylesheet" href="../../CSS/Styles-Rutas.css"/>
+        <title>Transporte</title>
+    </h:head>
+    <h:body>
+        <div class="hide-on-large-only show-on-small uimovil">
+            <nav>
+                <div class="nav-wrapper #673ab7 deep-purple">
+                    <a href="#!" class="brand-logo right"><i
+                            class="right material-icons md-light">local_shipping</i>Transporte</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                </div>
+            </nav>
+            <ul class="sidenav" id="mobile-demo">
+                <li><a href="Home.html"><i class="material-icons md-light">dashboard</i>Home</a></li>
+                <li><a href="Inventario.html" target="dashboard"><i class="material-icons left">local_mall</i>Inventario</a>
+                </li>
+                <li><a href="Admin/Rutas.html" target="dashboard"><i
+                            class="material-icons left">local_shipping</i>Transporte</a></li>
+                <li><a href="Admin/pedidos.html" target="dashboard"><i class="material-icons left">list</i>Pedidos</a></li>
+                <li><a href="Admin/pedidos.html" target="dashboard"><i
+                            class="material-icons left">supervisor_account</i>Usuarios</a></li>
+                <li><a href="mobile.html" target="dashboard"><i class="material-icons left">rate_review</i>Tareas</a></li>
+                <li><a id="cerrar" href="mobile.html"><i class="material-icons left">power_settings_new</i>Cerrar Sesion</a>
+                </li>
+            </ul>
+        </div>
+
+        <!--Cabeza-->
+        <div class="hide-on-med-and-down show-on-large-and-up cabeza">
+            <div class="row">
+                <div class="col s12 m1 l1"></div>
+                <div class="col s12 m12 l10">
+                    <div class="title">
+                        <i class="large material-icons">local_shipping</i>
+                        <h1>Transporte</h1>
+                    </div>
+                </div>
+                <div class="col s12 m1 l1"></div>
+            </div>
+        </div>
+
+        <!--Contenido-->
+        <div class="row">
+            <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-content">
+                        <a href="#modal1"
+                           class="btn-floating btn-large waves-effect waves-light btn-small right deep-purple darken-2 modal-trigger"><i
+                                class="material-icons">add</i></a>
+                        <span class="card-title">Listado de planillas</span>
+                        <div class="listado">
+                            <ul class="collapsible">
+                                <li>
+                                    <div class="collapsible-header"><i class="material-icons">format_list_bulleted</i>Lista
+                                        Usaquen
+                                        <div class="btnoheadercard right">
+                                            <a href="#modal2"
+                                               class="waves-effect waves-light btn-small right right #388e3c green darken-2 modal-trigger"><i
+                                                    class="material-icons center-align">create</i></a>
+                                        </div>
+                                    </div>
+                                    <div class="collapsible-body"><span>Localidades: Toberin, Cedritos, Santa Bárbara, San
+                                            Cristóbal Norte ...</span>
+                                        <div class="espaciobtn">
+                                            <a class="waves-effect waves-light btn right #388e3c green darken-2"><i
+                                                    class="material-icons left">remove_red_eye</i>Visualizar</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-header"><i class="material-icons">format_list_bulleted</i>Lista
+                                        Usaquen
+                                        <div class="btnoheadercard right">
+                                            <a href="#modal2"
+                                               class="waves-effect waves-light btn-small right right #388e3c green darken-2 modal-trigger"><i
+                                                    class="material-icons center-align">create</i></a>
+                                        </div>
+                                    </div>
+                                    <div class="collapsible-body"><span>Localidades: Toberin, Cedritos, Santa Bárbara, San
+                                            Cristóbal Norte ...</span>
+                                        <div class="espaciobtn">
+                                            <a class="waves-effect waves-light btn right #388e3c green darken-2"><i
+                                                    class="material-icons left">remove_red_eye</i>Visualizar</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-header"><i class="material-icons">format_list_bulleted</i>Lista
+                                        Usaquen
+                                        <div class="btnoheadercard right">
+                                            <a href="#modal2"
+                                               class="waves-effect waves-light btn-small right right #388e3c green darken-2 modal-trigger"><i
+                                                    class="material-icons center-align">create</i></a>
+                                        </div>
+                                    </div>
+                                    <div class="collapsible-body"><span>Localidades: Toberin, Cedritos, Santa Bárbara, San
+                                            Cristóbal Norte ...</span>
+                                        <div class="espaciobtn">
+                                            <a class="waves-effect waves-light btn right #388e3c green darken-2"><i
+                                                    class="material-icons left">remove_red_eye</i>Visualizar</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-header"><i class="material-icons">format_list_bulleted</i>Lista
+                                        Usaquen
+                                        <div class="btnoheadercard right">
+                                            <a href="#modal2"
+                                               class="waves-effect waves-light btn-small right right #388e3c green darken-2 modal-trigger"><i
+                                                    class="material-icons center-align">create</i></a>
+                                        </div>
+                                    </div>
+                                    <div class="collapsible-body"><span>Localidades: Toberin, Cedritos, Santa Bárbara, San
+                                            Cristóbal Norte ...</span>
+                                        <div class="espaciobtn">
+                                            <a class="waves-effect waves-light btn right #388e3c green darken-2"><i
+                                                    class="material-icons left">remove_red_eye</i>Visualizar</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">Planillas asignadas</span>
+                        <div class="listado">
+                            <ul class="collapsible">
+                                <li>
+                                    <div class="collapsible-header"><i class="material-icons">portrait</i>Lista
+                                        Usaquen - Ozzy Osbourne
+                                        <div class="btnoheadercard right">
+                                            <a href="#modal3"
+                                               class="waves-effect waves-light btn-small right right #388e3c green darken-2 modal-trigger"><i
+                                                    class="material-icons center-align">create</i></a>
+                                        </div>
+                                    </div>
+                                    <div class="collapsible-body"><span>Localidades: Toberin, Cedritos, Santa Bárbara, San
+                                            Cristóbal Norte ...</span>
+                                        <div class="espaciobtn">
+                                            <a class="waves-effect waves-light btn right #388e3c green darken-2"><i
+                                                    class="material-icons left">remove_red_eye</i>Visualizar</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-header"><i class="material-icons">portrait</i>Lista
+                                        Usaquen - Roger Waters
+                                        <div class="btnoheadercard right">
+                                            <a href="#modal3"
+                                               class="waves-effect waves-light btn-small right right #388e3c green darken-2 modal-trigger"><i
+                                                    class="material-icons center-align">create</i></a>
+                                        </div>
+                                    </div>
+                                    <div class="collapsible-body"><span>Localidades: Toberin, Cedritos, Santa Bárbara, San
+                                            Cristóbal Norte ...</span>
+                                        <div class="espaciobtn">
+                                            <a class="waves-effect waves-light btn right #388e3c green darken-2"><i
+                                                    class="material-icons left">remove_red_eye</i>Visualizar</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-header"><i class="material-icons">portrait</i>Lista
+                                        Usaquen - Billie Eilish
+                                        <div class="btnoheadercard right">
+                                            <a href="#modal3"
+                                               class="waves-effect waves-light btn-small right right #388e3c green darken-2 modal-trigger"><i
+                                                    class="material-icons center-align">create</i></a>
+                                        </div>
+                                    </div>
+                                    <div class="collapsible-body"><span>Localidades: Toberin, Cedritos, Santa Bárbara, San
+                                            Cristóbal Norte ...</span>
+                                        <div class="espaciobtn">
+                                            <a class="waves-effect waves-light btn right #388e3c green darken-2"><i
+                                                    class="material-icons left">remove_red_eye</i>Visualizar</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-header"><i class="material-icons">portrait</i>Lista
+                                        Usaquen - John Lennon
+                                        <div class="btnoheadercard right">
+                                            <a href="#modal3"
+                                               class="waves-effect waves-light btn-small right right #388e3c green darken-2 modal-trigger"><i
+                                                    class="material-icons center-align">create</i></a>
+                                        </div>
+                                    </div>
+                                    <div class="collapsible-body"><span>Localidades: Toberin, Cedritos, Santa Bárbara, San
+                                            Cristóbal Norte ...</span>
+                                        <div class="espaciobtn">
+                                            <a class="waves-effect waves-light btn right #388e3c green darken-2"><i
+                                                    class="material-icons left">remove_red_eye</i>Visualizar</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-content">
+                        <a href="#modal4"
+                           class="btn-floating btn-large waves-effect waves-light btn-small right deep-purple darken-2 modal-trigger"><i
+                                class="material-icons">add</i></a>
+                        <span class="card-title">Listado de rutas</span>
+                        <div class="listado">
+                            <ul class="collapsible">
+                                <li>
+                                    <div class="collapsible-header"><i class="material-icons">local_shipping</i>Localidad:
+                                        Usaquen | Barrio: Toberin
+                                        <div class="btnoheadercard right">
+                                            <a
+                                                href="#modal5" class="waves-effect waves-light btn-small right right #388e3c green darken-2 modal-trigger"><i
+                                                    class="material-icons center-align">create</i></a>
+                                        </div>
+                                    </div>
+                                    <div class="collapsible-body"><span>Localidades: Toberin, Cedritos, Santa Bárbara, San
+                                            Cristóbal Norte ...</span>
+                                        <div class="espaciobtn">
+                                            <a href="#modal5" class="waves-effect waves-light btn right #388e3c green darken-2 modal-trigger"><i
+                                                    class="material-icons left">remove_red_eye</i>Visualizar</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-header"><i class="material-icons">local_shipping</i>Localidad:
+                                        Usaquen | Barrio: Toberin
+                                        <div class="btnoheadercard right">
+                                            <a
+                                                href="#modal5"  class="waves-effect waves-light btn-small right right #388e3c green darken-2 modal-trigger"><i
+                                                    class="material-icons center-align">create</i></a>
+                                        </div>
+                                    </div>
+                                    <div class="collapsible-body"><span>Localidades: Toberin, Cedritos, Santa Bárbara, San
+                                            Cristóbal Norte ...</span>
+                                        <div class="espaciobtn">
+                                            <a href="#modal5" class="waves-effect waves-light btn right #388e3c green darken-2 modal-trigger"><i
+                                                    class="material-icons left">remove_red_eye</i>Visualizar</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-header"><i class="material-icons">local_shipping</i>Localidad:
+                                        Usaquen | Barrio: Toberin
+                                        <div class="btnoheadercard right">
+                                            <a
+                                                href="#modal5" class="waves-effect waves-light btn-small right right #388e3c green darken-2 modal-trigger modal-trigger"><i
+                                                    class="material-icons center-align">create</i></a>
+                                        </div>
+                                    </div>
+                                    <div class="collapsible-body"><span>Localidades: Toberin, Cedritos, Santa Bárbara, San
+                                            Cristóbal Norte ...</span>
+                                        <div class="espaciobtn">
+                                            <a href="#modal5" class="waves-effect waves-light btn right #388e3c green darken-2 modal-trigger"><i
+                                                    class="material-icons left">remove_red_eye</i>Visualizar</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="collapsible-header"><i class="material-icons">local_shipping</i>Localidad:
+                                        Usaquen | Barrio: Toberin
+                                        <div class="btnoheadercard right">
+                                            <a
+                                                href="#modal5"  class="waves-effect waves-light btn-small right right #388e3c green darken-2 modal-trigger"><i
+                                                    class="material-icons center-align">create</i></a>
+                                        </div>
+                                    </div>
+                                    <div class="collapsible-body"><span>Localidades: Toberin, Cedritos, Santa Bárbara, San
+                                            Cristóbal Norte ...</span>
+                                        <div class="espaciobtn">
+                                            <a href="#modal5" class="waves-effect waves-light btn right #388e3c green darken-2 modal-trigger"><i
+                                                    class="material-icons left">remove_red_eye</i>Visualizar</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>Crear planilla</h4>
+                <div class="col s12 m12 l12">
+                    <div id="tamañoforms" class="formularios">
+                        <div class="input-field col s12">
+                            <select multiple="">
+                                <option value="1">Ruta Usaquen</option>
+                                <option value="2">Ruta Sur</option>
+                                <option value="3">Ruta Suba</option>
+                            </select>
+                        </div>
+                        <div class="input-field col s12">
+                            <select multiple="">
+                                <option value="1">Roger Waters</option>
+                                <option value="2">Billie Eilish</option>
+                                <option value="3">John Lennon</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-red btn-flat">Cerrar</a>
+                <button class="modal close btn deep-purple darken-2 waves-effect waves-green " type="submit " name="action"
+                        onclick="entrada();">Crear planilla<i class="material-icons right ">send</i>
+                </button>
+            </div>
+        </div>
+
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <h4>Editar planilla</h4>
+                <div class="col s12 m12 l12">
+                    <div id="tamañoforms" class="formularios">
+                        <div class="input-field col s12">
+                            <select multiple="">
+                                <option value="1">Ruta Usaquen</option>
+                                <option value="2">Ruta Sur</option>
+                                <option value="3">Ruta Suba</option>
+                            </select>
+                        </div>
+                        <div class="input-field col s12">
+                            <select multiple="">
+                                <option value="1">Roger Waters</option>
+                                <option value="2">Billie Eilish</option>
+                                <option value="3">John Lennon</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-red btn-flat">Cerrar</a>
+                <button class="modal-close btn deep-purple darken-2 waves-effect waves-green " type="submit " name="action"
+                        onclick="entrada();">Crear planilla<i class="material-icons right ">send</i>
+                </button>
+            </div>
+        </div>
+
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+                <h4>Cambiar asignado</h4>
+                <div class="col s12 m12 l12">
+                    <div id="tamañoforms" class="formularios">
+                        <div class="input-field col s12">
+                            <select multiple="">
+                                <option value="1">Roger Waters</option>
+                                <option value="2">Billie Eilish</option>
+                                <option value="3">John Lennon</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-red btn-flat">Cerrar</a>
+                <button class="modal-close btn deep-purple darken-2 waves-effect waves-green " type="submit " name="action"
+                        onclick="entrada();">Cambiar asignado<i class="material-icons right ">send</i>
+                </button>
+            </div>
+        </div>
+
+        <div id="modal4" class="modal">
+            <div class="modal-content">
+                <h4>Crear ruta</h4>
+                <div class="col s12 m12 l12">
+                    <div id="tamañoforms" class="formularios">
+                        <div class="input-field col s12">
+                            <input id="nombre" type="text" class="validate" required=""/>
+                            <label for="last_name">Nombre</label>
+                            <span class="helper-text" data-error="Inserte un nombre valido" data-success="OK"></span>
+                        </div>
+                        <div class="input-field col s12">
+                            <select multiple="">
+                                <option value="1">Usaquen</option>
+                                <option value="2">Suba</option>
+                                <option value="3">Chapinero</option>
+                            </select>
+                        </div>
+                        <div class="input-field col s12">
+                            <select multiple="">
+                                <option value="1">Toberin</option>
+                                <option value="2">Granada Norte</option>
+                                <option value="3">Flores</option>
+                            </select>
+                        </div>
+                        <div class="input-field col s12">
+                            <select multiple="">
+                                <option value="1">Tienda Juana Calle 2342543</option>
+                                <option value="2">Cafeteria Robert Calle 45643453</option>
+                                <option value="3">Super mercado Stan lee Calle 134342 e2534543</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-red btn-flat">Cerrar</a>
+                <button class="modal-close btn deep-purple darken-2 waves-effect waves-green " type="submit " name="action"
+                        onclick="entrada();">Crear ruta<i class="material-icons right ">send</i>
+                </button>
+            </div>
+        </div>
+
+        <div id="modal5" class="modal">
+            <div class="modal-content">
+                <h4>Editar ruta</h4>
+                <div class="col s12 m12 l12">
+                    <div id="tamañoforms" class="formularios">
+                        <div class="input-field col s12">
+                            <div class="input-field col s12">
+                                <input id="nombre" type="text" class="validate" required=""/>
+                                <label for="last_name">Nombre</label>
+                                <span class="helper-text" data-error="Inserte un nombre valido" data-success="OK"></span>
+                            </div>
+                            <select multiple="">
+                                <option value="1">Usaquen</option>
+                                <option value="2">Suba</option>
+                                <option value="3">Chapinero</option>
+                            </select>
+                        </div>
+                        <div class="input-field col s12">
+                            <select multiple="">
+                                <option value="1">Toberin</option>
+                                <option value="2">Granada Norte</option>
+                                <option value="3">Flores</option>
+                            </select>
+                        </div>
+                        <div class="input-field col s12">
+                            <select multiple="">
+                                <option value="1">Tienda Juana Calle 2342543</option>
+                                <option value="2">Cafeteria Robert Calle 45643453</option>
+                                <option value="3">Super mercado Stan lee Calle 134342 e2534543</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-red btn-flat">Cerrar</a>
+                <button class="modal-close btn deep-purple darken-2 waves-effect waves-green " type="submit " name="action"
+                        onclick="entrada();">Editar ruta<i class="material-icons right ">send</i>
+                </button>
+            </div>
+        </div>
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="../../JS/Scripts-Rutas_1.js"></script>
+    </h:body>
+</html>
+

@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <f:view locale="#{languageBean.idiomaSeleccionado}">
+        <h:head>
+            <meta charset="UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+            <link rel="stylesheet" href="../../CSS/estilosTablas.css"/>
+            <link rel="stylesheet" href="../../CSS/Styles-Inventario.css"/>
+            <title>Inventario</title>
+        </h:head>
+        <h:body>
+
+            <div class="hide-on-large-only show-on-small uimovil">
+                <nav>
+                    <div class="nav-wrapper #673ab7 deep-purple">
+                        <a href="#!" class="brand-logo right"><i
+                                class="right material-icons md-light">dashboard</i>#{msjAdmin.Pedidos}</a>
+                        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    </div>
+                </nav>
+                <ul class="sidenav" id="mobile-demo">
+                    <li><a href="../Admin/Home.html"><i class="material-icons md-light">#{msjAdmin.Home}</i></a></li>
+                    <li><a href="../Admin/Inventario.html" target="dashboard"><i
+                                class="material-icons left">local_mall</i>#{msjAdmin.Inventario}</a></li>
+                    <li><a href="../Admin/Rutas.html" target="dashboard"><i
+                                class="material-icons left">local_shipping</i>#{msjAdmin.Transporte}</a></li>
+                    <li><a href="../Admin/Pedidos.html" target="dashboard"><i class="material-icons left">list</i>#{msjAdmin.Transporte}</a>
+                    </li>
+                    <li><a href="../../img/error404(Español).jpg" target="dashboard"><i
+                                class="material-icons left">supervisor_account</i>#{msjAdmin.Usuarios}</a></li>
+                    <li><a href="../Admin/Tares-Bodega.html" target="dashboard"><i
+                                class="material-icons left">rate_review</i>#{msjAdmin.Tareas}</a></li>
+                    <li><a id="cerrar" href="../../Index V2.0.html"><i class="material-icons left">power_settings_new</i>#{msjAdmin.Cerrar_Sesion}
+                            Sesion</a></li>
+                </ul>
+            </div>
+
+            <div class="hide-on-med-and-down show-on-large-and-up cabeza">
+                <div class="row">
+                    <div class="col s12 m1 l1"></div>
+                    <div class="col s12 m12 l10">
+                        <div class="title">
+                            <i class="large material-icons">supervisor_account</i>
+                            <h1>#{msjAdmin.Pedidos}</h1>
+                        </div>
+                    </div>
+                    <div class="col s12 m1 l1"></div>
+                </div>
+            </div>
+            
+            
+             <div class="row">
+                <div id="admin" class="col s12 m12 l12 ">
+                    <div class="card material-table  z-depth-5">
+                        <div class="table-header">
+                            <span class="table-title">#{msjAdmin.Pedidos}</span>
+                            <div class="actions">
+                                <a id="buscar" class="search-toggle btn-small btn-floating btn-large"><i class="material-icons white-text">search</i></a>
+                            </div>
+                        </div>
+                   <table id="pedidos" class="center-align" >
+                        <thead>
+                            <tr>    
+
+                                <th>#{msjPedidos.IDpepidos}</th>
+                                <th>#{msjPedidos.NombreCliente}</th>
+                                <th>#{msjPedidos.FechaCreacion}</th>
+                                <th>#{msjPedidos.FechadeEntrega}</th>
+                                <th>#{msjPedidos.Subtotal}</th>
+                                <th>#{msjPedidos.Total}</th>
+                                <th>#{msjInventario.Eliminar}</th>
+                                <th>#{msjInventario.Editar}</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <c:forEach var="item" items="#{pedidoControlador.listarPedidos()}">
+                                <tr >
+                                    <h:form>
+
+
+                                        <td><h:outputText value="#{item.idPedido}"/></td>
+                                        <td><h:outputText value="#{item.idUsuario.nombre}"/> <h:outputText value="#{item.idUsuario.apellido}"/> </td>
+                                        <td><h:outputText value="#{item.fechaCreacion}"/></td>
+                                        <td><h:outputText value="#{item.fechaEntrega}"/></td>
+                                        <td><h:outputText value="#{item.subtotal}"/></td>
+                                        <td><h:outputText value="#{item.total}"/></td>
+                                        <td> <h:commandLink class="waves-effect waves-light btn #941e1e red darken-3"  action="#{pedidoControlador.eliminarPedido(item)}">
+                                                <i class="material-icons">delete_forever</i></h:commandLink></td>
+                                                <td>  <h:commandLink class="waves-effect waves-light btn #ef5350 #43a047 green darken-1"  action="#{pedidoControlador.preEditarPedido(item)}">
+                                                <i class="material-icons">edit</i></h:commandLink></td>
+                                    </h:form>
+                                </tr>
+                            </c:forEach>
+
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+                </div>        
+
+
+
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+                <form action="" id="formulario">
+                    <div class="modal-content">
+                        <h4>Editar pedido</h4>
+                        <div class="row">
+                            <div class="col s12 m12 l12">
+                                <div class="formulario">
+                                    <div class="input-field col s12">
+                                        <input id="nombre" type="text" class="validate" required=""/>
+                                        <label for="last_name">Producto</label>
+                                        <span class="helper-text" data-error="Inserte un nombre valido"
+                                              data-success="OK"></span>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input id="marca" type="text" class="validate" required=""/>
+                                        <label for="last_name">Direccion</label>
+                                        <span class="helper-text" data-error="Inserte una direccion valida"
+                                              data-success="OK"></span>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input id="codigo" type="number" class="validate" min="100000" max="999999"
+                                               required="" />
+                                        <label for="last_name ">Telefono</label>
+                                        <span class="helper-text " data-error="Inserte un Telefono valido (max 6 digitos) "
+                                              data-success="OK"></span>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input id="cantidad" type="number" class="validate" min="10" max="100" required=""/>
+                                        <label for="last_name">Cantidad</label>
+                                        <span class="helper-text"
+                                              data-error="Inserte una cantidad minima de 10 y maximo 100."
+                                              data-success="OK"></span>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input id="preunidad" type="number" class="validate" min="2000" max="200000"
+                                               required=""/>
+                                        <label for="last_name">Precio Total</label>
+                                        <span class="helper-text"
+                                              data-error="Inserte un precio minimo de 2.000 y un maximo de 200.000."
+                                              data-success="OK"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-close waves-effect waves-red btn-flat">Cerrar</a>
+                        <button class="btn deep-purple darken-2 waves-effect waves-green " type="submit " name="action"
+                                onclick="entrada();">Editar<i class="material-icons right ">create</i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+
+
+
+            <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+            <script  src="../../JS/scriptsTablas.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $('#pedidos').DataTable();
+                });
+
+            </script>          
+            <script src="../../JS/Scripts-Pedidos.js"></script>
+        </h:body>
+    </f:view>
+</html>
+
