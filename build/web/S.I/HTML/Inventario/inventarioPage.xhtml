@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <f:view locale="#{languageBean.idiomaSeleccionado}">
+        <h:head>
+            <meta charset="UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+            <link rel="stylesheet" href="../../CSS/estilosTablas.css"/>
+            <link rel="stylesheet" href="../../CSS/Styles-Inventario.css"/>
+            <title>Inventario</title>
+        </h:head>
+        <h:body>
+
+            <div class="hide-on-med-and-down show-on-large-and-up cabeza">
+                <div class="row">
+                    <div class="col s12 m1 l1"></div>
+                    <div class="col s12 m12 l10">
+                        <div class="title">
+                            <i class="large material-icons">local_mall</i>
+                            <h1>#{msjAdmin.Inventario}</h1>
+                        </div>
+                    </div>
+                    <div class="col s12 m1 l1"></div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <!--Clientes-->
+                <div id="admin" class="col s12 m12 l12 ">
+                    <div class="card material-table  z-depth-5">
+                        <div class="table-header #546e7a blue-grey darken-1">
+                            <span class="table-title white-text">#{msjInventario.Productos}</span> 
+                            <div class="actions">
+                                <a id="marcas" class="tooltipped btn-small btn-floating btn-large waves-effect waves-light right"  data-position="bottom" data-tooltip="#{msjInventario.PanelMarcas}"  href="marcas.xhtml"><i class="material-icons white-text">playlist_add</i></a>
+                                <a id="addproducto"  href="crear-producto.xhtml" class="tooltipped btn-small btn-floating btn-large waves-effect waves-light right" data-position="top" data-tooltip="#{msjInventario.Crearproductos}"><i class="material-icons white-text">category</i></a>	
+                                <a id="buscar" class="search-toggle btn-small btn-floating btn-large"><i class="material-icons white-text">search</i></a>
+                            </div>
+                        </div>
+                        <table id="tabla1" class="center">
+                            <thead>
+                                <tr>
+                                    <th>#{msjInventario.ID_producto}</th>
+                                    <th>#{msjInventario.Nombre_producto}</th>
+                                    <th>#{msjInventario.Description}</th>   
+                                    <th>#{msjInventario.Cantidad}</th>
+                                    <th>#{msjInventario.PrecioBruto}</th>
+                                    <th>#{msjInventario.Iva}</th>
+                                    <th>#{msjInventario.PrecioNeto}</th>
+                                    <th>#{msjInventario.EstadoProducto}</th>
+                                    <th>#{msjInventario.marca}</th>
+                                    <th>#{msjInventario.Submarca}</th>
+                                    <th>#{msjInventario.Editar}</th>
+                                    <th>#{msjInventario.Eliminar}</th>
+                                    <th>#{msjInventario.Bloquear}</th>
+
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                <c:forEach var="item" items="#{productoControlador.listarInventario()}">
+                                    <tr>
+                                        <h:form>
+                                            <td><h:outputText value="#{item.idProducto}"/></td>
+                                            <td><h:outputText value="#{item.nombre}"/></td>
+                                            <td><h:outputText value="#{item.descripcion}"/></td>
+                                            <td><h:outputText value="#{item.cantidad}"/></td>
+                                            <td><h:outputText value="#{item.precioBruto}"/></td>
+                                            <td><h:outputText value="#{item.iva}"/></td>
+                                            <td><h:outputText value="#{item.precioNeto}"/></td>
+                                            <td><h:outputText value="#{item.idEstadoProducto.estadoProducto}"/></td>
+                                            <td><h:outputText value="#{item.idSubmarca.idMarca.marca}"/></td>
+                                            <td><h:outputText value="#{item.idSubmarca.subMarca}"/></td>
+                                            <td><h:commandLink class="waves-effect waves-light btn #ef5350 #43a047 green darken-1"  action="#{productoControlador.preEditar(item)}">
+                                                    <i class="material-icons">edit</i></h:commandLink>  </td>
+                                            <td><h:commandLink class="waves-effect waves-light btn #941e1e red darken-3"  action="#{productoControlador.eliminarProducto(item)}">
+                                                    <i class="material-icons">delete_forever</i></h:commandLink></td>
+                                            <td>  <div class="hide">
+                                                    <h:selectOneMenu  id="idEstadoProducto2" value="#{productoControlador.estadoproducto.idEstadoProducto}" >
+                                                        <!-- TODO: update below reference to list of available items-->
+                                                        <f:selectItems value="#{estadoProductoControlador.listarEstadoProducto()}" var="estp" itemLabel="#{estp.estadoProducto}" itemValue="1"/>
+                                                    </h:selectOneMenu>
+                                                </div>
+                                                <f:facet name="header">
+                                                    <h:outputText value="#{msjInventario.Bloquear}"/>
+                                                </f:facet>
+                                                <h:commandLink class="waves-effect waves-light btn #616161 grey darken-2"   action="#{productoControlador.editarEstado(item)}">
+                                                    <i class="material-icons">block</i></h:commandLink></td>
+
+
+
+                                        </h:form>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+            <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+            <script  src="../../JS/scriptsTablas.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $('#tabla1').DataTable();
+                });
+
+            </script>    
+            <script src="../../JS/Scripts-Inventario_1.js"></script>
+
+        </h:body>
+    </f:view>
+</html>
+

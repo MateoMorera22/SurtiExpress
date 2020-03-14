@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+     <f:view locale="#{languageBean.idiomaSeleccionado}">
+    <h:head>
+        <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link rel="stylesheet" href="../../CSS/Styles-Home.css"/>
+    <title>Dashboard</title>
+    </h:head>
+    <h:body>
+       <div class="hide-on-large-only show-on-small uimovil">
+        <nav>
+            <div class="nav-wrapper #673ab7 deep-purple">
+                <a href="#!" class="brand-logo right"><i class="right material-icons md-light">dashboard</i>Dashboard</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="Home.html"><i class="material-icons md-light">dashboard</i>Home</a></li>
+            <li><a href="Inventario.html" target="dashboard"><i class="material-icons left">local_mall</i>Inventario</a></li>
+            <li><a href="Admin/Rutas.html" target="dashboard"><i
+                        class="material-icons left">local_shipping</i>Transporte</a></li>
+            <li><a href="Admin/pedidos.html" target="dashboard"><i class="material-icons left">list</i>Pedidos</a></li>
+            <li><a href="Admin/pedidos.html" target="dashboard"><i
+                        class="material-icons left">supervisor_account</i>Usuarios</a></li>
+            <li><a href="mobile.html" target="dashboard"><i class="material-icons left">rate_review</i>Tareas</a></li>
+            <li><a id="cerrar" href="mobile.html"><i class="material-icons left">power_settings_new</i>Cerrar Sesion</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="hide-on-med-and-down show-on-large-and-up cabeza">
+        <div class="row">
+            <div class="col s12 m1 l1"></div>
+            <div class="col s12 m12 l10">
+                <div class="title">
+                    <i class="large material-icons">dashboard</i>
+                    <h1>#{msjAdmin.Home}</h1>
+                </div>
+            </div>
+            <div class="col s12 m1 l1"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m6 l6">
+            <div class="card">
+                <h1>#{msjHome.Productos_mas_vendidos}</h1>
+                <div class="card-content white-text">
+                    <div class="estadisticas">
+                        <canvas id="Productos"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m6 l6">
+            <div class="card">
+                <h1>#{msjHome.pedidos_semana}</h1>
+                <div class="card-content white-text">
+                    <div class="estadisticas">
+                        <canvas id="Ventas"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <div class="card">
+                <h1>#{msjHome.Notificaciones}</h1>
+                <div class="card-content">
+                    <div class="notficaciones">
+                        <div class="row">
+                            <div class="col s12 m6 l6">
+                                <ul class="collapsible">
+                                    <li>
+                                        <div class="collapsible-header"><i class="material-icons">local_shipping</i>Ruta Completada
+                                        </div>
+                                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header"><i class="material-icons">rate_review</i>Tarea completada
+                                        </div>
+                                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header"><i class="material-icons">list</i>Tarea completada
+                                        </div>
+                                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header"><i class="material-icons">local_mall</i>Nuevos productos agregados
+                                        </div>
+                                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header"><i class="material-icons">local_shipping</i>Ruta Completada
+                                        </div>
+                                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col s12 m6 l6 hide-on-small-only">
+                                <ul class="collapsible">
+                                    <li>
+                                        <div class="collapsible-header"><i class="material-icons">local_shipping</i>Ruta Completada
+                                        </div>
+                                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header"><i class="material-icons">rate_review</i>Tarea completada
+                                        </div>
+                                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header"><i class="material-icons">list</i>Tarea completada
+                                        </div>
+                                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header"><i class="material-icons">local_mall</i>Nuevos productos agregados
+                                        </div>
+                                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header"><i class="material-icons">local_shipping</i>Ruta Completada
+                                        </div>
+                                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="../../JS/Scripts-home.js"></script>
+    </h:body>
+     </f:view>
+</html>
+

@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-y: hidden;
+}
+
+.computadorui {
+    width: 100%;
+    height: 750px;
+}
+
+.panel {
+    float: left;
+    background: #232323;
+    width: 22%;
+    height: 800px;
+}
+
+.nombre {
+    margin-left: 13px;
+    width: 90%;
+    height: 70px;
+    border-bottom: solid 1px white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nombre i {
+    color: white;
+    padding: 2px;
+}
+
+.opciones {
+    margin-left: 13px;
+    margin-top: 30px;
+    width: 90%;
+    height: 500px;
+}
+
+.opc {
+    margin-bottom: 4px;
+    width: 100%;
+    height: 50px;
+}
+
+.opc a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-radius: 8px;
+    background: #232323
+}
+
+.opc a:hover {
+    box-shadow: none;
+    background: #551CA2;
+}
+
+.opc a:active {
+    background: red;
+}
+
+.logout {
+    margin-bottom: 4px;
+    width: 100%;
+    height: 50px;
+}
+
+.logout a {
+    margin-top: 280px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: #E55B5B
+}
+
+.logout a:hover {
+    background: #E55B5B;
+}
+
+.logout a:active {
+    background: red;
+}
+
+iframe {
+    width: 78%;
+    height: 800px;
+    border: none;
+}
+
+.nav-wrapper{
+
+    background: #551CA2;
+}
+
+.nav-wrapper a i{
+ margin-top: 4px;
+ font-size: 30px;
+}
+
+.sidenav li a:hover{
+    background: #551CA2;
+    color:white;
+}
+
+#cerrar:hover{
+    background: #E55B5B;
+}
+
+#iframedash2{
+    width: 100%;
+    height: 800px;
+}
+
+#lang {
+    background: rgba(0, 0, 0, 0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -41,7 +41,7 @@
 
 
             <h:form enctype="multipart/form-data">
-                <h1><h:outputText value="Create/Edit"/></h1>
+                <h1><h:outputText value="producto/Edit"/></h1>
                 <h:panelGrid columns="2">
                     <h:outputLabel value="marca" for="maca" />
                     <h:selectOneMenu id="marca" value="#{subMarcaControlador.marca.idMarca}" title="IdSubmarca" >
@@ -151,8 +151,6 @@
                     <h:column>
                         <h:commandButton action="#{productoControlador.preEditar(item)}" value="Editar"/>
                         <h:commandButton action="#{productoControlador.eliminarProducto(item)}" value="eliminar" />
-
-
                     </h:column>
                     <h:column>
                         <h:selectOneMenu id="idEstadoProducto2" value="#{productoControlador.estadoproducto.idEstadoProducto}" >
