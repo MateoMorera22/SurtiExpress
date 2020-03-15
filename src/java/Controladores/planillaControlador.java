@@ -140,6 +140,7 @@ public class planillaControlador implements Serializable {
         planilla.setIdUsuario(getUsuario());
         planillaFacade.create(planilla);
         planillaFacade.crearPlanillaPedidos(listaPedidos, planilla);
+        listaPedidos.clear();
     }
     public List<Planilla> listarPlanillas(){
         return planillaFacade.findAll();

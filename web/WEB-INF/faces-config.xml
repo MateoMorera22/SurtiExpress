@@ -68,6 +68,12 @@
             <var>msjPedidos</var>
         </resource-bundle>
         
+           <resource-bundle>
+            <base-name>beans.languages.RutasForm</base-name><!--Rutas-->
+            <var>msjRutas</var>
+        </resource-bundle>
+        
+        
         
         
         

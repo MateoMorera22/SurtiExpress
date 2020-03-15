@@ -2,18 +2,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
         <f:view>
-
-
             <h:form>
-                <h1><h:outputText value="List"/></h1>
-                <h:dataTable value="#{pedidoControlador.listarPedidos()}" var="pe">
-                    <h:column>
+                <c:forEach items="#{pedidoControlador.listarPedidos()}" var="pe">
+                    <c:if test="#{pe.idEstadoPedido.idEstadoPedido eq 1}" >
+                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="IdPedido"/>
                         </f:facet>
@@ -35,8 +34,8 @@
                             <f:convertDateTime pattern="MM/dd/yyyy" />
                         </h:outputText>
                     </h:column>
-                    <h:column>
-                        <f:facet name="header">
+                        <h:column>
+                            <f:facet name="header">
                             <h:outputText value="Subtotal"/>
                         </f:facet>
                         <h:outputText value="#{pe.subtotal}"/>
@@ -51,7 +50,7 @@
                         <f:facet name="header">
                             <h:outputText value="IdUsuario"/>
                         </f:facet>
-                        <h:outputText value="#{pe.idUsuario.idUsuario}"/>
+                        <h:outputText value="#{pe.idUsuario.idZona.zona}"/>
                     </h:column>
                     <h:column>
                         <f:facet name="header">
@@ -60,11 +59,13 @@
                         <h:outputText value="#{pe.idEstadoPedido.estadoPedido}"/>
                     </h:column>
                     <h:column>
-                        <h:commandButton action="#{planillaControlador.agregarPedidoPlanilla(pe)}" value="añadir" />
+                        <h:commandButton action="#{planillaControlador.agregarPedidoPlanilla(pe)}"/>
                     </h:column>
-                </h:dataTable>
+                    </c:if>
+                </c:forEach>
             </h:form>
         </f:view>
+       
         <f:view>
             <h:form>
                 <h:dataTable value="#{planillaControlador.listaPedidos}" var="pe">
@@ -78,9 +79,6 @@
                         <h:commandButton action="#{planillaControlador.removerPedidoPlanilla(pe)}" value="remover"/>
                     </h:column>
                 </h:dataTable>
-
-
- 
                     <h1><h:outputText value="Create/Edit"/></h1>
                     <h:panelGrid columns="2">
                         <h:outputLabel value="IdEstadoPlanilla:" for="idEstadoPlanilla" />
@@ -94,8 +92,6 @@
                             <f:selectItems value="#{usuarioControlador.listarTransportadores()}" var="usu" itemLabel="#{usu.nombre}" itemValue="#{usu.idUsuario}"/>
                         </h:selectOneMenu>
                     </h:panelGrid>
-
-
                 <h:commandButton action="#{planillaControlador.crearPlanilla()}" value="crear" />
             </h:form>
         </f:view>

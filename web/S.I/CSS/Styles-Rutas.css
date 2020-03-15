@@ -40,6 +40,7 @@ body{
     border-radius: 8px;
 }
 
+
 .espaciobtn{
     width: 100%;
     height: 40px;
@@ -50,10 +51,19 @@ body{
     height: 28px;
 }
 
-.btn-floating{
-bottom: 15px;
-left: 15px;
+#buscar{
+    background-color: #455a64;
 }
+
+#buscar:hover{
+    background-color: #ff7043 ;
+}
+
+.final{
+    width: 100%;
+    height: 120px;
+}
+
 
 
 
