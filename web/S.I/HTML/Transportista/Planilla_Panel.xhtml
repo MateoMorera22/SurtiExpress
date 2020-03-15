@@ -76,21 +76,21 @@
 
                         </thead>
                         <tbody>
-                            <h:form>
-                                <c:forEach var="pe" items="#{pedidoControlador.listarPedidos()}">
-                                    <c:if test="#{pe.idEstadoPedido.idEstadoPedido eq 1}" >
-                                        <tr>
-                                            <td><h:outputText value="#{pe.idPedido}"/></td>
-                                            <td><h:outputText value="#{pe.idUsuario.nombre}"/> <h:outputText value="#{item.idUsuario.apellido}"/> </td>
-                                            <td><h:outputText value="#{pe.idUsuario.idZona.zona}"/></td>
-                                            <td><h:outputText value="#{pe.idUsuario.barrio}"/></td>
-                                            <td><h:outputText value="#{pe.total}"/></td>
-                                            <td> <h:commandLink class="waves-effect waves-light btn #941e1e red darken-3"  action="#{planillaControlador.agregarPedidoPlanilla(pe)}">
-                                                <i class="material-icons">delete_forever</i></h:commandLink> </td>
-                                        </tr>
-                                    </c:if>
-                                </c:forEach>
-                            </h:form>
+                            <c:forEach var="pe" items="#{pedidoControlador.listarPedidos()}">
+                                <c:if test="#{pe.idEstadoPedido.idEstadoPedido eq 1}" >
+                                    <tr>
+                                        <td><h:outputText value="#{pe.idPedido}"/></td>
+                                        <td><h:outputText value="#{pe.idUsuario.nombre}"/> <h:outputText value="#{item.idUsuario.apellido}"/> </td>
+                                        <td><h:outputText value="#{pe.idUsuario.idZona.zona}"/></td>
+                                        <td><h:outputText value="#{pe.idUsuario.barrio}"/></td>
+                                        <td><h:outputText value="#{pe.total}"/></td>
+                                        <h:form>
+                                            <td> <h:commandLink class="waves-effect waves-light btn #43a047 green darken-1"  action="#{planillaControlador.agregarPedidoPlanilla(pe)}">
+                                                    <i class="material-icons">add</i></h:commandLink> </td>
+                                        </h:form>
+                                    </tr>
+                                </c:if>
+                            </c:forEach>
                         </tbody>
                     </table>
                 </div>
@@ -125,20 +125,18 @@
                         </div>
                         <h:form>
                             <div class="final">
-                                   <div class="col s12 m12 l12">
-                                            <div class="input-field">
-                                                <h:selectOneMenu id="idUsuario" value="#{planillaControlador.usuario.idUsuario}" title="IdUsuario" required="true" requiredMessage="The RolIdRol field is required.">
-                                                    <!-- TODO: update below reference to list of available items-->
-                                                    <f:selectItems value="#{usuarioControlador.listarTransportadores()}" var="usu" itemLabel="#{usu.nombre}" itemValue="#{usu.idUsuario}"/>
-                                                </h:selectOneMenu>
-                                                <label>#{msjUsuarios.Transportista}</label>
-                                            </div>
-                                        </div>
+                                <div class="col s12 m12 l12">
+                                    <div class="input-field">
+                                        <h:selectOneMenu id="idUsuario" value="#{planillaControlador.usuario.idUsuario}" title="IdUsuario" required="true" requiredMessage="The RolIdRol field is required.">
+                                            <!-- TODO: update below reference to list of available items-->
+                                            <f:selectItems value="#{usuarioControlador.listarTransportadores()}" var="usu" itemLabel="#{usu.nombre}" itemValue="#{usu.idUsuario}"/>
+                                        </h:selectOneMenu>
+                                        <label>#{msjUsuarios.Transportista}</label>
+                                    </div>
+                                </div>
 
                                 <h:commandLink class="#5e35b1 deep-purple darken-1 btn waves-effect waves-light left" action="#{usuarioControlador.registrarUsuarioCliente()}" >#{msjRutas.Crear_planilla}
                                     <i class="material-icons right">add_box</i></h:commandLink>
-
-
                             </div>
                         </h:form>
                     </div>  
