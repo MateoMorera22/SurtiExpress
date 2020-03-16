@@ -145,4 +145,8 @@ public class planillaControlador implements Serializable {
     public List<Planilla> listarPlanillas(){
         return planillaFacade.findAll();
     }
-}
+    public void eliminarPlanilla(Planilla planilla){
+        planillaFacade.remove(planilla);
+    }
+      }
+    
