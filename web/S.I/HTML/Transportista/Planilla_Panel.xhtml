@@ -85,13 +85,7 @@
                                         <td><h:outputText value="#{pe.idUsuario.barrio}"/></td>
                                         <td><h:outputText value="#{pe.total}"/></td>
                                         <h:form>
-                                            <td> <div class="hide">
-                                                <h:selectOneMenu id="idEstadoPedido" value="#{pedidoControlador.estadoPedido.idEstadoPedido}" title="IdEstadoPedido" >
-                            <!-- TODO: update below reference to list of available items-->
-                            <f:selectItems value="#{estadoPedidoControlador.listarEstadoPedido()}" var="estp" itemLabel="2" itemValue="2"/>
-                        </h:selectOneMenu>
-                                            </div>
-                                             <h:commandLink class="waves-effect waves-light btn #43a047 green darken-1"  action="#{planillaControlador.agregarPedidoPlanilla(pe)}">
+                                            <td> <h:commandLink class="waves-effect waves-light btn #43a047 green darken-1"  action="#{planillaControlador.agregarPedidoPlanilla(pe)}">
                                                     <i class="material-icons">add</i></h:commandLink> </td>
                                         </h:form>
                                     </tr>

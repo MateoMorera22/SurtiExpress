@@ -16,7 +16,6 @@ import Facades.UsuarioFacade;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
-import java.util.List;
 import javax.ejb.EJB;
 
 /**
@@ -86,23 +85,5 @@ public class tareaControlador implements Serializable {
         tarea.setIdUsuario(getUsuario());
         tareaFacade.create(tarea);
     }
-    public List<Tarea> listarTareas(){
-        return tareaFacade.findAll();
-    }
-    public String preEditarTarea(Tarea tarea){
-        this.tarea = tarea;
-        this.estadotarea = tarea.getIdEstadoTarea();
-        this.planilla = tarea.getIdPlanilla();
-        this.usuario = tarea.getIdUsuario();
-        return "";
-    }
-    public void editarTarea(){
-        tarea.setIdPlanilla(getPlanilla());
-        tarea.setIdEstadoTarea(getEstadotarea());
-        tarea.setIdUsuario(getUsuario());
-        tareaFacade.edit(tarea);
-    }
-    public void eliminarTarea(Tarea tarea){
-        tareaFacade.remove(tarea);
-    }
+    
 }
