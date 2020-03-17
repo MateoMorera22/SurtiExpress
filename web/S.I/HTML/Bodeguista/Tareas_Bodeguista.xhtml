@@ -54,39 +54,62 @@
             </div>
 
             <div class="row">
-                <div class="col s4 m4 l6">
-                    <div class="z-depth-5 card #43a047 green darken-1 ">
-                        <div class="card-content Bodeguistas">
-                            <a href="crear-tarea.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">rate_review</i></a>
-                            <span class="white-text card-title">#{msjTareas.Listado_Bodeguistas}</span>
-                            <div class="content">
-                                <c:forEach var="item" items="#{usuarioControlador.listarClientes()}">
-                                    <ul class=" white collapsible">
-                                        <li>
-                                            <div class="collapsible-header"><div class="nombres"><i class="left material-icons">face</i><span id="names"><h:outputText value="#{item.nombre}"/> &nbsp; <h:outputText value="#{item.apellido}"/> </span></div></div>
-                                            <div class="collapsible-body"><span>#{msjRegistro.Numero_documento}: <h:outputText value="#{item.documento}"/></span> <br></br>  <span>#{msjRegistro.Correo_electronico}: <h:outputText value="#{item.correo}"/></span> <br></br> <span>#{msjRegistro.Telefono}: <h:outputText value="#{item.telefono}"/></span></div>
-                                        </li>
-                                    </ul>
-                                </c:forEach>
+
+
+                <div class="col s12 m6 l6">
+                    <div class="card #0097a7 cyan darken-2">
+                        <div class="card-content">
+                            <a href="crear-tarea.xhtml"  class="btn-small btn-floating waves-effect waves-light right btn"><i class="material-icons white-text">add</i></a>
+                            <span class="card-title white-text ">Crear Tareas</span>
+                            <div class="listados">
+                                <c:forEach var="pe" items="#{usuarioControlador.listarEmpleadosBodeguista()}">
+                                    <h:form>
+                                        <ul class="collapsible">
+                                            <li>
+                                                <div class="collapsible-header #ffffff white"><i class="material-icons">move_to_inbox</i>
+                                                    <div class="btnoheadercard right">
+                                                        #{msjUsuarios.Bodeguista}: #{pe.nombre} #{pe.apellido}
+                                                    </div>
+                                                </div>
+
+                                                <div class="collapsible-body #ffffff white">
+                                                    <span>
+                                                        #{msjRegistro.Documento}: #{pe.documento}<p></p>
+                                                        #{msjRegistro.Correo_electronico}: #{pe.correo}<p></p>
+                                                        #{msjRegistro.Telefono}: #{pe.telefono}
+                                                    </span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </h:form>
+                                </c:forEach>    
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col s4 m4 l6">
-                    <div class="z-depth-5 card">
-                        <div class="card-content Bodeguistas">
-                            <span class="card-title">#{msjTareas.Tareas_asignadas}</span>
-                            <div class="content">
-                           
+
+
+
+                <div class="col s12 m6 l6">
+                    <div class="card #0288d1 light-blue darken-2">
+                        <div class="card-content">
+                            <span class="card-title white-text">Tareas asignadas</span>
+                            <div class="listados">
+
                             </div>
                         </div>
                     </div>
-
                 </div>
 
 
-                <div class="col s4 m4 l4"></div>
             </div>
+
+
+
+
+
+
+         
 
 
 
