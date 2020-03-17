@@ -25,65 +25,63 @@
                                     <div class="formularios">
                                         <div class="row">
 
-                                            <div class="input-field col s12 m12 l12">
-                                                <h:inputTextarea id="tarea" value="#{tareaControlador.tarea.tarea}" class="materialize-textarea"></h:inputTextarea>
-                                                <label for="#{msjcrearTarea.Contenido}">Textarea</label>
-                                            </div>
-
-
-
-                                            <!--Planilla-->
-                                            <div class="col s12 m12 l12">
+                                            <!--Seleccionar bodeguista-->
+                                            <div class="col s12 m12 l12 ">
                                                 <div class="input-field">
-                                                    <h:selectOneMenu id="idPlanilla" value="#{tareaControlador.planilla.idPlanilla}" title="IdPlanilla"  required="true" requiredMessage="Seleccione una Planilla.">
+                                                    <h:selectOneMenu id="marcaIdMarca" value="#{tareaControlador.usuario.idUsuario}" title="UsuarioIdUsuario" required="true" requiredMessage="Seleccione una marca">
                                                         <!-- TODO: update below reference to list of available items-->
-                                                        <f:selectItems value="#{planillaControlador.listarPlanillas()}" var="plan" itemValue="#{plan.idPlanilla}" itemLabel="#{plan.idPlanilla}"/>
+                                                        <f:selectItem itemLabel="--" itemValue="" /> 
+                                                        <f:selectItems  value="#{usuarioControlador.listarBode()}" var="usu" itemLabel="#{usu.nombres}" itemValue="#{usu.idUsuario}"/>
                                                     </h:selectOneMenu>
-                                                    <label>#{msjcrearTarea.Seleccionar_planilla}</label>
+                                                    <label>#{msjcrearTarea.Seleccionar_bodeguista}</label>
                                                 </div>
                                             </div>
-                                            <!--Planilla-->
+                                            <!--Seleccionar bodeguista-->
 
 
 
-                                            <!--Bodeguista-->
-                                            <h:form>
-                                                <div class="col s12 m12 l12">
+                                            <!--Contenido-->
+                                            <div class="col s12 m12 l12">
+                                                <div class="row">
                                                     <div class="input-field">
-                                                        <h:selectOneMenu id="idUsuario" value="#{tareaControlador.usuario.idUsuario}" title="IdUsuario"  required="true" requiredMessage="Seleccione un Bodeguista.">
-                                                            <!-- TODO: update below reference to list of available items-->
-                                                            <f:selectItems value="#{usuarioControlador.listarEmpleadosBodeguista()}" var="usu" itemLabel="#{usu.nombre}" itemValue="#{usu.idUsuario}"/>
-                                                        </h:selectOneMenu>
-                                                        <label>#{msjcrearTarea.Seleccione_bodeguista}</label>
+                                                        <i class="material-icons prefix">mode_edit</i>
+                                                        <h:inputTextarea id="icon_prefix2" class="materialize-textarea" value="#{tareaControlador.tarea.descripcion}" ></h:inputTextarea>
+                                                        <label for="icon_prefix2" >#{msjcrearTarea.Contenido}</label>
                                                     </div>
                                                 </div>
-                                            </h:form>
-                                            <!--Bodeguista-->
-
-
-                                            <!--Estado-->
-                                            <div class="hide">
-                                                <h:outputLabel value="IdEstadoTarea:" for="idEstadoTarea" />
-                                                <h:selectOneMenu id="idEstadoTarea" value="#{tareaControlador.estadotarea.idEstadoTarea}" title="IdEstadoTarea" >
-                                                    <!-- TODO: update below reference to list of available items-->
-                                                    <f:selectItems value="#{estadotareaControlador.listarEstadoTarea()}" var="esttar" itemLabel="#{esttar.estadoTarea}" itemValue="1"/>
-                                                </h:selectOneMenu>
                                             </div>
-                                            <!--Estado-->
+                                            <!--Documento-->
 
+                                            <!--Formulario de Email-->
+                                            <div class="col s12 m12 l12">
+                                                <div class="input-field datepicke">
+                                                    <h:inputText  value="#{tareaControlador.tarea.fechaCreacion}" title="Fecha"> <f:convertDateTime pattern="MM/dd/yyyy" /> </h:inputText>
+                                                    <label for="first_name">#{msjcrearTarea.Fecha_realizacion}</label>
+                                                </div>
+                                            </div>
+                                            <!--Formulario de nombre-->
 
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card-action ">
-                                    <h:commandLink  class="#5e35b1 deep-purple darken-1 btn waves-effect waves-light" action="#{tareaControlador.crearTarea()}" >#{msjcrearTarea.Crear_Tarea_titulo}
-                                        <i class="material-icons right">group_add</i></h:commandLink>
+                                    <h:commandLink class="#5e35b1 deep-purple darken-1 btn waves-effect waves-light" action="#{tareaControlador.crearTarea()}" >#{msjcrearTarea.Crear}
+                                        <i class="material-icons right ">edit</i></h:commandLink>
                                     <a  href="Tareas_Bodeguista.xhtml" class="waves-effect waves-light btn #ef5350 red lighten-1"><i class="material-icons right">cancel</i>#{msjRegistro.Cancelar}</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col s0 m1 l2"></div>
                     </div>
+
+                    <!--ROL-->
+                    <div class='hide dropdown-content'>
+                        <h:selectOneMenu id="rolIdRol" value="#{tareaControlador.estado.idEstado}" title="RolIdRol" required="true" requiredMessage="The RolIdRol field is required.">
+                            <!-- TODO: update below reference to list of available items-->
+                            <f:selectItems value="#{estadoControlador.listarEstados()}" var="rol" itemValue="1"/>
+                        </h:selectOneMenu>
+                    </div>
+                    <!--ROL-->
 
                 </h:form>
             </f:view>
