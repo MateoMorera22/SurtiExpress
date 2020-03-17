@@ -125,6 +125,14 @@
                         </div>
                         <h:form>
                             <div class="final">
+
+                                <div class="hide">
+                                    <h:selectOneMenu id="idEstadoPlanilla" value="#{planillaControlador.estadoplanilla.idEstadoPlanilla}" title="IdEstadoPlanilla" >
+                                        <!-- TODO: update below reference to list of available items-->
+                                        <f:selectItems value="#{estadoplanillaControlador.listarEstadoplan()}" var="est" itemLabel="#{est.estadoPlanilla}" itemValue="1"/>
+                                    </h:selectOneMenu>
+                                </div>
+
                                 <div class="col s12 m12 l12">
                                     <div class="input-field">
                                         <h:selectOneMenu id="idUsuario" value="#{planillaControlador.usuario.idUsuario}" title="IdUsuario" required="true" requiredMessage="The RolIdRol field is required.">
@@ -135,7 +143,7 @@
                                     </div>
                                 </div>
 
-                                <h:commandLink class="#5e35b1 deep-purple darken-1 btn waves-effect waves-light left" action="#{usuarioControlador.registrarUsuarioCliente()}" >#{msjRutas.Crear_planilla}
+                                <h:commandLink class="#5e35b1 deep-purple darken-1 btn waves-effect waves-light left" action="#{planillaControlador.crearPlanilla()}" >#{msjRutas.Crear_planilla}
                                     <i class="material-icons right">add_box</i></h:commandLink>
                             </div>
                         </h:form>
@@ -145,30 +153,27 @@
             <div class="col s12 m12 l4">
                 <div class="card">
                     <div class="card-content">
-                        <a href="#modal4"
-                           class="btn-floating btn-large waves-effect waves-light btn-small right deep-purple darken-2 modal-trigger"><i
-                                class="material-icons">add</i></a>
                         <span class="card-title">#{msjRutas.Listado_de_planillas}</span>
                         <div class="listado">
-                            <ul class="collapsible">
-                                <li>
-                                    <div class="collapsible-header"><i class="material-icons">local_shipping</i>Localidad:
-                                        Usaquen | Barrio: Toberin
-                                        <div class="btnoheadercard right">
-                                            <a
-                                                href="#modal5" class="waves-effect waves-light btn-small right right #388e3c green darken-2 modal-trigger"><i
-                                                    class="material-icons center-align">create</i></a>
-                                        </div>
-                                    </div>
-                                    <div class="collapsible-body"><span>Localidades: Toberin, Cedritos, Santa Bárbara, San
-                                            Cristóbal Norte ...</span>
-                                        <div class="espaciobtn">
-                                            <a href="#modal5" class="waves-effect waves-light btn right #388e3c green darken-2 modal-trigger"><i
-                                                    class="material-icons left">remove_red_eye</i>Visualizar</a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                            <c:forEach var="pe" items="#{pedidoControlador.listarPedidos()}">
+                                <c:if test="#{pe.idEstadoPedido.idEstadoPedido eq 1}" >
+                                    <ul class="collapsible">
+                                        <li>
+                                            <div class="collapsible-header"><i class="material-icons">local_shipping</i>Localidad:
+                                                Usaquen | Barrio: Toberin
+                                                <div class="btnoheadercard right">
+                                                    <a
+                                                        href="#modal5" class="waves-effect waves-light btn-small right right #388e3c green darken-2 modal-trigger"><i
+                                                            class="material-icons center-align">create</i></a>
+                                                </div>
+                                            </div>
+                                            <div class="collapsible-body"><span>Localidades: Toberin, Cedritos, Santa Bárbara, San
+                                                    Cristóbal Norte ...</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </c:if>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>
