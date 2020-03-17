@@ -155,20 +155,27 @@
                     <div class="card-content">
                         <span class="card-title">#{msjRutas.Listado_de_planillas}</span>
                         <div class="listado">
-                            <c:forEach var="pe" items="#{pedidoControlador.listarPedidos()}">
-                                <c:if test="#{pe.idEstadoPedido.idEstadoPedido eq 1}" >
+                            <c:forEach var="pe" items="#{planillaControlador.listarPlanillas()}">
+                                <c:if test="#{pe.idEstadoPlanilla.idEstadoPlanilla eq 1}" >
                                     <ul class="collapsible">
                                         <li>
-                                            <div class="collapsible-header"><i class="material-icons">local_shipping</i>Localidad:
-                                                Usaquen | Barrio: Toberin
+                                            <div class="collapsible-header"><i class="material-icons">local_shipping</i>
+                                                #{msjUsuarios.Transportista}: #{pe.idUsuario.nombre} #{pe.idUsuario.apellido}
                                                 <div class="btnoheadercard right">
-                                                    <a
-                                                        href="#modal5" class="waves-effect waves-light btn-small right right #388e3c green darken-2 modal-trigger"><i
-                                                            class="material-icons center-align">create</i></a>
+                                                    <h:form>
+                                                        <h:commandLink class="waves-effect waves-light btn #941e1e red darken-3 btn-small" style="width: 50px"  action="#{planillaControlador.eliminarPlanilla(pe)}">
+                                                            <i class="material-icons">delete_forever</i></h:commandLink>
+
+                                                    </h:form>
                                                 </div>
                                             </div>
-                                            <div class="collapsible-body"><span>Localidades: Toberin, Cedritos, Santa Bárbara, San
-                                                    Cristóbal Norte ...</span>
+                                            <div class="collapsible-body"><span>
+                                                    #{msjUsuarios.Transportista}: #{pe.idUsuario.nombre} #{pe.idUsuario.apellido}<p></p>
+                                                    #{msjRutas.Planilla_id}: #{pe.idPlanilla}<p></p> 
+                                                    #{msjUsuarios.Datos_Vehiculo}:<p></p> #{msjUsuarios.Color}: #{pe.idUsuario.idVehiculo.color} 
+                                                    <p></p>#{msjUsuarios.Marca} #{pe.idUsuario.idVehiculo.marca}<p></p>
+                                                    #{msjUsuarios.Placa}: #{pe.idUsuario.idVehiculo.placa}
+                                                </span>
                                             </div>
                                         </li>
                                     </ul>
