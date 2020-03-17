@@ -5,12 +5,10 @@
  */
 package Controladores;
 
-import Entidades.Estadopedido;
 import Entidades.Estadoplanilla;
 import Entidades.Pedido;
 import Entidades.Planilla;
 import Entidades.Usuario;
-import Facades.EstadopedidoFacade;
 import Facades.EstadoplanillaFacade;
 import Facades.PedidoFacade;
 import Facades.PlanillaFacade;
@@ -47,27 +45,8 @@ public class planillaControlador implements Serializable {
     @EJB
     PedidoFacade pedidoFacade;
     Pedido pedido = new Pedido();
-    @EJB
-    EstadopedidoFacade estadoPedidoFacade;
-    Estadopedido estadoPedido = new Estadopedido();
     List<Planilla> listaPlanilla;
     List<Pedido> listaPedidos= new ArrayList();
-
-    public EstadopedidoFacade getEstadoPedidoFacade() {
-        return estadoPedidoFacade;
-    }
-
-    public void setEstadoPedidoFacade(EstadopedidoFacade estadoPedidoFacade) {
-        this.estadoPedidoFacade = estadoPedidoFacade;
-    }
-
-    public Estadopedido getEstadoPedido() {
-        return estadoPedido;
-    }
-
-    public void setEstadoPedido(Estadopedido estadoPedido) {
-        this.estadoPedido = estadoPedido;
-    }
 
     public PlanillaFacade getPlanillaFacade() {
         return planillaFacade;
@@ -148,14 +127,9 @@ public class planillaControlador implements Serializable {
     public void setListaPedidos(List<Pedido> listaPedidos) {
         this.listaPedidos = listaPedidos;
     }
-    public String agregarPedidoPlanilla(Pedido pe){
+    public void agregarPedidoPlanilla(Pedido pe){
         listaPedidos.add(pe);
-        this.pedido = pe;
-        this.estadoPedido = pe.getIdEstadoPedido();
-        pe.setIdEstadoPedido(estadoPedidoFacade.find(estadoPedido.getIdEstadoPedido()));
-        pedidoFacade.edit(pe);
-         System.out.println(listaPedidos);
-        return "";
+        System.out.println(listaPedidos);
     }
     public void removerPedidoPlanilla(Pedido pe){
         listaPedidos.remove(pe);
