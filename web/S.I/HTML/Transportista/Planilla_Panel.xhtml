@@ -131,14 +131,6 @@
                         </div>
                         <h:form>
                             <div class="final">
-
-                                <div class="hide">
-                                    <h:selectOneMenu id="idEstadoPlanilla" value="#{planillaControlador.estadoplanilla.idEstadoPlanilla}" title="IdEstadoPlanilla" >
-                                        <!-- TODO: update below reference to list of available items-->
-                                        <f:selectItems value="#{estadoplanillaControlador.listarEstadoplan()}" var="est" itemLabel="#{est.estadoPlanilla}" itemValue="1"/>
-                                    </h:selectOneMenu>
-                                </div>
-
                                 <div class="col s12 m12 l12">
                                     <div class="input-field">
                                         <h:selectOneMenu id="idUsuario" value="#{planillaControlador.usuario.idUsuario}" title="IdUsuario" required="true" requiredMessage="The RolIdRol field is required.">
@@ -149,7 +141,7 @@
                                     </div>
                                 </div>
 
-                                <h:commandLink class="#5e35b1 deep-purple darken-1 btn waves-effect waves-light left" action="#{planillaControlador.crearPlanilla()}" >#{msjRutas.Crear_planilla}
+                                <h:commandLink class="#5e35b1 deep-purple darken-1 btn waves-effect waves-light left" action="#{usuarioControlador.registrarUsuarioCliente()}" >#{msjRutas.Crear_planilla}
                                     <i class="material-icons right">add_box</i></h:commandLink>
                             </div>
                         </h:form>
@@ -159,34 +151,30 @@
             <div class="col s12 m12 l4">
                 <div class="card">
                     <div class="card-content">
+                        <a href="#modal4"
+                           class="btn-floating btn-large waves-effect waves-light btn-small right deep-purple darken-2 modal-trigger"><i
+                                class="material-icons">add</i></a>
                         <span class="card-title">#{msjRutas.Listado_de_planillas}</span>
                         <div class="listado">
-                            <c:forEach var="pe" items="#{planillaControlador.listarPlanillas()}">
-                                <c:if test="#{pe.idEstadoPlanilla.idEstadoPlanilla eq 1}" >
-                                    <ul class="collapsible">
-                                        <li>
-                                            <div class="collapsible-header"><i class="material-icons">local_shipping</i>
-                                                #{msjUsuarios.Transportista}: #{pe.idUsuario.nombre} #{pe.idUsuario.apellido}
-                                                <div class="btnoheadercard right">
-                                                    <h:form>
-                                                        <h:commandLink class="waves-effect waves-light btn #941e1e red darken-3 btn-small" style="width: 50px"  action="#{planillaControlador.eliminarPlanilla(pe)}">
-                                                            <i class="material-icons">delete_forever</i></h:commandLink>
-
-                                                    </h:form>
-                                                </div>
-                                            </div>
-                                            <div class="collapsible-body"><span>
-                                                    #{msjUsuarios.Transportista}: #{pe.idUsuario.nombre} #{pe.idUsuario.apellido}<p></p>
-                                                    #{msjRutas.Planilla_id}: #{pe.idPlanilla}<p></p> 
-                                                    #{msjUsuarios.Datos_Vehiculo}:<p></p> #{msjUsuarios.Color}: #{pe.idUsuario.idVehiculo.color} 
-                                                    <p></p>#{msjUsuarios.Marca} #{pe.idUsuario.idVehiculo.marca}<p></p>
-                                                    #{msjUsuarios.Placa}: #{pe.idUsuario.idVehiculo.placa}
-                                                </span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </c:if>
-                            </c:forEach>
+                            <ul class="collapsible">
+                                <li>
+                                    <div class="collapsible-header"><i class="material-icons">local_shipping</i>Localidad:
+                                        Usaquen | Barrio: Toberin
+                                        <div class="btnoheadercard right">
+                                            <a
+                                                href="#modal5" class="waves-effect waves-light btn-small right right #388e3c green darken-2 modal-trigger"><i
+                                                    class="material-icons center-align">create</i></a>
+                                        </div>
+                                    </div>
+                                    <div class="collapsible-body"><span>Localidades: Toberin, Cedritos, Santa Bárbara, San
+                                            Cristóbal Norte ...</span>
+                                        <div class="espaciobtn">
+                                            <a href="#modal5" class="waves-effect waves-light btn right #388e3c green darken-2 modal-trigger"><i
+                                                    class="material-icons left">remove_red_eye</i>Visualizar</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
