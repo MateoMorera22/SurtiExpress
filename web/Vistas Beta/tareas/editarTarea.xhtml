@@ -7,9 +7,8 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <f:view>
-
-
+       
+<f:view>
             <h:form>
                 <h1><h:outputText value="Create/Edit"/></h1>
                 <h:panelGrid columns="2">
@@ -35,54 +34,9 @@
                     </h:selectOneMenu>
                 </h:panelGrid>
                 
-                <h:commandButton action="#{tareaControlador.crearTarea()}" value="crar" />
+                <h:commandButton action="#{tareaControlador.editarTarea()}" value="editar" />
             </h:form>
         </f:view>
-        <f:view>
-
-
-            <h:form>
-                <h1><h:outputText value="List"/></h1>
-                <h:dataTable value="#{tareaControlador.listarTareas()}" var="item">
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="IdTarea"/>
-                        </f:facet>
-                        <h:outputText value="#{item.idTarea}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Tarea"/>
-                        </f:facet>
-                        <h:outputText value="#{item.tarea}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="IdPlanilla"/>
-                        </f:facet>
-                        <h:outputText value="#{item.idPlanilla}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="IdEstadoTarea"/>
-                        </f:facet>
-                        <h:outputText value="#{item.idEstadoTarea}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="IdUsuario"/>
-                        </f:facet>
-                        <h:outputText value="#{item.idUsuario}"/>
-                    </h:column>
-                    <h:column>
-                        <h:commandButton action="#{tareaControlador.eliminarTarea(item)}" value="Eliminar"></h:commandButton>
-                        <h:commandButton action="#{tareaControlador.preEditarTarea(item)}" value="Editar"></h:commandButton>
-                    </h:column>
-                </h:dataTable>
-            </h:form>
-        </f:view>
-
-
     </h:body>
 </html>
 

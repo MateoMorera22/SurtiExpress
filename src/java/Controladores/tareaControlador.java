@@ -94,13 +94,14 @@ public class tareaControlador implements Serializable {
         this.estadotarea = tarea.getIdEstadoTarea();
         this.planilla = tarea.getIdPlanilla();
         this.usuario = tarea.getIdUsuario();
-        return "crear-tarea";
+        return "editarTarea";
     }
-    public void editarTarea(){
+    public String editarTarea(){
         tarea.setIdPlanilla(getPlanilla());
         tarea.setIdEstadoTarea(getEstadotarea());
         tarea.setIdUsuario(getUsuario());
         tareaFacade.edit(tarea);
+        return "tareasPage";
     }
     public void eliminarTarea(Tarea tarea){
         
