@@ -93,52 +93,41 @@
                         <div class="card-content">
                             <span class="card-title white-text">#{msjTareas.Tareas_asignadas}</span>
                             <div class="listados">
-                                <h:form>
-                                    <c:forEach var="pe" items="#{tareaControlador.listarTareas()}">
-                                        <c:if test="#{pe.idEstadoTarea.idEstadoTarea eq 1}" >
-                                            <ul class="collapsible">
-                                                <li>
-                                                    <div class="collapsible-header"><i class="material-icons">move_to_inbox</i>#{msjInventario.Nombre}: #{pe.idUsuario.nombre} #{pe.idUsuario.apellido}<div class="btnoheadercard right">
-                                                        </div>
-                                                    </div>
-                                                    <div class="collapsible-body #ffffff white">
-                                                        <div class="row">
-                                                            <div class="col s12 m12 l12">
-                                                                <div class="card blue-grey darken-1">
-                                                                    <div class="card-content white-text">
-                                                                        <h:form>
-                                                                            <h:commandLink class="btn-small btn-floating waves-effect waves-light #ef5350 red lighten-1 right" action="#{tareaControlador.eliminarTarea(pe)}" > <i class="material-icons">delete</i></h:commandLink>
-                                                                            <h:commandLink class="btn-small btn-floating waves-effect waves-light #43a047 green darken-1 right" action="#{tareaControlador.preEditarTarea(pe)}" > <i class="material-icons">edit</i></h:commandLink>
-                                                                        </h:form>
 
-                                                                        <span class="card-title">#{msjcrearTarea.Contenido}</span>
-                                                                        <p><h:outputText value="#{pe.tarea}"/> </p>
-                                                                    </div>
+                                <c:forEach var="pe" items="#{tareaControlador.listarTareas()}">
+                                    <c:if test="#{pe.idEstadoTarea.idEstadoTarea eq 1}" >
+                                        <ul class="collapsible">
+                                            <li>
+                                                <div class="collapsible-header"><i class="material-icons">move_to_inbox</i>
+                                                    #{msjInventario.Nombre}: #{pe.idUsuario.nombre} #{pe.idUsuario.apellido}
+                                                </div>
+
+                                                <div class="collapsible-body #ffffff white">
+                                                    <div class="row">
+                                                        <div class="col s12 m12 l12">
+                                                            <div class="card blue-grey darken-1">
+                                                                <div class="card-content white-text">
+                                                                    <h:form>
+                                                                    <h:commandLink class="btn-small btn-floating waves-effect waves-light #ef5350 red lighten-1 right" action="#{tareaControlador.eliminarTarea(pe)}" > <i class="material-icons">delete</i></h:commandLink>
+                                                                    <h:commandLink class="btn-small btn-floating waves-effect waves-light #43a047 green darken-1 right" action="#{tareaControlador.preEditarTarea(pe)}" > <i class="material-icons">edit</i></h:commandLink>
+                                                                    </h:form>
+                                                                    <span class="card-title">#{msjcrearTarea.Contenido}</span>
+                                                                    <p><h:outputText value="#{pe.tarea}"/> </p>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </li>
-                                            </ul>
-                                        </c:if>
-                                    </c:forEach>
-                                </h:form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col s12 m12 l12">
-                    <div class="card #607d8b blue-grey">
-                        <div class="card-content white-text">
-                            <span class="card-title">Historial de tareas completadas</span>
-                            <div class="listados">
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </c:if>
+                                </c:forEach>
 
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
 
 
