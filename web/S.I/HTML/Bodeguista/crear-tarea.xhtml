@@ -28,10 +28,10 @@
                                             <!--Seleccionar bodeguista-->
                                             <div class="col s12 m12 l12 ">
                                                 <div class="input-field">
-                                                    <h:selectOneMenu id="marcaIdMarca" value="#{tareaControlador.usuario.idUsuario}" title="UsuarioIdUsuario" required="true" requiredMessage="Seleccione una marca">
+                                                    <h:selectOneMenu id="idUsuario" value="#{tareaControlador.usuario.idUsuario}" title="IdUsuario" required="true" requiredMessage="Seleccione una marca">
                                                         <!-- TODO: update below reference to list of available items-->
                                                         <f:selectItem itemLabel="--" itemValue="" /> 
-                                                        <f:selectItems  value="#{usuarioControlador.listarBode()}" var="usu" itemLabel="#{usu.nombres}" itemValue="#{usu.idUsuario}"/>
+                                                        <f:selectItems  value="#{usuarioControlador.listarEmpleadosBodeguista()}" var="usu" itemLabel="#{usu.nombre}" itemValue="#{usu.idUsuario}"/>
                                                     </h:selectOneMenu>
                                                     <label>#{msjcrearTarea.Seleccionar_bodeguista}</label>
                                                 </div>
@@ -45,28 +45,46 @@
                                                 <div class="row">
                                                     <div class="input-field">
                                                         <i class="material-icons prefix">mode_edit</i>
-                                                        <h:inputTextarea id="icon_prefix2" class="materialize-textarea" value="#{tareaControlador.tarea.descripcion}" ></h:inputTextarea>
+                                                        <h:inputTextarea id="tarea" class="materialize-textarea" value="#{tareaControlador.tarea.tarea}" ></h:inputTextarea>
                                                         <label for="icon_prefix2" >#{msjcrearTarea.Contenido}</label>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!--Documento-->
+                                            <!--contenido-->
 
-                                            <!--Formulario de Email-->
-                                            <div class="col s12 m12 l12">
-                                                <div class="input-field datepicke">
-                                                    <h:inputText  value="#{tareaControlador.tarea.fechaCreacion}" title="Fecha"> <f:convertDateTime pattern="MM/dd/yyyy" /> </h:inputText>
-                                                    <label for="first_name">#{msjcrearTarea.Fecha_realizacion}</label>
+
+                                            <!--Seleccionar Planilla-->
+                                            <div class="col s12 m12 l12 ">
+                                                <div class="input-field">
+                                                    <h:selectOneMenu id="idPlanilla" value="#{tareaControlador.planilla.idPlanilla}" title="IdPlanilla" required="true" requiredMessage="Seleccione una marca">
+                                                        <!-- TODO: update below reference to list of available items-->
+                                                        <f:selectItem itemLabel="--" itemValue="" /> 
+                                                        <f:selectItems value="#{planillaControlador.listarPlanillas()}" var="plan" itemValue="#{plan.idPlanilla}" itemLabel="#{plan.idPlanilla}"/>
+                                                    </h:selectOneMenu>
+                                                    <label>#{msjcrearTarea.Seleccionar_bodeguista}</label>
                                                 </div>
                                             </div>
-                                            <!--Formulario de nombre-->
+                                            <!--Seleccionar Planilla-->
 
-                                        </div>
+                                            
+                                            <div class="hide">
+                                                <h:form>
+                                                <h:outputLabel value="IdEstadoTarea:" for="idEstadoTarea" />
+                                                <h:selectOneMenu id="idEstadoTarea" value="#{tareaControlador.estadotarea.idEstadoTarea}" title="IdEstadoTarea" >
+                                                    <!-- TODO: update below reference to list of available items-->
+                                                    <f:selectItems value="#{estadotareaControlador.listarEstadoTarea()}" var="esttar" itemLabel="#{esttar.estadoTarea}" itemValue="1"/>
+                                                </h:selectOneMenu>
+                                                    </h:form>
+                                            </div>
+
+
+
+                                        </div>  
                                     </div>
                                 </div>
                                 <div class="card-action ">
-                                    <h:commandLink class="#5e35b1 deep-purple darken-1 btn waves-effect waves-light" action="#{tareaControlador.crearTarea()}" >#{msjcrearTarea.Crear}
-                                        <i class="material-icons right ">edit</i></h:commandLink>
+                                    <h:commandLink class="#5e35b1 deep-purple darken-1 btn waves-effect waves-light" action="#{tareaControlador.crearTarea()}" >#{msjcrearTarea.Crear_Tarea_titulo}
+                                        <i class="material-icons right ">move_to_inbox</i></h:commandLink>
                                     <a  href="Tareas_Bodeguista.xhtml" class="waves-effect waves-light btn #ef5350 red lighten-1"><i class="material-icons right">cancel</i>#{msjRegistro.Cancelar}</a>
                                 </div>
                             </div>
@@ -74,14 +92,7 @@
                         <div class="col s0 m1 l2"></div>
                     </div>
 
-                    <!--ROL-->
-                    <div class='hide dropdown-content'>
-                        <h:selectOneMenu id="rolIdRol" value="#{tareaControlador.estado.idEstado}" title="RolIdRol" required="true" requiredMessage="The RolIdRol field is required.">
-                            <!-- TODO: update below reference to list of available items-->
-                            <f:selectItems value="#{estadoControlador.listarEstados()}" var="rol" itemValue="1"/>
-                        </h:selectOneMenu>
-                    </div>
-                    <!--ROL-->
+                  
 
                 </h:form>
             </f:view>

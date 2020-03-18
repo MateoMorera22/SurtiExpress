@@ -94,7 +94,7 @@ public class tareaControlador implements Serializable {
         this.estadotarea = tarea.getIdEstadoTarea();
         this.planilla = tarea.getIdPlanilla();
         this.usuario = tarea.getIdUsuario();
-        return "";
+        return "crear-tarea";
     }
     public void editarTarea(){
         tarea.setIdPlanilla(getPlanilla());

@@ -54,38 +54,91 @@
             </div>
 
             <div class="row">
-                <div class="col s4 m4 l6">
-                    <div class="z-depth-5 card #43a047 green darken-1 ">
-                        <div class="card-content Bodeguistas">
-                            <a href="crear-tarea.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons">rate_review</i></a>
-                            <span class="white-text card-title">#{msjTareas.Listado_Bodeguistas}</span>
-                            <div class="content">
-                                <c:forEach var="item" items="#{usuarioControlador.listarClientes()}">
-                                    <ul class=" white collapsible">
-                                        <li>
-                                            <div class="collapsible-header"><div class="nombres"><i class="left material-icons">face</i><span id="names"><h:outputText value="#{item.nombre}"/> &nbsp; <h:outputText value="#{item.apellido}"/> </span></div></div>
-                                            <div class="collapsible-body"><span>#{msjRegistro.Numero_documento}: <h:outputText value="#{item.documento}"/></span> <br></br>  <span>#{msjRegistro.Correo_electronico}: <h:outputText value="#{item.correo}"/></span> <br></br> <span>#{msjRegistro.Telefono}: <h:outputText value="#{item.telefono}"/></span></div>
-                                        </li>
-                                    </ul>
+                <div class="col s12 m6 l6">
+                    <div class="card #0097a7 cyan darken-2">
+                        <div class="card-content">
+                            <a href="crear-tarea.xhtml" class="btn-small btn-floating waves-effect waves-light right"><i class="material-icons white-text">add</i></a>
+                            <span class="card-title white-text">#{msjcrearTarea.Crear_Tarea_titulo}</span>
+                            <div class="listados">  
+                                <c:forEach var="pe" items="#{usuarioControlador.listarEmpleadosBodeguista()}">
+                                    <h:form>
+                                        <ul class="collapsible">
+                                            <li>
+                                                <div class="collapsible-header"><i class="material-icons">assignment_ind</i>#{msjInventario.Nombre}: #{pe.nombre} #{pe.apellido}<div class="btnoheadercard right">
+
+                                                    </div>
+                                                </div>
+                                                <div class="collapsible-body #ffffff white"><span>
+                                                        #{msjRegistro.Documento}: #{pe.documento} <p></p>
+                                                        #{msjRegistro.Correo_electronico}: #{pe.correo} <p></p>
+                                                        #{msjRegistro.Telefono}: #{pe.telefono} <p></p>
+                                                    </span>
+                                                    <div class="espaciobtn">
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </h:form>
                                 </c:forEach>
+
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col s4 m4 l6">
-                    <div class="z-depth-5 card">
-                        <div class="card-content Bodeguistas">
-                            <span class="card-title">#{msjTareas.Tareas_asignadas}</span>
-                            <div class="content">
-                           
+
+
+
+                <div class="col s12 m6 l6">
+                    <div class="card #0288d1 light-blue darken-2">
+                        <div class="card-content">
+                            <span class="card-title white-text">#{msjTareas.Tareas_asignadas}</span>
+                            <div class="listados">
+                                <h:form>
+                                    <c:forEach var="pe" items="#{tareaControlador.listarTareas()}">
+                                        <c:if test="#{pe.idEstadoTarea.idEstadoTarea eq 1}" >
+                                            <ul class="collapsible">
+                                                <li>
+                                                    <div class="collapsible-header"><i class="material-icons">move_to_inbox</i>#{msjInventario.Nombre}: #{pe.idUsuario.nombre} #{pe.idUsuario.apellido}<div class="btnoheadercard right">
+                                                        </div>
+                                                    </div>
+                                                    <div class="collapsible-body #ffffff white">
+                                                        <div class="row">
+                                                            <div class="col s12 m12 l12">
+                                                                <div class="card blue-grey darken-1">
+                                                                    <div class="card-content white-text">
+                                                                        <h:form>
+                                                                            <h:commandLink class="btn-small btn-floating waves-effect waves-light #ef5350 red lighten-1 right" action="#{tareaControlador.eliminarTarea(pe)}" > <i class="material-icons">delete</i></h:commandLink>
+                                                                            <h:commandLink class="btn-small btn-floating waves-effect waves-light #43a047 green darken-1 right" action="#{tareaControlador.preEditarTarea(pe)}" > <i class="material-icons">edit</i></h:commandLink>
+                                                                        </h:form>
+
+                                                                        <span class="card-title">#{msjcrearTarea.Contenido}</span>
+                                                                        <p><h:outputText value="#{pe.tarea}"/> </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </c:if>
+                                    </c:forEach>
+                                </h:form>
                             </div>
                         </div>
                     </div>
-
                 </div>
 
 
-                <div class="col s4 m4 l4"></div>
+                <div class="col s12 m12 l12">
+                    <div class="card #607d8b blue-grey">
+                        <div class="card-content white-text">
+                            <span class="card-title">Historial de tareas completadas</span>
+                            <div class="listados">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
 

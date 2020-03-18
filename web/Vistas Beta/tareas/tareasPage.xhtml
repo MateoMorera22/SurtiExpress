@@ -15,27 +15,31 @@
                 <h:panelGrid columns="2">
                     <h:outputLabel value="Tarea:" for="tarea" />
                     <h:inputText id="tarea" value="#{tareaControlador.tarea.tarea}" title="Tarea" />
+                    
                     <h:outputLabel value="IdPlanilla:" for="idPlanilla" />
                     <h:selectOneMenu id="idPlanilla" value="#{tareaControlador.planilla.idPlanilla}" title="IdPlanilla" >
                         <!-- TODO: update below reference to list of available items-->
                         <f:selectItems value="#{planillaControlador.listarPlanillas()}" var="plan" itemValue="#{plan.idPlanilla}" itemLabel="#{plan.idPlanilla}"/>
                     </h:selectOneMenu>
+
                     <h:outputLabel value="IdEstadoTarea:" for="idEstadoTarea" />
                     <h:selectOneMenu id="idEstadoTarea" value="#{tareaControlador.estadotarea.idEstadoTarea}" title="IdEstadoTarea" >
                         <!-- TODO: update below reference to list of available items-->
                         <f:selectItems value="#{estadotareaControlador.listarEstadoTarea()}" var="esttar" itemLabel="#{esttar.estadoTarea}" itemValue="#{esttar.idEstadoTarea}"/>
                     </h:selectOneMenu>
+                    
                     <h:outputLabel value="IdUsuario:" for="idUsuario" />
                     <h:selectOneMenu id="idUsuario" value="#{tareaControlador.usuario.idUsuario}" title="IdUsuario" >
                         <!-- TODO: update below reference to list of available items-->
                         <f:selectItems value="#{usuarioControlador.listarEmpleadosBodeguista()}" var="usu" itemLabel="#{usu.nombre}" itemValue="#{usu.idUsuario}"/>
                     </h:selectOneMenu>
                 </h:panelGrid>
+                
                 <h:commandButton action="#{tareaControlador.crearTarea()}" value="crar" />
             </h:form>
         </f:view>
 
-        
+
     </h:body>
 </html>
 
