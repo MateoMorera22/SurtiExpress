@@ -211,6 +211,15 @@ public class usuarioControlador implements Serializable {
         return "Editar-cliente";
     }
     
+     public String preEditarCliente_vendedor(Usuario usuario) {
+        this.usuario = usuario;
+        this.rol = usuario.getIdRol();
+        this.tipodocumento = usuario.getIdTipoDocumento();
+        this.zona = usuario.getIdZona();
+        this.vehiculo = usuario.getIdVehiculo();
+        return "Editar-cliente_Vendedor";
+    }
+    
       public String preEditarTransportador(Usuario usuario) {
         this.usuario = usuario;
         this.rol = usuario.getIdRol();
@@ -237,6 +246,16 @@ public class usuarioControlador implements Serializable {
         usuarioFacade.edit(usuario);
         return "Lista_Cliente";
     }
+    
+     public String editarUsuarioCliente_vendedor() {
+        usuario.setIdRol(rolFacade.find(rol.getIdRol()));
+        usuario.setIdTipoDocumento(tipodocumentoFacade.find(tipodocumento.getIdTipoDocumento()));
+        usuario.setIdZona(zonaFacade.find(zona.getIdZona()));
+        usuarioFacade.edit(usuario);
+        return "Lista_Cliente_Vendedor";
+    }
+     
+     
     public String editarUsuarioTransportador() {
         usuario.setIdRol(rolFacade.find(rol.getIdRol()));
         usuario.setIdTipoDocumento(tipodocumentoFacade.find(tipodocumento.getIdTipoDocumento()));

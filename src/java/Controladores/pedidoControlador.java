@@ -145,7 +145,7 @@ public class pedidoControlador implements Serializable {
     public String agregarCarrito(Producto p) {
         carrito.add(p);
         System.out.println(carrito);
-        return "carrito";//retorna a la pagina 
+        return "crear-pedido";//retorna a la pagina 
     }
 
     public void removerCarrito(Producto p) {

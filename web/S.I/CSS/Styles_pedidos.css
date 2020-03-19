@@ -1,0 +1,28 @@
+#panel {
+    border-radius: 15px;
+}
+
+img {
+    width: 100px;
+    height: 250px;
+}
+
+.cuerpo {
+    width: 100%;
+    height: 100%;
+}
+
+#boton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.color{
+    background-color: #3e2390;
+}
+
+.color:hover{
+    background-color: #d76100;
+}
+

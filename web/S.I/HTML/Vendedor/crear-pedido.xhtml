@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <f:view locale="#{languageBean.idiomaSeleccionado}">
+        <h:head>
+            <meta charset="UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+            <link rel="stylesheet" href="../../CSS/estilosTablas.css"/>
+            <link rel="stylesheet" href="../../CSS/Styles_pedidos.css"/>
+            <title>Usuarios</title>
+        </h:head>
+        <h:body>
+
+
+            <div class="row">
+                <div class="col s8 m8 l8">
+                    <div class="row">
+                        <c:forEach items="#{productoControlador.listarInventario()}" var="p">
+                            <c:if test="#{p.idEstadoProducto.idEstadoProducto eq 2}" >
+                                <div class="col s3 m3 l3">
+                                    <div class="card">
+                                        <div class="card-image">
+                                            <img src="#{p.imagen}"/>
+                                        </div>
+                                        <div class="card-content">
+                                            <span class="center card-title">#{p.nombre}</span>
+                                            <span class="card-title center">#{p.precioNeto}$</span>
+                                            <p class="center" >#{p.descripcion}</p>
+                                        </div>
+                                        <div id="boton" class="card-action">
+                                            <h:form>
+                                                <h:commandLink class="center btn color" action="#{pedidoControlador.agregarCarrito(p)}" ><i class="material-icons">add_shopping_cart</i></h:commandLink>
+                                            </h:form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:if>
+                        </c:forEach>
+
+
+
+
+                    </div>
+                </div>
+                <div class="col s4 m4 l4">
+                    <div id="panel" class="card #37474f blue-grey darken-3">
+                        <div class="card-content">
+                            <span class="card-title white-text">#{msjVendedor.Crear_pedido}</span>
+                            <div class="cuerpo">
+
+                                <c:forEach var="pe" items="#{pedidoControlador.carrito}">
+                                    <h:form>
+                                        <ul class="collapsible">
+                                            <li>
+                                                <div class="collapsible-header"><i class="material-icons">category</i><div class="btnoheadercard right">
+                                                        #{msjInventario.Nombre}: #{pe.nombre}  #{pe.descripcion}   #{pe.precioNeto}$ <h:commandLink class="btn right #ec3633 red lighten-1" action="#{pedidoControlador.removerCarrito(pe)}" > <i class="material-icons">delete_forever</i></h:commandLink>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="collapsible-body #ffffff white"><span>
+                                                        #{msjRegistro.Nombres}: #{pe.nombre}<p></p>
+                                                        #{msjInventario.PrecioNeto}: #{pe.precioNeto}$<p></p>
+                                                        #{msjInventario.Description}: #{pe.descripcion}
+
+                                                    </span>
+                                                    <div class="espaciobtn">
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </h:form>
+                                </c:forEach>
+                            </div>
+                            <div class="formularios">
+                                <div class="row" >
+                                    <!--Formulario de Fecha de Creacion-->
+                                    <h:form>
+                                        <div class="col s12 m12 l12">
+                                            <div class="input-field">
+                                                <h:inputText class="datepicker" id="creacion" value="#{pedidoControlador.pedido.fechaCreacion}" title="#{msjPedidos.FechaCreacion}"  requiredMessage="Inserte un mensaje valido.">
+                                                    <f:validateLength for="Nombre" maximum="300"/>
+                                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                </h:inputText>
+                                                <label for="first_name">#{msjPedidos.FechaCreacion}</label>
+                                                <span class="helper-text" data-error="Inserte un nombre valido" data-success="✓"></span>
+                                            </div>
+                                        </div>
+                                    </h:form>
+                                    <!--Formulario de Fecha de Creacion-->
+
+
+                                    <!--Formulario de Fecha de Entrega-->
+                                    <h:form>
+                                        <div class="col s12 m12 l12">
+                                            <div class="input-field">
+                                                <h:inputText class="datepicker" id="entrega" value="#{pedidoControlador.pedido.fechaEntrega}" title="#{msjPedidos.FechadeEntrega}"  requiredMessage="Inserte un mensaje valido.">
+                                                    <f:validateLength for="Nombre" maximum="300"/>
+                                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                                </h:inputText>
+                                                <label for="first_name">#{msjPedidos.FechadeEntrega}</label>
+                                                <span class="helper-text" data-error="Inserte un nombre valido" data-success="✓"></span>
+                                            </div>
+                                        </div>
+                                    </h:form>
+                                    <!--Formulario de Fecha de entrega-->
+
+
+                                    <!--Cliente-->
+                                    <h:form>
+                                        <div class="col s12 m12 l12">
+                                            <div class="input-field">
+                                                <h:selectOneMenu id="idUsuario" value="#{pedidoControlador.usuario.idUsuario}" title="IdUsuario" >
+                                                    <!-- TODO: update below reference to list of available items-->
+                                                    <f:selectItems value="#{usuarioControlador.listarClientes()}" var="cli" itemLabel="#{cli.nombre}" itemValue="#{cli.idUsuario}"/>
+                                                </h:selectOneMenu>
+                                                <label>#{msjUsuarios.Clientes}</label>  
+                                            </div>
+                                        </div>
+                                    </h:form>
+                                    <!--Cliente-->
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">This is a link</a>
+                            <a href="#">This is a link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+            <script  src="../../JS/scriptsTablas.js"></script> 
+            <script src="../../JS/Scripts-usuarios.js"></script>
+        </h:body>
+    </f:view>
+</html>
