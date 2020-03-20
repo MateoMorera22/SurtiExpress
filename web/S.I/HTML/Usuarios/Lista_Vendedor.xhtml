@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <f:view locale="#{languageBean.idiomaSeleccionado}">
+        <h:head>
+            <meta charset="UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+            <link rel="stylesheet" href="../../CSS/estilosTablas.css"/>
+            <link rel="stylesheet" href="../../CSS/Styles-usuarios.css"/>
+            <title>Inventario</title>
+        </h:head>
+        <h:body>
+            <div class="hide-on-large-only show-on-small uimovil">
+                <nav>
+                    <div class="nav-wrapper #673ab7 deep-purple">
+                        <a href="#!" class="brand-logo right"><i
+                                class="right material-icons md-light">dashboard</i>#{msjAdmin.Usuarios}</a>
+                        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    </div>
+                </nav>
+                <ul class="sidenav" id="mobile-demo">
+                    <li><a href="../Admin/Home.html"><i class="material-icons md-light">#{msjAdmin.Home}</i></a></li>
+                    <li><a href="../Admin/Inventario.html" target="dashboard"><i
+                                class="material-icons left">local_mall</i>#{msjAdmin.Inventario}</a></li>
+                    <li><a href="../Admin/Rutas.html" target="dashboard"><i
+                                class="material-icons left">local_shipping</i>#{msjAdmin.Transporte}</a></li>
+                    <li><a href="../Admin/Pedidos.html" target="dashboard"><i class="material-icons left">list</i>#{msjAdmin.Transporte}</a>
+                    </li>
+                    <li><a href="../../img/error404(Español).jpg" target="dashboard"><i
+                                class="material-icons left">supervisor_account</i>#{msjAdmin.Usuarios}</a></li>
+                    <li><a href="../Admin/Tares-Bodega.html" target="dashboard"><i
+                                class="material-icons left">rate_review</i>#{msjAdmin.Tareas}</a></li>
+                    <li><a id="cerrar" href="../../Index V2.0.html"><i class="material-icons left">power_settings_new</i>#{msjAdmin.Cerrar_Sesion}
+                            Sesion</a></li>
+                </ul>
+            </div>
+
+            <div class="hide-on-med-and-down show-on-large-and-up cabeza">
+                <div class="row">
+                    <div class="col s12 m1 l1"></div>
+                    <div class="col s12 m12 l10">
+                        <div class="title">
+                            <i class="large material-icons">supervisor_account</i>
+                            <h1>#{msjAdmin.Usuarios}</h1>
+                        </div>
+                    </div>
+                    <div class="col s12 m1 l1"></div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                  <div id="admin" class="col s12 m12 l12 ">
+                    <div class="card material-table  z-depth-5">
+                        <div class="table-header #007b6f teal darken-1">
+                            <span class="table-title white-text">#{msjVendedor.Vendedor}</span>
+                            <div class="actions">
+                                <a href="crear_Vendedor.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light"><i class="material-icons white-text">add</i></a>
+                                <a id="email" href="formularioMailVen.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light"><i class="material-icons white-text">message</i></a>
+                                <a id="buscar" class="search-toggle btn-small btn-floating btn-large"><i class="material-icons white-text">search</i></a>
+                                <a id="back" href="Usuarios.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light right"><i class="material-icons white-text">arrow_back</i></a>
+                            </div>
+                        </div>
+                        <table id="tabla1" class="center">
+                            <thead>
+                                <tr>
+                                    <th>#{msjRegistro.Nombres}</th>
+                                    <th>#{msjRegistro.Apellidos}</th>
+                                    <th>#{msjRegistro.Documento}</th>
+                                    <th>#{msjRegistro.Telefono}</th>
+                                    <th>#{msjRegistro.Correo_electronico}</th>
+                                    <th>#{msjInventario.Eliminar}</th>
+                                    <th>#{msjInventario.Editar}</th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                <c:forEach var="item" items="#{usuarioControlador.listarEmpleadosVendedor()}">
+                                    <tr>
+                                        <h:form>
+
+                                            <td><h:outputText value="#{item.nombre}"/></td>
+                                            <td><h:outputText value="#{item.apellido}"/></td>
+                                            <td><h:outputText value="#{item.documento}"/></td>
+                                            <td><h:outputText value="#{item.telefono}"/></td>
+                                            <td><h:outputText value="#{item.correo}"/></td>
+                                            <td><h:commandLink class="waves-effect waves-light btn #ef5350 red lighten-1" action="#{usuarioControlador.eliminarUsuarios(item)}" ><i class="material-icons">delete</i></h:commandLink></td>
+                                            <td><h:commandLink class="waves-effect waves-light btn #ef5350 #43a047 green darken-1"  action="#{usuarioControlador.preEditarVendedor(item)}">
+                                                    <i class="material-icons">edit</i></h:commandLink></td>
+                                        </h:form>
+                                    </tr>
+                            </c:forEach>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+   
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+            <script  src="../../JS/scriptsTablas.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $('#tabla1').DataTable();
+                });
+
+                $(document).ready(function () {
+                    $('#tabla2').DataTable();
+                });
+
+
+                $(document).ready(function () {
+                    $('#tabla3').DataTable();
+                });
+
+
+            </script>    
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+            <script src="../../JS/Scripts-usuarios.js"></script>
+
+        </h:body>
+    </f:view>
+</html>
+

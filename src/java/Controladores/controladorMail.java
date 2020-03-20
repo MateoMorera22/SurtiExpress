@@ -120,6 +120,20 @@ public class controladorMail {
         }
         return "";
     }
+    
+    
+    public String enviarCorreoVen() throws UnsupportedEncodingException {
+
+        List<Usuario> listaUsuarios = usuarioFacade.findAll();
+        for (Usuario usuario : listaUsuarios) {
+            if (usuario.getIdRol().getIdRol() == 5) {
+                destinatario = usuario.getCorreo();
+                Mailer.send(destinatario, asunto, mensajeConEstilo());
+            }
+
+        }
+        return "";
+    }
 
     public String enviarCorreoTra() throws UnsupportedEncodingException {
 

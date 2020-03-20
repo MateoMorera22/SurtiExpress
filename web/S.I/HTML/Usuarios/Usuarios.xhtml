@@ -58,7 +58,7 @@
 
             <div class="row">
                 <!--Clientes-->
-                <div id="admin" class="col s12 m12 l4 ">
+                <div id="admin" class="col s12 m12 l6 ">
                     <div class="card material-table  z-depth-5">
                         <div class="table-header #ff7043 deep-orange lighten-1">
                             <span class="table-title white-text">#{msjUsuarios.Clientes}</span>
@@ -100,7 +100,7 @@
 
 
                 <!--Bodegista-->
-                <div id="admin" class="col s12 m12 l4 ">
+                <div id="admin" class="col s12 m12 l6 ">
                     <div class="card material-table z-depth-5 ">
                         <div class="table-header #0097a7 cyan darken-2">
                             <span class="table-title white-text">#{msjUsuarios.Bodeguista}</span>
@@ -143,7 +143,7 @@
 
 
                 <!--Transportista-->
-                <div id="admin" class="col s12 m12 l4 ">
+                <div id="admin" class="col s12 m12 l6 ">
                     <div class="card material-table z-depth-5 ">
                         <div class="table-header #43a047 green darken-1">
                             <span class="table-title white-text">#{msjUsuarios.Transportista}</span>
@@ -185,13 +185,48 @@
                 <!--Transportista-->
 
 
+                <!--Vendedor-->
+                <div id="admin" class="col s12 m12 l6 ">
+                    <div class="card material-table z-depth-5 ">
+                        <div class="table-header #007b6f teal darken-1">
+                            <span class="table-title white-text">#{msjVendedor.Vendedor}</span>
+                            <div class="actions">
+                                <a href="crear_Vendedor.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light"><i class="material-icons white-text">add</i></a>
+                                <a id="email" href="formularioMailVen.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light"><i class="material-icons white-text">message</i></a>
+                                <a id="view" href="Lista_Vendedor.xhtml" class="btn-small btn-floating btn-large waves-effect waves-light "><i class="material-icons white-text">visibility</i></a>
+                                <a id="buscar" class="search-toggle btn-small btn-floating btn-large"><i class="material-icons white-text">search</i></a>
+                            </div>
+                        </div>
+                        <table id="tabla4" class="">
+                            <thead>
+                                <tr>
+                                    <th>#{msjRegistro.Nombres}</th>
+                                    <th>#{msjRegistro.Apellidos}</th>
+                                    <th>#{msjRegistro.Documento}</th>
+                                    <th>#{msjRegistro.Telefono}</th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                <c:forEach var="item" items="#{usuarioControlador.listarEmpleadosVendedor()}">
+                                    <tr>
+                                        <h:form>
+
+                                            <td><h:outputText value="#{item.nombre}"/></td>
+                                            <td><h:outputText value="#{item.apellido}"/></td>
+                                            <td><h:outputText value="#{item.documento}"/></td>
+                                            <td><h:outputText value="#{item.telefono}"/></td>
+
+                                        </h:form>
+                                    </tr>
+                                </c:forEach>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--Vendedor-->
             </div>
-
-
-
-
-
-
 
 
 
@@ -202,6 +237,7 @@
             <script>
                 $(document).ready(function () {
                     $('#tabla1').DataTable();
+
                 });
 
                 $(document).ready(function () {
@@ -211,6 +247,10 @@
 
                 $(document).ready(function () {
                     $('#tabla3').DataTable();
+                });
+                
+                 $(document).ready(function () {
+                    $('#tabla4').DataTable();
                 });
 
 

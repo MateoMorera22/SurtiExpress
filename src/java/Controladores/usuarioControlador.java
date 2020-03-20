@@ -1,4 +1,4 @@
-    /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -53,10 +53,8 @@ public class usuarioControlador implements Serializable {
     @EJB
     VehiculoFacade vehiculoFacade;
     Vehiculo vehiculo = new Vehiculo();
-    
-    
-    //GET y SET
 
+    //GET y SET
     public Usuario getUsuario() {
         return usuario;
     }
@@ -108,13 +106,13 @@ public class usuarioControlador implements Serializable {
     }
 
     //METODOS
-    public void registrarUsuarioCliente() throws UnsupportedEncodingException{
+    public void registrarUsuarioCliente() throws UnsupportedEncodingException {
         usuario.setIdRol(rolFacade.find(rol.getIdRol()));
         usuario.setIdTipoDocumento(tipodocumentoFacade.find(tipodocumento.getIdTipoDocumento()));
         usuario.setIdZona(zonaFacade.find(zona.getIdZona()));
-        String mensaje="Su usuario es el siguiente:" + usuario.getCorreo() +"Su contraseña es:"+ usuario.getContrasena();
+        String mensaje = "Su usuario es el siguiente:" + usuario.getCorreo() + "Su contraseña es:" + usuario.getContrasena();
         usuarioFacade.create(usuario);
-        Mailer.send(usuario.getCorreo(),"Usted se A registrado satisfactoriamente en SurtiExpress", mensaje);
+        Mailer.send(usuario.getCorreo(), "Usted se A registrado satisfactoriamente en SurtiExpress", mensaje);
         usuario = new Usuario();
         vehiculo = new Vehiculo();
         tipodocumento = new Tipodocumento();
@@ -122,12 +120,12 @@ public class usuarioControlador implements Serializable {
         rol = new Rol();
     }
 
-    public void registrarUsuarioEmpleado() throws UnsupportedEncodingException{
+    public void registrarUsuarioEmpleado() throws UnsupportedEncodingException {
         usuario.setIdRol(rolFacade.find(rol.getIdRol()));
         usuario.setIdTipoDocumento(tipodocumentoFacade.find(tipodocumento.getIdTipoDocumento()));
-        String mensaje="Su usuario es el siguiente:" + usuario.getCorreo() +"Su contraseña es:"+ usuario.getContrasena();
+        String mensaje = "Su usuario es el siguiente:" + usuario.getCorreo() + "Su contraseña es:" + usuario.getContrasena();
         usuarioFacade.create(usuario);
-        Mailer.send(usuario.getCorreo(),"Usted se A registrado satisfactoriamente en SurtiExpress", mensaje);
+        Mailer.send(usuario.getCorreo(), "Usted se A registrado satisfactoriamente en SurtiExpress", mensaje);
         usuario = new Usuario();
         vehiculo = new Vehiculo();
         tipodocumento = new Tipodocumento();
@@ -135,12 +133,12 @@ public class usuarioControlador implements Serializable {
         rol = new Rol();
     }
 
-    public void registrarUsuarioTransportador() throws UnsupportedEncodingException{
+    public void registrarUsuarioTransportador() throws UnsupportedEncodingException {
         usuario.setIdRol(rolFacade.find(rol.getIdRol()));
         usuario.setIdTipoDocumento(tipodocumentoFacade.find(tipodocumento.getIdTipoDocumento()));
-        String mensaje="Su usuario es el siguiente:" + usuario.getCorreo() +"Su contraseña es:"+ usuario.getContrasena();
+        String mensaje = "Su usuario es el siguiente:" + usuario.getCorreo() + "Su contraseña es:" + usuario.getContrasena();
         vehiculoFacade.create(vehiculo);
-        Mailer.send(usuario.getCorreo(),"Usted se A registrado satisfactoriamente en SurtiExpress", mensaje);
+        Mailer.send(usuario.getCorreo(), "Usted se A registrado satisfactoriamente en SurtiExpress", mensaje);
         usuario.setIdVehiculo(vehiculoFacade.find(vehiculo.getIdVehiculo()));
         usuarioFacade.create(usuario);
         usuario = new Usuario();
@@ -186,7 +184,7 @@ public class usuarioControlador implements Serializable {
         return listarUsuarios;
     }
 
-    public List<Usuario> listarEmpleadosAuxiliar() {
+    public List<Usuario> listarEmpleadosVendedor() {
         List<Usuario> listarUsuarios = usuarioFacade.findAll();
         List<Usuario> listaAuxiliar = new ArrayList();
         for (Usuario usuario : listarUsuarios) {
@@ -197,8 +195,8 @@ public class usuarioControlador implements Serializable {
         listarUsuarios.removeAll(listaAuxiliar);
         return listarUsuarios;
     }
-    
-    public List<Usuario> listarUsuarios(){
+
+    public List<Usuario> listarUsuarios() {
         return usuarioFacade.findAll();
     }
 
@@ -210,8 +208,8 @@ public class usuarioControlador implements Serializable {
         this.vehiculo = usuario.getIdVehiculo();
         return "Editar-cliente";
     }
-    
-     public String preEditarCliente_vendedor(Usuario usuario) {
+
+    public String preEditarCliente_vendedor(Usuario usuario) {
         this.usuario = usuario;
         this.rol = usuario.getIdRol();
         this.tipodocumento = usuario.getIdTipoDocumento();
@@ -219,8 +217,8 @@ public class usuarioControlador implements Serializable {
         this.vehiculo = usuario.getIdVehiculo();
         return "Editar-cliente_Vendedor";
     }
-    
-      public String preEditarTransportador(Usuario usuario) {
+
+    public String preEditarTransportador(Usuario usuario) {
         this.usuario = usuario;
         this.rol = usuario.getIdRol();
         this.tipodocumento = usuario.getIdTipoDocumento();
@@ -228,8 +226,7 @@ public class usuarioControlador implements Serializable {
         return "Editar_transportista";
     }
 
-      
-        public String preEditarBodeguista(Usuario usuario) {
+    public String preEditarBodeguista(Usuario usuario) {
         this.usuario = usuario;
         this.rol = usuario.getIdRol();
         this.tipodocumento = usuario.getIdTipoDocumento();
@@ -238,6 +235,14 @@ public class usuarioControlador implements Serializable {
         return "Editar-bodeguista";
     }
 
+    public String preEditarVendedor(Usuario usuario) {
+        this.usuario = usuario;
+        this.rol = usuario.getIdRol();
+        this.tipodocumento = usuario.getIdTipoDocumento();
+        this.zona = usuario.getIdZona();
+        this.vehiculo = usuario.getIdVehiculo();
+        return "Editar-Vendedor";
+    }
 
     public String editarUsuarioCliente() {
         usuario.setIdRol(rolFacade.find(rol.getIdRol()));
@@ -246,16 +251,15 @@ public class usuarioControlador implements Serializable {
         usuarioFacade.edit(usuario);
         return "Lista_Cliente";
     }
-    
-     public String editarUsuarioCliente_vendedor() {
+
+    public String editarUsuarioCliente_vendedor() {
         usuario.setIdRol(rolFacade.find(rol.getIdRol()));
         usuario.setIdTipoDocumento(tipodocumentoFacade.find(tipodocumento.getIdTipoDocumento()));
         usuario.setIdZona(zonaFacade.find(zona.getIdZona()));
         usuarioFacade.edit(usuario);
         return "Lista_Cliente_Vendedor";
     }
-     
-     
+
     public String editarUsuarioTransportador() {
         usuario.setIdRol(rolFacade.find(rol.getIdRol()));
         usuario.setIdTipoDocumento(tipodocumentoFacade.find(tipodocumento.getIdTipoDocumento()));
@@ -264,16 +268,22 @@ public class usuarioControlador implements Serializable {
         usuarioFacade.edit(usuario);
         return "Lista_Transportista";
     }
-    
-    
-      public String editarBodeguista() {
+
+    public String editarBodeguista() {
         usuario.setIdRol(rolFacade.find(rol.getIdRol()));
         usuario.setIdTipoDocumento(tipodocumentoFacade.find(tipodocumento.getIdTipoDocumento()));
         usuarioFacade.edit(usuario);
         return "Lista_Bodeguista";
     }
-
     
+    
+    public String editarVendedor() {
+        usuario.setIdRol(rolFacade.find(rol.getIdRol()));
+        usuario.setIdTipoDocumento(tipodocumentoFacade.find(tipodocumento.getIdTipoDocumento()));
+        usuarioFacade.edit(usuario);
+        return "Lista_Vendedor";
+    }
+
     public String editarUsuarioempleado() {
         usuario.setIdRol(rolFacade.find(rol.getIdRol()));
         usuario.setIdTipoDocumento(tipodocumentoFacade.find(tipodocumento.getIdTipoDocumento()));
@@ -284,6 +294,5 @@ public class usuarioControlador implements Serializable {
     public void eliminarUsuarios(Usuario usuario) {
         usuarioFacade.remove(usuario);
     }
-    
-    
+
 }

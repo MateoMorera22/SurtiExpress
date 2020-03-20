@@ -65,6 +65,14 @@ public class loginControlador implements Serializable {
                    FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", u);
                return "Bodega";
                }
+               else if(ro==3){
+                   FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", u);
+               return "";
+               }
+               else if(ro==5){
+                   FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", u);
+               return "Vendedor";
+               }
            }
        } catch (Exception e) {
            System.out.println(e);
