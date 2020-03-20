@@ -175,6 +175,7 @@ public class pedidoControlador implements Serializable {
         pedido.setIdUsuario(getUsuario());
         pedidoFacade.create(pedido);
         pedidoFacade.agregarProductoAlPedido(carrito, pedido);
+        carrito.clear();
     }
 
     public String preEditarPedido(Pedido pedido) {
@@ -196,6 +197,9 @@ public class pedidoControlador implements Serializable {
     
     public List<Pedido> listarPedidos() {
         return pedidoFacade.findAll();
+    }
+    public void limpiarCarrito(){
+        carrito.clear();
     }
 
 }

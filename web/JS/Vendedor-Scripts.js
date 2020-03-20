@@ -3,6 +3,9 @@ $(document).ready(function() {
 });
 
 
+  $('.dropdown-trigger').dropdown();
+
+
 $(document).ready(function() {
 
     var height = $(window).height();

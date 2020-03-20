@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <f:view locale="#{languageBean.idiomaSeleccionado}">
         <head>
             <meta charset="UTF-8"/>
@@ -16,36 +17,62 @@
         </head>
 
         <h:body>
-            <h:form id="formulario">
 
-                <nav class="nav-extended #007b6f teal darken-1">
-                    <div class="nav-wrapper">
-                        <a id="logo" href="#!" class="brand-logo">SurtiExpress</a>
-                        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                        <ul class="right right hide-on-med-and-down">
-                            <li>
-                                <a id="usu" href="../S.I/HTML/Usuarios/Lista_Cliente_Vendedor.xhtml" class="btn tooltipped" data-position="bottom" data-tooltip="#{msjVendedor.Panel_usuarios}" target="vistas"><i class="large material-icons">supervisor_account</i></a>
-                            </li>
-                            <li>
-                                <a id="ped" href="../S.I/HTML/Pedidos/Pedidos.xhtml" class="btn tooltipped" data-position="bottom" data-tooltip="#{msjVendedor.Panel_pedidos}" target="vistas"><i class="material-icons">list</i></a>
-                            </li>
-                            <li><a id="ord" href="../S.I/HTML/Vendedor/crear-pedido.xhtml" class="btn tooltipped" data-position="left" data-tooltip="#{msjVendedor.Crear_pedido}" target="vistas"  ><i class="material-icons">local_mall</i></a></li>
-                        </ul>
-                    </div>
+            <nav class="nav-extended #007b6f teal darken-1">
+                <div class="nav-wrapper">
+                    <a id="logo" href="#!" class="brand-logo">SurtiExpress</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul class="right right hide-on-med-and-down">
+                        
+                        <li>
+                           <div class="cerrar">
+                                <h:form>
+                                    <h:commandLink action="#{loginControlador.logout()}" class="waves-effect waves-light btn-floating #c62828 red darken-3">  
+                                        <i class="material-icons">power_settings_new</i>
+                                    </h:commandLink>
+                                </h:form>
+                            </div>
+                        </li>
+                        
+                        
+                        <li>
+                            <a class='dropdown-trigger btn-floating  #283593 indigo darken-3' href='#' data-target='dropdown1' >
+                                <i class="material-icons ">language</i> #{pagesEti[languageBean.idiomaSeleccionado.language]}</a>
 
-                    <div class="margin nav-content #007b6f teal darken-1">
-                        <span id="titulo" class="nav-title">#{msjVendedor.Vendedor}</span>
-                        <a class="#3e2390 deep-purple darken-3 btn-floating btn-large halfway-fab waves-effect waves-light tooltipped" data-position="bottom" data-tooltip="#{msjUsuarios.Crear_cliente}">
-                            <i class="material-icons">group_add</i>
-                        </a>
-                    </div>
-                </nav>
+                            <h:form prependId="false">
+                                <ul id='dropdown1' class='dropdown-content'>
+                                    <c:forEach items="#{languageBean.idiomasSoportados}" var="idioma">
+                                        <li>
+                                            <h:commandLink actionListener="#{languageBean.cambiarIdioma(idioma)}" value="#{pagesEti[idioma.language]}"/>
+                                        </li>
+                                    </c:forEach>
+                                </ul>   
+                            </h:form>
 
-                <iframe id="vistas" name="vistas" src="../S.I/HTML/Vendedor/crear-pedido.xhtml" frameborder="0"></iframe>
+
+                        </li>
+   
+                        <li>
+                            <a id="usu" href="../S.I/HTML/Usuarios/Lista_Cliente_Vendedor.xhtml" class="btn tooltipped" data-position="bottom" data-tooltip="#{msjVendedor.Panel_usuarios}" target="vistas"><i class="large material-icons">supervisor_account</i></a>
+                        </li>
+                        <li>
+                            <a id="ped" href="../S.I/HTML/Pedidos/Pedidos.xhtml" class="btn tooltipped" data-position="bottom" data-tooltip="#{msjVendedor.Panel_pedidos}" target="vistas"><i class="material-icons">list</i></a>
+                        </li>
+                        <li><a id="ord" href="../S.I/HTML/Vendedor/crear-pedido.xhtml" class="btn tooltipped" data-position="left" data-tooltip="#{msjVendedor.Crear_pedido}" target="vistas"  ><i class="material-icons">local_mall</i></a></li>
+                    </ul>
+                </div>
+
+                <div class="margin nav-content #007b6f teal darken-1">
+                    <span id="titulo" class="nav-title">#{msjVendedor.Vendedor}</span>
+                    <a class="#3e2390 deep-purple darken-3 btn-floating btn-large halfway-fab waves-effect waves-light tooltipped" href="../S.I/HTML/Usuarios/crear_cliente_Bodeguista.xhtml" target="vistas" data-position="bottom" data-tooltip="#{msjUsuarios.Crear_cliente}">
+                        <i class="material-icons">group_add</i>
+                    </a>
+                </div>
+            </nav>
+
+            <iframe id="vistas" name="vistas" src="../S.I/HTML/Vendedor/crear-pedido.xhtml" frameborder="0"></iframe>
 
 
-
-            </h:form>
 
 
 
