@@ -73,11 +73,6 @@
             <var>msjRutas</var>
         </resource-bundle>
         
-          <resource-bundle>
-            <base-name>beans.languages.VendedorForm</base-name><!--Vendedor-->
-            <var>msjVendedor</var>
-        </resource-bundle>
-        
         
         
         
