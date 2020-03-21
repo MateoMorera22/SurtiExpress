@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.faces.context.FacesContext;
 
 /**
  *
@@ -51,8 +50,6 @@ public class pedidoControlador implements Serializable {
     Producto producto = new Producto();
     List<Producto> listaProductos;
     List<Producto> carrito = new ArrayList();
-
-    
 
     public PedidoFacade getPedidoFacade() {
         return pedidoFacade;
@@ -160,8 +157,8 @@ public class pedidoControlador implements Serializable {
         double total = 0;
         pedido.setIdPedido(1);
         for (Producto producto1 : carrito) {
-            producto1.setCantidad(producto1.getCantidad() - 10000000 );
-        }   
+            producto1.setCantidad(producto1.getCantidad() - 10000000);
+        }
 
         for (Producto producto2 : carrito) {
             subTotal = subTotal + producto2.getPrecioBruto();
@@ -194,12 +191,14 @@ public class pedidoControlador implements Serializable {
         pedidoFacade.remove(pedido);
     }
 
-    
     public List<Pedido> listarPedidos() {
         return pedidoFacade.findAll();
     }
-    public void limpiarCarrito(){
+
+    public void limpiarCarrito() {
         carrito.clear();
     }
+
+   
 
 }

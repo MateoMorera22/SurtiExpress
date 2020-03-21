@@ -62,7 +62,10 @@
                         <div class="table-header">
                             <span class="table-title">#{msjAdmin.Pedidos}</span>
                             <div class="actions">
+                                <h:form>
                                 <a id="buscar" class="search-toggle btn-small btn-floating btn-large"><i class="material-icons white-text">search</i></a>
+                                <h:commandLink action="#{reporteControlador.generarPDF(actionEvent)}" class=" btn-small btn-floating btn-large"><i class="material-icons white-text">picture_as_pdf</i></h:commandLink>
+                                </h:form>
                             </div>
                         </div>
                    <table id="pedidos" class="center-align" >
