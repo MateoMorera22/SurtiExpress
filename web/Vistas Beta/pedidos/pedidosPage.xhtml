@@ -1,109 +1,75 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
-
-
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>SurtiExpress</title>
-        <!-- CDN de los íconos -->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-        <!-- CDN Materialize CSS  -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-
-    </head>
-
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
     <h:body>
+        <f:view>
 
 
-        <nav>
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo">Logo</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="sass.html">Sass</a></li>
-                    <li><a href="badges.html">Components</a></li>
-                    <li><a href="collapsible.html">JavaScript</a></li>
-                </ul>
-            </div>
-        </nav>
-        
-        
-        
-  <div class="row">
-      
-    <div class="col s12 m4 l4">
-      <div class="card">
-        <div class="card-image">
-            <img src="images/sample-1.jpg"></img>
-          <span class="card-title">Card Title</span>
-        </div>
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
-      
-      <div class="col s12 m4 l4">
-      <div class="card">
-        <div class="card-image">
-            <img src="images/sample-1.jpg"></img>
-          <span class="card-title">Card Title</span>
-        </div>
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
-      
-      <div class="col s12 m4 l4">
-      <div class="card">
-        <div class="card-image">
-            <img src="images/sample-1.jpg"></img>
-          <span class="card-title">Card Title</span>
-        </div>
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-  </div>
-
-
-
-
-
-
-
-
-
-
-        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            <h:form>
+                <h1><h:outputText value="List"/></h1>
+                <h:dataTable value="#{pedidoControlador.listarPedidos()}" var="item">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="IdPedido"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idPedido}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="FechaCreacion"/>
+                        </f:facet>
+                        <h:outputText value="#{item.fechaCreacion}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="FechaEntrega"/>
+                        </f:facet>
+                        <h:outputText value="#{item.fechaEntrega}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Subtotal"/>
+                        </f:facet>
+                        <h:outputText value="#{item.subtotal}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Total"/>
+                        </f:facet>
+                        <h:outputText value="#{item.total}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="IdUsuario"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idUsuario.idUsuario}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="IdEstadoPedido"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idEstadoPedido.idEstadoPedido}"/>
+                    </h:column>
+                    <h:column>
+                        <h:selectOneMenu id="idEstadoPedido" value="#{pedidoControlador.estadoPedido.idEstadoPedido}">
+                        
+                            <f:selectItems value="#{estadoPedidoControlador.listarEstadoPedido()}" var="estp" itemLabel="#{estp.estadoPedido}" itemValue="1" />
+                        </h:selectOneMenu>
+                        <h:commandButton action="#{pedidoControlador.editarEstado(item)}" value="cambiar estado" />
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </f:view>
 
     </h:body>
-
-
 </html>
+

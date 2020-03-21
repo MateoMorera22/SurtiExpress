@@ -78,6 +78,14 @@
                         <h:commandButton action="#{tareaControlador.eliminarTarea(item)}" value="Eliminar"></h:commandButton>
                         <h:commandButton action="#{tareaControlador.preEditarTarea(item)}" value="Editar"></h:commandButton>
                     </h:column>
+                    <h:column>
+                        
+                    <h:selectOneMenu id="idEsTarea" value="#{tareaControlador.estadotarea.idEstadoTarea}">
+                        
+                        <f:selectItems value="#{estadotareaControlador.listarEstadoTarea()}" var="estp" itemLabel="#{estp.estadoTarea}" itemValue="2" />
+                        </h:selectOneMenu>
+                    <h:commandButton action="#{tareaControlador.cambiarEstado(item)}" value="cambiar estado" />
+                    </h:column>
                 </h:dataTable>
             </h:form>
         </f:view>

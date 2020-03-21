@@ -5,10 +5,12 @@
  */
 package Controladores;
 
+import Entidades.Estadopedido;
 import Entidades.Estadoplanilla;
 import Entidades.Pedido;
 import Entidades.Planilla;
 import Entidades.Usuario;
+import Facades.EstadopedidoFacade;
 import Facades.EstadoplanillaFacade;
 import Facades.PedidoFacade;
 import Facades.PlanillaFacade;
@@ -45,8 +47,21 @@ public class planillaControlador implements Serializable {
     @EJB
     PedidoFacade pedidoFacade;
     Pedido pedido = new Pedido();
+    @EJB
+    EstadopedidoFacade estadopedidoFacade;
+    Estadopedido estadopedido = new Estadopedido();
+    
+    pedidoControlador pedCon = new pedidoControlador();
     List<Planilla> listaPlanilla;
     List<Pedido> listaPedidos= new ArrayList();
+
+    public pedidoControlador getPedCon() {
+        return pedCon;
+    }
+
+    public void setPedCon(pedidoControlador pedCon) {
+        this.pedCon = pedCon;
+    }
 
     public PlanillaFacade getPlanillaFacade() {
         return planillaFacade;
@@ -112,6 +127,14 @@ public class planillaControlador implements Serializable {
         this.pedido = pedido;
     }
 
+    public Estadopedido getEstadopedido() {
+        return estadopedido;
+    }
+
+    public void setEstadopedido(Estadopedido estadopedido) {
+        this.estadopedido = estadopedido;
+    }
+
     public List<Planilla> getListaPlanilla() {
         return listaPlanilla;
     }
@@ -128,11 +151,12 @@ public class planillaControlador implements Serializable {
         this.listaPedidos = listaPedidos;
     }
     public void agregarPedidoPlanilla(Pedido pe){
-        listaPedidos.add(pe);
-        System.out.println(listaPedidos);
+        listaPedidos.add(pe);  
+       System.out.println(listaPedidos);
     }
     public void removerPedidoPlanilla(Pedido pe){
         listaPedidos.remove(pe);
+
         System.out.println(listaPedidos);
     }
     public void crearPlanilla(){
@@ -147,6 +171,11 @@ public class planillaControlador implements Serializable {
     }
     public void eliminarPlanilla(Planilla planilla){
         planillaFacade.remove(planilla);
+    }
+    public void cambiarEstadoPlanilla(Planilla planilla){
+        this.planilla = planilla;
+        planilla.setIdEstadoPlanilla(estadoplanillaFacade.find(estadoplanilla.getIdEstadoPlanilla()));
+        planillaFacade.edit(planilla);
     }
       }
     

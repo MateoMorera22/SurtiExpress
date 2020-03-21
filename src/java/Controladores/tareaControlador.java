@@ -107,5 +107,11 @@ public class tareaControlador implements Serializable {
         
         tareaFacade.remove(tarea);
     }
+    
+    public void cambiarEstado(Tarea tarea){
+        this.tarea = tarea;
+        tarea.setIdEstadoTarea(estadotareaFacade.find(estadotarea.getIdEstadoTarea()));
+        tareaFacade.edit(tarea);
+    }
         
 }

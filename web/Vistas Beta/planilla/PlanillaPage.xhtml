@@ -95,6 +95,41 @@
                 <h:commandButton action="#{planillaControlador.crearPlanilla()}" value="crear" />
             </h:form>
         </f:view>
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="List"/></h1>
+                <h:dataTable value="#{planillaControlador.listarPlanillas()}" var="item">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="IdPlanilla"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idPlanilla}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="IdEstadoPlanilla"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idEstadoPlanilla.estadoPlanilla}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="IdUsuario"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idUsuario.idUsuario}"/>
+                    </h:column>
+                    <h:column>
+                        <h:selectOneMenu id="idEstadoPlanilla" value="#{planillaControlador.estadoplanilla.idEstadoPlanilla}">
+                        
+                            <f:selectItems value="#{estadoplanillaControlador.listarEstadoplan()}" var="estp" itemLabel="#{estp.estadoPlanilla}" itemValue="2" />
+                        </h:selectOneMenu>
+                        <h:commandButton action="#{planillaControlador.cambiarEstadoPlanilla(item)}" value="cambiar estado" />
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </f:view>
+
         
 
     </h:body>

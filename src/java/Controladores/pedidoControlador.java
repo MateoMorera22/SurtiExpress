@@ -198,6 +198,12 @@ public class pedidoControlador implements Serializable {
     public void limpiarCarrito() {
         carrito.clear();
     }
+    
+    public void editarEstado (Pedido pedido){
+        this.pedido = pedido;
+        pedido.setIdEstadoPedido(estadopedidoFacade.find(estadoPedido.getIdEstadoPedido()));
+        pedidoFacade.edit(pedido);
+    }
 
    
 
