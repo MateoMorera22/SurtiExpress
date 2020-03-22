@@ -7,6 +7,7 @@ package Facades;
 
 import Entidades.Pedido;
 import Entidades.Producto;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -39,6 +40,6 @@ public class PedidoFacade extends AbstractFacade<Pedido> {
             query.executeUpdate();
         }
     }
-    
+
     
 }

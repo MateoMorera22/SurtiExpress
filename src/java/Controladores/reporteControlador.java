@@ -58,7 +58,8 @@ public class reporteControlador implements Serializable{
     public void generarPDF(ActionEvent actionEvent) throws JRException, IOException {
         //Generar un Hash Map para generar los parametros del reporte
         Map<String, Object> parametros = new HashMap<String, Object>();
-        //parametros.put("txtUsuario", "CandyGlobal S.A.S");
+        parametros.put("txtUsuario", "CandyGlobal S.A.S");
+        parametros.put("txtContacto", "SurtiExpress2020@gmail.com");
         
         //Lista para cargar los fields de reportes
         listarPedidos();

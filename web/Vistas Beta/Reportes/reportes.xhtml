@@ -7,10 +7,10 @@
     </h:head>
     <h:body>
         <h:form>
-            <h:commandLink  actionListener="#{reporteControlador.generarPDF}">
-                PFD
-            </h:commandLink>
             
+        <h:commandLink actionListener="#{reporteControlador.generarPDF(actionEvent)}">
+        PDF
+        </h:commandLink>
         </h:form>
     </h:body>
 </html>

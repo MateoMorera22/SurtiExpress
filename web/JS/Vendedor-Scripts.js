@@ -12,3 +12,9 @@ $(document).ready(function() {
 
     $('#vistas').height(height);
 });
+
+
+
+  $(document).ready(function(){
+    $('.collapsible').collapsible();
+  });

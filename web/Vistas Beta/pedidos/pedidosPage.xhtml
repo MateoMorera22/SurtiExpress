@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
@@ -58,6 +59,9 @@
                             <h:outputText value="IdEstadoPedido"/>
                         </f:facet>
                         <h:outputText value="#{item.idEstadoPedido.idEstadoPedido}"/>
+                    </h:column>
+                    <h:column>
+                        <h:outputText value="#{item.productoList.nombre}" />
                     </h:column>
                     <h:column>
                         <h:selectOneMenu id="idEstadoPedido" value="#{pedidoControlador.estadoPedido.idEstadoPedido}">
