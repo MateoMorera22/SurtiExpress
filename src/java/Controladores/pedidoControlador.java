@@ -205,6 +205,11 @@ public class pedidoControlador implements Serializable {
         pedidoFacade.edit(pedido);
     }
 
-   
+   public List<Pedido> listapedidospro(){
+       List<Pedido> articulo ;
+       
+      articulo = (List<Pedido>) pedidoFacade.listaPedidos(pedido);
+      return articulo;
+   }
 
 }

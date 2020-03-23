@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <f:view locale="#{languageBean.idiomaSeleccionado}">
+        <head>
+            <meta charset="UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+            <link rel="stylesheet" href="../Fonts/estilos_fuentes_logo.css" />
+            <link rel="stylesheet" href="../S.I/CSS/estilosTablas.css"/>
+            <link rel="stylesheet" href="../CSS/Styles-Bodeguista.css" />
+            <title>Iniciar sesión</title>
+        </head>
+
+        <h:body>
+
+            <nav>
+                <div class="nav-wrapper #0097a7 cyan darken-2">
+                    <a href="#!" class="brand-logo"><i class="material-icons">move_to_inbox</i>#{msjUsuarios.Transportista}</a>
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a class='dropdown-trigger btn-floating  #283593 indigo darken-3 ' href='#' data-target='dropdown1' >
+                                <i class="material-icons ">language</i> #{pagesEti[languageBean.idiomaSeleccionado.language]}</a>
+
+                            <h:form prependId="false">
+                                <ul id='dropdown1' class='dropdown-content'>
+                                    <c:forEach items="#{languageBean.idiomasSoportados}" var="idioma">
+                                        <li>
+                                            <h:commandLink actionListener="#{languageBean.cambiarIdioma(idioma)}" value="#{pagesEti[idioma.language]}"/>
+                                        </li>
+                                    </c:forEach>
+                                </ul>   
+                            </h:form>
+
+
+                        </li>
+                        <li>
+                            <div class="cerrar">
+                                <h:form>
+                                    <h:commandLink action="#{loginControlador.logout()}" class="waves-effect waves-light btn-floating #c62828 red darken-3 ">  
+                                        <i class="material-icons">power_settings_new</i>
+                                    </h:commandLink>
+                                </h:form>
+                            </div>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="row">
+                <div  class="col s0 m4 l3" ></div>
+                <div id="admin" class="col s12 m12 l6 ">
+                    <div class="card material-table z-depth-5  #0288d1 light-blue darken-2">
+                        <div class="table-header">
+                            <span class="table-title white-text">#{msjAdmin.Tareas}</span>
+                            <div class="actions">
+                                <h:form>
+                                    <a id="buscar" class="search-toggle btn-small btn-floating btn-large"><i class="material-icons white-text">search</i></a>
+                                </h:form>
+                            </div>
+                        </div>
+                        <table id="pedidos" class="center-align  " >
+                            <thead>
+                                <tr >    
+                                    <th></th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                <c:forEach var="pe" items="#{tareaControlador.listarTareas()}">
+                                    <c:if test="#{pe.idEstadoTarea.idEstadoTarea eq 1}" >
+                                        <tr >
+                                       
+                                                <td>
+                                                    <ul class="collapsible">
+                                                        <li>
+                                                            <div class="collapsible-header"><i class="material-icons">move_to_inbox</i>
+                                                                #{msjInventario.Nombre}: #{pe.idUsuario.nombre} #{pe.idUsuario.apellido}  #{pe.idUsuario.idTipoDocumento.tipoDocumento}: #{pe.idUsuario.documento}
+                                                            </div>
+
+                                                            <div class="collapsible-body #ffffff white">
+                                                                <div class="row">
+                                                                    <div class="col s12 m12 l12">
+                                                                        <div class="card blue-grey darken-1">
+                                                                            <div class="card-content white-text">
+                                                                                <h:form>
+                                                                                    <h:selectOneMenu class="hide" id="idEsTarea" value="#{tareaControlador.estadotarea.idEstadoTarea}">
+
+                                                                                    <f:selectItems value="#{estadotareaControlador.listarEstadoTarea()}" var="estp" itemLabel="#{estp.estadoTarea}" itemValue="2" />
+                                                                                    </h:selectOneMenu>
+                                                                                    <h:commandLink class="flotar btn-small btn-floating waves-effect waves-light #43a047 green darken-1 right" action="#{tareaControlador.cambiarEstado(pe)}" > <i class="material-icons">check_circle_outline</i></h:commandLink>
+                                                                                </h:form>
+
+
+                                                                                <span class="card-title">#{msjcrearTarea.Contenido}</span>
+                                                                                <p><h:outputText value="#{pe.tarea}"/> </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+
+                                                </td>
+                                        
+                                        </tr>
+                                    </c:if> 
+                                </c:forEach>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div  class="col s0 m4 l3" ></div>
+            </div>        
+
+
+
+
+
+            <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+            <script  src="../S.I/JS/scriptsTablas.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $('#pedidos').DataTable();
+                });
+
+                $(document).ready(function () {
+                    $('#planilla').DataTable();
+                });
+
+            </script>      
+            <script src="../JS/Vendedor-Scripts.js"></script>
+        </h:body>
+    </f:view>
+</html>
+
