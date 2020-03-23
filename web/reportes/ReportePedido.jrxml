@@ -1,279 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="1f8afd3b-d7ad-4923-b475-90b0779d9664">
-	<property name="ireport.zoom" value="1.6105100000000043"/>
-=======
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1f8afd3b-d7ad-4923-b475-90b0779d9664">
-	<property name="ireport.zoom" value="1.6105100000000019"/>
->>>>>>> parent of d081cc3... Diseño Reporte Pedido
-=======
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1f8afd3b-d7ad-4923-b475-90b0779d9664">
-	<property name="ireport.zoom" value="1.6105100000000019"/>
->>>>>>> parent of d081cc3... Diseño Reporte Pedido
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2eba9191-d93f-4e5f-a2fe-bb0ee97d4bf6">
+	<property name="ireport.zoom" value="1.771561000000001"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="220"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="txtUsuario" class="java.lang.String"/>
 	<parameter name="txtContacto" class="java.lang.String"/>
-	<parameter name="Desde" class="java.util.Date">
-		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
-	</parameter>
-	<parameter name="Hasta" class="java.util.Date">
-		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
-	</parameter>
-	<queryString>
-		<![CDATA[SELECT
-     pedido.`FechaCreacion` AS pedido_FechaCreacion,
-     pedido.`FechaEntrega` AS pedido_FechaEntrega,
-     pedido.`Subtotal` AS pedido_Subtotal,
-     pedido.`Total` AS pedido_Total,
-     usuario.`Nombre` AS usuario_Nombre,
-     usuario.`Apellido` AS usuario_Apellido
-FROM
-     `usuario` usuario INNER JOIN `pedido` pedido ON usuario.`Id_Usuario` = pedido.`Id_Usuario` where pedido.`FechaCreacion` between $P{Desde} and $P{Hasta}]]>
-	</queryString>
-	<field name="pedido_FechaCreacion" class="java.sql.Date"/>
-	<field name="pedido_FechaEntrega" class="java.sql.Date"/>
-	<field name="pedido_Subtotal" class="java.lang.Double"/>
-	<field name="pedido_Total" class="java.lang.Double"/>
-	<field name="usuario_Nombre" class="java.lang.String"/>
-	<field name="usuario_Apellido" class="java.lang.String"/>
+	<field name="FechaCreacion" class="java.lang.String"/>
+	<field name="FechaEntrega" class="java.lang.String"/>
+	<field name="Subtotal" class="java.lang.String"/>
+	<field name="Total" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="113" splitType="Stretch">
 			<staticText>
-				<reportElement x="136" y="18" width="305" height="41" uuid="d797e6a6-60cc-46de-9980-35f57ba71733"/>
-				<textElement>
-					<font size="24"/>
+				<reportElement mode="Opaque" x="0" y="0" width="595" height="113" forecolor="#FFFFFF" backcolor="#1E1E26" uuid="6a034199-80e8-4bd1-b993-3869c1743afc"/>
+				<textElement verticalAlignment="Middle">
+					<font size="36"/>
+					<paragraph leftIndent="60"/>
 				</textElement>
-<<<<<<< HEAD
-<<<<<<< HEAD
-				<text><![CDATA[REPORTE                                        SEMANAL                                             PEDIDOS]]></text>
+				<text><![CDATA[REPORTE                                               PEDIDOS]]></text>
 			</staticText>
-			<image>
-				<reportElement x="26" y="35" width="102" height="112" uuid="96691325-3162-4f6a-80b6-2b46f3c8e097"/>
-				<imageExpression><![CDATA["C:\\Users\\diego\\Documents\\GitHub\\SurtiExpress\\web\\IMG\\icono-reporte.png"]]></imageExpression>
-			</image>
-			<textField>
-				<reportElement x="355" y="151" width="100" height="20" forecolor="#FFFFFF" uuid="dce9382a-2fcd-478a-a7db-df60c1c5b5cd"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$P{Desde}]]></textFieldExpression>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="463" y="93" width="132" height="20" forecolor="#FFFFFF" uuid="3b1725d7-4aec-486f-848f-8fd067e9a243"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="495" y="151" width="100" height="20" forecolor="#FFFFFF" uuid="584fb7cc-7d0a-44ea-a824-5a3ea88b9960"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$P{Hasta}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="315" y="151" width="40" height="20" forecolor="#FFFFFF" uuid="6fd5f327-3c87-44eb-93e7-a69971bfe35a"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[Desde:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="455" y="151" width="40" height="20" forecolor="#FFFFFF" uuid="9b28c93a-350a-41c3-af40-cc153ffbcbbd"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[Hasta:]]></text>
-			</staticText>
-=======
-				<text><![CDATA[Reporte diario de pedidos]]></text>
-			</staticText>
->>>>>>> parent of d081cc3... Diseño Reporte Pedido
-=======
-				<text><![CDATA[Reporte diario de pedidos]]></text>
-			</staticText>
->>>>>>> parent of d081cc3... Diseño Reporte Pedido
 		</band>
 	</title>
 	<pageHeader>
-		<band height="61" splitType="Stretch">
+		<band height="49" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="595" height="49" backcolor="#1E1E26" uuid="cb96fa9a-3e19-4c40-8234-ef47a080208e"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
 			<staticText>
-				<reportElement x="12" y="10" width="113" height="20" uuid="d3e03d46-7b05-4c1e-b8f7-b5ed9743d189"/>
-				<textElement>
+				<reportElement mode="Opaque" x="40" y="9" width="120" height="28" forecolor="#FFFFFF" backcolor="#F23D3D" uuid="74fe755c-e6c1-4930-8665-d05e8f413915"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12"/>
+					<paragraph leftIndent="20"/>
 				</textElement>
-				<text><![CDATA[Reporte Elaborado por:]]></text>
+				<text><![CDATA[Elaborado por:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="125" y="10" width="100" height="20" uuid="f2c012a1-acc8-4622-a648-28f5ba37bd95"/>
-				<textElement>
+				<reportElement mode="Opaque" x="162" y="9" width="227" height="28" forecolor="#000000" backcolor="#F2ECEB" uuid="f7213dfc-73c8-4c4f-a8bd-7f2be98d864b"/>
+				<textElement verticalAlignment="Middle">
 					<font size="12"/>
+					<paragraph leftIndent="20"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{txtUsuario}]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>
 	<columnHeader>
-<<<<<<< HEAD
-<<<<<<< HEAD
-		<band height="34" splitType="Stretch">
+		<band height="29" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="115" height="20" uuid="8165c64c-6aca-4dad-a37c-efd34b36eedf"/>
-				<text><![CDATA[pedido_FechaCreacion]]></text>
+				<reportElement mode="Opaque" x="36" y="1" width="115" height="28" backcolor="#F23D3D" uuid="76fdd069-bcad-4028-9244-564fbcf88193"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[FechaCreacion]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="115" y="1" width="100" height="20" uuid="7284430a-05ad-45aa-85d1-017a6766988d"/>
-				<text><![CDATA[pedido_FechaEntrega]]></text>
+				<reportElement mode="Opaque" x="175" y="1" width="115" height="28" backcolor="#F23D3D" uuid="ba0cf7fd-857e-4a34-93d2-6b445c928775"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[FechaEntrega]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="215" y="1" width="100" height="20" uuid="8ffb9f21-86b4-48fb-b56a-abfe2369fa2f"/>
-				<text><![CDATA[pedido_Subtotal]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="319" y="1" width="100" height="20" uuid="854902c2-9e2a-4c02-bde7-339138e53445"/>
-				<text><![CDATA[pedido_Total]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="419" y="0" width="81" height="20" uuid="7178294b-f876-47c1-8e0b-01dbc9411ae5"/>
-				<text><![CDATA[usuario_Nombre]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="500" y="1" width="95" height="20" uuid="cc29f041-7de4-4c32-867f-301ce4f44e81"/>
-				<text><![CDATA[usuario_Apellido]]></text>
-=======
-		<band height="21" splitType="Stretch">
-			<staticText>
-=======
-		<band height="21" splitType="Stretch">
-			<staticText>
->>>>>>> parent of d081cc3... Diseño Reporte Pedido
-				<reportElement x="36" y="1" width="100" height="20" uuid="03976820-b9c9-467e-8e5b-56c33ad01d1a"/>
-				<textElement textAlignment="Center"/>
-				<text><![CDATA[Fecha de Creación]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="165" y="1" width="100" height="20" uuid="03edffa4-29d7-47b6-b6d6-5c13c33e368e"/>
-				<textElement textAlignment="Center"/>
-				<text><![CDATA[Fecha de Entrega]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="295" y="0" width="100" height="20" uuid="71a11674-19d6-4d3c-870b-7328647a94a3"/>
-				<textElement textAlignment="Center"/>
+				<reportElement mode="Opaque" x="310" y="1" width="115" height="28" backcolor="#F23D3D" uuid="4e5a2167-e2ed-4292-a29b-d755956c743a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[Subtotal]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="420" y="1" width="100" height="20" uuid="5b8ccc19-fc41-4d24-8536-48be59860329"/>
-				<textElement textAlignment="Center"/>
+				<reportElement mode="Opaque" x="448" y="1" width="115" height="28" backcolor="#F23D3D" uuid="f72b225c-d5e0-4ba5-9a78-600ded380f0a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[Total]]></text>
->>>>>>> parent of d081cc3... Diseño Reporte Pedido
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-<<<<<<< HEAD
-<<<<<<< HEAD
-		<band height="96" splitType="Stretch">
+		<band height="30" splitType="Stretch">
 			<textField>
-				<reportElement x="43" y="266" width="132" height="20" uuid="ec5b96c5-1ae2-45b4-94d5-e4dc2fb30a62"/>
-				<textFieldExpression><![CDATA[$F{pedido_FechaCreacion}]]></textFieldExpression>
+				<reportElement mode="Opaque" x="36" y="0" width="115" height="28" backcolor="#F2ECEB" uuid="43e2e3ae-ac08-4578-affe-f0332f7b4503"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{FechaCreacion}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="0" width="128" height="20" uuid="4b969706-62a8-47ec-b69c-6318c0f05a70"/>
-				<textFieldExpression><![CDATA[$F{pedido_FechaCreacion}]]></textFieldExpression>
+				<reportElement mode="Opaque" x="175" y="0" width="115" height="28" backcolor="#F2ECEB" uuid="7b4e1f51-2353-4bf2-80f9-92538a835333"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{FechaEntrega}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="128" y="0" width="132" height="20" uuid="4d12f362-9338-4da0-a5ae-caac397436a7"/>
-				<textFieldExpression><![CDATA[$F{pedido_FechaEntrega}]]></textFieldExpression>
+				<reportElement mode="Opaque" x="310" y="0" width="115" height="28" backcolor="#F2ECEB" uuid="b7f3e4a3-fcdb-4641-a7e7-ba9054f32a2d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Subtotal}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="141" y="36" width="104" height="20" uuid="bf5c8c64-86f6-4522-ae40-4cb98ab0cf93"/>
-				<textFieldExpression><![CDATA[$F{pedido_Subtotal}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="300" y="36" width="100" height="20" uuid="536d2e59-8705-45c7-ba7b-8b573a44726c"/>
-				<textFieldExpression><![CDATA[$F{pedido_Total}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="419" y="36" width="100" height="20" uuid="ead4f88e-fca7-4d34-a454-7986b7c4b962"/>
-				<textFieldExpression><![CDATA[$F{usuario_Nombre}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="495" y="0" width="100" height="20" uuid="3b3b09d8-461f-4d6d-a810-0ce6774bcd99"/>
-				<textFieldExpression><![CDATA[$F{usuario_Apellido}]]></textFieldExpression>
-=======
-		<band height="22" splitType="Stretch">
-			<textField>
-=======
-		<band height="22" splitType="Stretch">
-			<textField>
->>>>>>> parent of d081cc3... Diseño Reporte Pedido
-				<reportElement x="36" y="0" width="100" height="20" uuid="5961595b-5d9f-4ef1-9d18-67cc6517a58c"/>
-				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[$F{fechaCreacion}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="165" y="0" width="100" height="20" uuid="08d95b17-ea6c-44d3-a803-68d815741232"/>
-				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[$F{fechaEntrega}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="420" y="0" width="100" height="20" uuid="3a71f8cd-2606-49b6-869f-eecd3d0438ae"/>
-				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="295" y="0" width="100" height="20" uuid="2a5ac885-c9b2-4855-bfaf-903df03a0b9d"/>
-				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[$F{subtotal}]]></textFieldExpression>
->>>>>>> parent of d081cc3... Diseño Reporte Pedido
+				<reportElement mode="Opaque" x="448" y="0" width="115" height="28" backcolor="#F2ECEB" uuid="80474c3f-20da-4243-a5ef-46f7c16c3d89"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Total}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
 	<columnFooter>
-<<<<<<< HEAD
 		<band height="36" splitType="Stretch">
-			<textField>
-				<reportElement x="76" y="8" width="259" height="20" forecolor="#FFFFFF" uuid="f14454ba-efb7-4d2e-b441-19001150a78e"/>
-				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$P{txtContacto}]]></textFieldExpression>
-			</textField>
+			<rectangle>
+				<reportElement x="0" y="4" width="595" height="25" backcolor="#1E1E26" uuid="95d11f40-14d0-46b2-9809-acff15cedefc"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="6" width="595" height="24" forecolor="#FFFFFF" backcolor="#1E1E26" uuid="a948c08e-c53b-4748-9f9d-d732832da41d"/>
+				<reportElement x="40" y="7" width="84" height="20" forecolor="#FFFFFF" uuid="afa11d9d-0021-4c75-a5ab-0d87823d0dd9"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="15"/>
+				</textElement>
+				<text><![CDATA[CONTACTO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="124" y="7" width="237" height="20" forecolor="#FFFFFF" uuid="38e67c4d-f259-4ec8-9a01-da5ab26988ec"/>
 				<textElement verticalAlignment="Middle">
 					<font size="12"/>
-					<paragraph leftIndent="20"/>
+					<paragraph leftIndent="10"/>
 				</textElement>
-				<text><![CDATA[Contacto:]]></text>
-			</staticText>
-		</band>
-	</columnFooter>
-	<summary>
-		<band height="243">
-			<pieChart>
-				<chart>
-					<reportElement x="315" y="29" width="252" height="165" uuid="2f0210fd-d723-4879-9dbd-e025d8530785"/>
-					<chartTitle/>
-					<chartSubtitle/>
-					<chartLegend/>
-				</chart>
-				<pieDataset>
-					<keyExpression><![CDATA[""$F{usuario_Nombre}]]></keyExpression>
-					<valueExpression><![CDATA[$F{pedido_Total}]]></valueExpression>
-				</pieDataset>
-				<piePlot>
-					<plot/>
-					<itemLabel/>
-				</piePlot>
-			</pieChart>
-=======
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch">
-			<staticText>
-				<reportElement x="12" y="22" width="60" height="20" uuid="a948c08e-c53b-4748-9f9d-d732832da41d"/>
-				<textElement textAlignment="Center"/>
-				<text><![CDATA[Contacto:]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="72" y="22" width="100" height="20" uuid="f14454ba-efb7-4d2e-b441-19001150a78e"/>
 				<textFieldExpression><![CDATA[$P{txtContacto}]]></textFieldExpression>
 			</textField>
->>>>>>> parent of d081cc3... Diseño Reporte Pedido
 		</band>
-	</summary>
+	</columnFooter>
 </jasperReport>
