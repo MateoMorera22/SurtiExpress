@@ -60,6 +60,8 @@ public class reporteControlador implements Serializable{
         Map<String, Object> parametros = new HashMap<String, Object>();
         parametros.put("txtUsuario", "CandyGlobal S.A.S");
         parametros.put("txtContacto", "SurtiExpress2020@gmail.com");
+        parametros.put("Desde", "2020-03-17");
+        parametros.put("Hasta", "2020-03-24");
         
         //Lista para cargar los fields de reportes
         listarPedidos();
