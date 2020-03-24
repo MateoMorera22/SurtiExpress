@@ -42,21 +42,28 @@ public class PedidoFacade extends AbstractFacade<Pedido> {
         }
     }
 
-    public Pedido listaPedidos(Pedido pedido) {
+    public List<Producto> listaPedidos(Pedido pedido) {
         Pedido u = null;
         Query query;
+        ProductoFacade pf = new ProductoFacade();
+        List<Producto> listaProductos = new ArrayList<Producto>();
         try {
-            query = em.createQuery("SELECT Id_Producto FROM pedido_producto u WHERE u.Id_Pedido = (?1)");
+            query = em.createNativeQuery("SELECT Id_Producto FROM pedido_producto WHERE Id_Pedido = ?1");
             query.setParameter(1, pedido.getIdPedido());
-            List<Pedido> listPro = query.getResultList();
+            List<Integer> listPro = query.getResultList();
             if (!listPro.isEmpty()) {
-                u = listPro.get(0);
-                return u;
+                for (Integer i : listPro) {
+                    int indice = (int) i;
+                    Producto p = new Producto();
+                    p = pf.find(indice);
+                    listaProductos.add(p);
+                }
+                return listaProductos;
             }
         } catch (Exception e) {
             System.out.println(e);
         }
-        return u;
+        return listaProductos;
     }
 
 }
